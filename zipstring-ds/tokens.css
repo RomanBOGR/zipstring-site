@@ -1,0 +1,53 @@
+/* ZipString Design System — токены (тема Neon Loop)
+   Источник истины по цвету/типографике/радиусам. Подключать первым:
+   <link rel="stylesheet" href="zipstring-ds/tokens.css">
+   Шрифты: Unbounded + Onest (Google Fonts, с кириллицей). */
+
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Onest:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Холст — тёмный, глубокий (Neon Loop) */
+  --zs-bg:        #080808;
+  --zs-bg-2:      #111111;
+  --zs-bg-3:      #1a1a1a;
+  --zs-border:    rgba(255, 255, 255, 0.08);
+
+  /* Акцент бренда — неоновый лайм (нить в свете) */
+  --zs-lime:      #C6FF00;
+  --zs-lime-dim:  #9fcc00;
+
+  /* Текст */
+  --zs-white:     #f5f5f5;
+  --zs-gray:      #888888;
+  --zs-gray-2:    #555555;
+
+  /* Продуктовые тона — каждый SKU ведёт свой цвет */
+  --zs-tone:      var(--zs-lime);   /* дефолт = Original */
+  --zs-uv:        #7c3aed;          /* Luma — UV/свечение */
+  --zs-web:       #CB11AB;          /* Aracna — вебшутер */
+
+  /* Маркетплейсы (кнопки покупки) */
+  --zs-wildberries: #CB11AB;
+  --zs-ozon:        #005BFF;
+
+  /* Типографика */
+  --zs-font-display: 'Unbounded', sans-serif;
+  --zs-font-body:    'Onest', sans-serif;
+  --zs-text-base:    clamp(1rem, 0.92rem + 0.4vw, 1.125rem);
+  --zs-text-hero:    clamp(2.5rem, 1rem + 7vw, 6rem);
+  --zs-leading:      1.6;
+
+  /* Форма */
+  --zs-radius:    12px;
+  --zs-radius-lg: 20px;
+
+  /* Движение — горизонтальное, «нить летит» */
+  --zs-ease:      cubic-bezier(0.16, 1, 0.3, 1);
+  --zs-fast:      150ms;
+  --zs-normal:    300ms;
+}
+
+/* Продуктовые контексты: задать --zs-tone на секции/странице */
+[data-sku="original"] { --zs-tone: var(--zs-lime); }
+[data-sku="luma"]     { --zs-tone: var(--zs-uv); }
+[data-sku="aracna"]   { --zs-tone: var(--zs-web); }

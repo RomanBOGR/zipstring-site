@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZipString Design System — Neon Loop</title>
+<link rel="stylesheet" href="../zipstring-ds/tokens.css">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--zs-bg); color: var(--zs-white); font-family: var(--zs-font-body); line-height: var(--zs-leading); padding: clamp(1.5rem, 5vw, 5rem); }
+  h1, h2, h3 { font-family: var(--zs-font-display); line-height: 1.05; }
+  h1 { font-size: var(--zs-text-hero); font-weight: 900; }
+  h1 .accent { color: var(--zs-lime); }
+  .sub { color: var(--zs-gray); max-width: 60ch; margin-top: 1rem; }
+  section { margin-top: clamp(3rem, 8vw, 6rem); }
+  h2 { font-size: 1.5rem; font-weight: 700; border-bottom: 1px solid var(--zs-border); padding-bottom: .5rem; margin-bottom: 1.5rem; }
+  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .swatch { border-radius: var(--zs-radius); overflow: hidden; border: 1px solid var(--zs-border); }
+  .swatch .chip { height: 90px; }
+  .swatch .meta { padding: .6rem .8rem; font-size: .8rem; background: var(--zs-bg-2); }
+  .swatch .meta b { display: block; }
+  .swatch .meta code { color: var(--zs-gray); font-size: .75rem; }
+  .type-row { padding: 1rem 0; border-bottom: 1px solid var(--zs-border); }
+  .type-row small { color: var(--zs-gray); font-family: var(--zs-font-body); font-size: .8rem; display:block; margin-bottom:.3rem; }
+  .products { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card { background: var(--zs-bg-2); border: 1px solid var(--zs-border); border-radius: var(--zs-radius-lg); padding: 1.5rem; border-top: 3px solid var(--zs-tone); }
+  .card h3 { font-size: 1.2rem; color: var(--zs-tone); }
+  .card .price { font-family: var(--zs-font-display); font-weight: 700; margin-top: .8rem; }
+  .card p { color: var(--zs-gray); font-size: .9rem; margin-top: .4rem; }
+  .btns { display: flex; gap: .5rem; margin-top: 3rem; }
+  .btn { padding: .7rem 1.2rem; border-radius: var(--zs-radius); font-weight: 600; font-size: .85rem; text-decoration: none; color: #fff; }
+  .btn.wb { background: var(--zs-wildberries); }
+  .btn.ozon { background: var(--zs-ozon); }
+  .btn.lime { background: var(--zs-lime); color: #000; }
+  .note { color: var(--zs-gray); font-size: .85rem; margin-top: 3rem; border-left: 2px solid var(--zs-lime); padding-left: 1rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ZipString <span class="accent">Neon Loop</span></h1>
+  <p class="sub">Дизайн-система бренда. Тёмный холст, свет от неона и продукта.
+  Токены — <code>zipstring-ds/tokens.css</code>, смыслы — <code>docs/brand-brief.md</code>.</p>
+</header>
+
+<section>
+  <h2>Цвет</h2>
+  <div class="grid">
+    <div class="swatch"><div class="chip" style="background:var(--zs-bg)"></div><div class="meta"><b>bg</b><code>#080808</code></div></div>
+    <div class="swatch"><div class="chip" style="background:var(--zs-bg-2)"></div><div class="meta"><b>bg-2</b><code>#111111</code></div></div>
+    <div class="swatch"><div class="chip" style="background:var(--zs-lime)"></div><div class="meta"><b>lime · акцент</b><code>#C6FF00</code></div></div>
+    <div class="swatch"><div class="chip" style="background:var(--zs-uv)"></div><div class="meta"><b>uv · Luma</b><code>#7c3aed</code></div></div>
+    <div class="swatch"><div class="chip" style="background:var(--zs-web)"></div><div class="meta"><b>web · Aracna</b><code>#CB11AB</code></div></div>
+    <div class="swatch"><div class="chip" style="background:var(--zs-ozon)"></div><div class="meta"><b>Ozon</b><code>#005BFF</code></div></div>
+    <div class="swatch"><div class="chip" style="background:var(--zs-white)"></div><div class="meta"><b>white · текст</b><code>#f5f5f5</code></div></div>
+    <div class="swatch"><div class="chip" style="background:var(--zs-gray)"></div><div class="meta"><b>gray</b><code>#888888</code></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Типографика</h2>
+  <div class="type-row"><small>Unbounded 900 · hero</small><span style="font-family:var(--zs-font-display);font-weight:900;font-size:clamp(2rem,6vw,4rem)">Дай волю восхищению</span></div>
+  <div class="type-row"><small>Unbounded 700 · заголовок</small><span style="font-family:var(--zs-font-display);font-weight:700;font-size:1.8rem">Три устройства. Бесконечные трюки.</span></div>
+  <div class="type-row"><small>Onest 400 · текст</small><span style="font-size:var(--zs-text-base)">Запусти петлю нити в воздух и освой 100+ трюков. Патентованная технология двух синхронизированных моторов.</span></div>
+  <div class="type-row"><small>Onest 600 · акцент</small><span style="font-weight:600">Официальный дистрибьютор в России · ASTM & EN71 · 90 дней возврат</span></div>
+</section>
+
+<section>
+  <h2>Продукты — тон на SKU</h2>
+  <div class="products">
+    <div class="card" data-sku="original"><h3>ZipString Original</h3><div class="price">от 2 290 ₽</div><p>Классика, 100+ трюков, 5 цветов, USB-C.</p></div>
+    <div class="card" data-sku="luma"><h3>ZipString Luma</h3><div class="price">от 2 890 ₽</div><p>LED заряжает UV/Glow нити — светится в темноте.</p></div>
+    <div class="card" data-sku="aracna"><h3>ZipString Aracna</h3><div class="price">от 3 690 ₽</div><p>Первый нитевой вебшутер, возврат нити.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Кнопки</h2>
+  <div class="btns">
+    <a class="btn lime" href="#">Смотреть продукты</a>
+    <a class="btn wb" href="#">Wildberries</a>
+    <a class="btn ozon" href="#">Ozon</a>
+  </div>
+  <p class="note">🔶 Регалии бренда (2M устройств, Shark Tank, Toy of the Year 2026) взяты с лендинга и не подтверждены — сверить с первоисточником перед официальным использованием. Медиа-банк 168 видео + 545 фото — <code>docs/assets-map.md</code>.</p>
+</section>
+
+</body>
+</html>

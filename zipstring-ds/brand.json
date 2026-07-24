@@ -1,0 +1,67 @@
+{
+  "name": "ZipString",
+  "slug": "zipstring",
+  "version": "1.0.0",
+  "description": "Дизайн-система бренда ZipString (RU-дистрибуция) — виральная STEM-игрушка, запуск петли нити. Тема Neon Loop.",
+  "website": "https://zipstring.ru",
+  "manufacturerSite": "https://zipstring.com",
+  "theme": "Neon Loop",
+  "identity": {
+    "tagline": "Дай волю восхищению",
+    "promise": "Запусти петлю нити в воздух и освой 100+ трюков.",
+    "positioning": "STEM-гаджет для всей семьи, не «просто игрушка». Виральный феномен из TikTok и Kickstarter. В РФ — официальный дистрибьютор против подделок.",
+    "tone": "Восхищение и магия («как это работает?»), семейный досуг, поп-культура. Энергично, коротко, без пафоса.",
+    "audience": "От 4 до 99. 4+ с взрослым, 8+ самостоятельно. До 6 лет решает родитель, дальше — ребёнок.",
+    "origin": "США · проект двух студентов-инженеров (Остин Уолтер, Стивен Перри), 2020 · вирус TikTok + Kickstarter",
+    "channelRu": "Wildberries и Ozon"
+  },
+  "products": [
+    { "sku": "original", "name": "ZipString Original", "priceFrom": 2290, "hook": "Классика, 100+ трюков, 5 цветов", "tone": "--zs-lime" },
+    { "sku": "luma", "name": "ZipString Luma", "priceFrom": 2890, "hook": "LED заряжает UV/Glow нити — светится в темноте", "tone": "--zs-uv" },
+    { "sku": "aracna", "name": "ZipString Aracna", "priceFrom": 3690, "hook": "Первый нитевой вебшутер, возврат нити", "tone": "--zs-web" }
+  ],
+  "usp": [
+    "Развивает моторику — STEM-инструмент",
+    "Для всей семьи 4–99",
+    "Без батареек — USB-C",
+    "Сертификаты ASTM / EN71 / STEM.org",
+    "Безопасная нить: не режет, не жжёт, автостоп моторов",
+    "Патентованная технология",
+    "Библиотека 100+ трюков по QR"
+  ],
+  "termsRu": {
+    "delivery": "Wildberries / Ozon по всей РФ",
+    "return": "90 дней возврат без вопросов",
+    "warranty": "1 год гарантии производителя (не покрывает механику и воду)",
+    "authenticity": "голограмма + QR + фирменный шов нити"
+  },
+  "color": {
+    "bg": "#080808",
+    "bg2": "#111111",
+    "bg3": "#1a1a1a",
+    "lime": "#C6FF00",
+    "limeDim": "#9fcc00",
+    "white": "#f5f5f5",
+    "gray": "#888888",
+    "gray2": "#555555",
+    "border": "rgba(255,255,255,0.08)",
+    "uv": "#7c3aed",
+    "web": "#CB11AB",
+    "wildberries": "#CB11AB",
+    "ozon": "#005BFF"
+  },
+  "typography": {
+    "display": "Unbounded",
+    "displayWeights": [400, 700, 900],
+    "body": "Onest",
+    "bodyWeights": [300, 400, 500, 600],
+    "source": "Google Fonts (обе с кириллицей)"
+  },
+  "radius": { "base": "12px", "lg": "20px" },
+  "motion": "Горизонтальная — «нить летит вперёд». Без пружинящих bounce.",
+  "openQuestions": [
+    "🔶 Регалии/цифры (2M устройств, Shark Tank, Toy of the Year 2026) — с лендинга, сверить с оригиналом бренда",
+    "Юрлицо РФ-дистрибьютора не зафиксировано",
+    "Артикулы WB/Ozon и актуальные РРЦ"
+  ]
+}
