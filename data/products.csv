@@ -1,0 +1,5 @@
+sku,name,price_from_rub,usp,battery,charge,strings_in_box,strings_compatible,age,colors,cert,status
+original,ZipString Original,2290,"Классика — запуск петли нити, 100+ трюков, патентованные 2 синхромотора",3–4 ч,1.5–2 ч,3 стандартные,"Original+Luma взаимозаменяемы",4+ с взрослым / 8+ сам,"5: красный, синий, лайм, оранж, фиолет",ASTM & EN71 · STEM.org,бестселлер
+luma,ZipString Luma,2890,"Светится в темноте — встроенный LED непрерывно заряжает UV и Glow нити",4 ч,1.5 ч,3 UV + 2 Glow,"Original+Luma взаимозаменяемы",4+ с взрослым / 8+ сам,—,ASTM & EN71,LED
+aracna,ZipString Aracna,3690,"Первый в мире нитевой вебшутер — запуск и возврат нити одним нажатием, обе руки",~1 ч,45 мин,спец. нити с возвратом,"нужны спец. нити (обычные — только запуск)",—,—,—,новинка
+string-pack,Сменные струны (паки),,"Расходники: string-pack, chameleon, psycho, luma-lightning, free-string-pack",,,,,,,апселл
