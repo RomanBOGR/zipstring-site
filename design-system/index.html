@@ -33,6 +33,15 @@
   .btn.ozon { background: var(--zs-ozon); }
   .btn.lime { background: var(--zs-lime); color: #000; }
   .note { color: var(--zs-gray); font-size: .85rem; margin-top: 3rem; border-left: 2px solid var(--zs-lime); padding-left: 1rem; }
+  .glow-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .glow-box { width: 120px; height: 120px; border-radius: var(--zs-radius-lg); display: grid; place-items: center; font-size: .75rem; color: var(--zs-gray); background: var(--zs-bg-2); border: 1px solid var(--zs-border); }
+  .glow-box.a { box-shadow: var(--zs-glow); }
+  .glow-box.b { box-shadow: var(--zs-glow-soft); }
+  .glow-box.c { box-shadow: var(--zs-shadow); }
+  .glow-box.tone { box-shadow: var(--zs-glow-tone); }
+  .rhythm { display: flex; align-items: flex-end; gap: .75rem; }
+  .rhythm div { background: var(--zs-lime); width: 40px; border-radius: var(--zs-radius-sm); }
+  .rhythm span { color: var(--zs-gray); font-size: .7rem; display:block; text-align:center; margin-top:.3rem; }
 </style>
 </head>
 <body>
@@ -72,6 +81,24 @@
     <div class="card" data-sku="luma"><h3>ZipString Luma</h3><div class="price">от 2 890 ₽</div><p>LED заряжает UV/Glow нити — светится в темноте.</p></div>
     <div class="card" data-sku="aracna"><h3>ZipString Aracna</h3><div class="price">от 3 690 ₽</div><p>Первый нитевой вебшутер, возврат нити.</p></div>
   </div>
+</section>
+
+<section>
+  <h2>Свечение — код Neon Loop</h2>
+  <div class="glow-row">
+    <div class="glow-box a">glow</div>
+    <div class="glow-box b">glow-soft</div>
+    <div class="glow-box tone" data-sku="aracna">glow-tone</div>
+    <div class="glow-box c">shadow</div>
+  </div>
+</section>
+
+<section>
+  <h2>Ритм — шкала отступов</h2>
+  <div class="rhythm">
+    <div style="height:0.5rem"></div><div style="height:1rem"></div><div style="height:1.5rem"></div><div style="height:2.5rem"></div>
+  </div>
+  <div class="rhythm" style="margin-top:.2rem"><span style="width:40px">1</span><span style="width:40px">2</span><span style="width:40px">3</span><span style="width:40px">4</span></div>
 </section>
 
 <section>

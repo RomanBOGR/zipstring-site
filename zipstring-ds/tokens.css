@@ -37,9 +37,32 @@
   --zs-text-hero:    clamp(2.5rem, 1rem + 7vw, 6rem);
   --zs-leading:      1.6;
 
+  /* Текст — шкала */
+  --zs-text-sm:      0.85rem;
+  --zs-text-lg:      1.35rem;
+  --zs-text-h2:      clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  --zs-tracking:     -0.02em;   /* дисплей от 40px */
+
   /* Форма */
+  --zs-radius-sm: 8px;
   --zs-radius:    12px;
   --zs-radius-lg: 20px;
+  --zs-radius-xl: 32px;
+  --zs-container: 1200px;
+
+  /* Ритм — шкала отступов */
+  --zs-space-1:  0.5rem;
+  --zs-space-2:  1rem;
+  --zs-space-3:  1.5rem;
+  --zs-space-4:  2.5rem;
+  --zs-section:  clamp(3rem, 3rem + 5vw, 7rem);
+
+  /* Свечение — визуальный код Neon Loop (нить в свете) */
+  --zs-glow:      0 0 24px rgba(198, 255, 0, 0.35);        /* лайм-halo */
+  --zs-glow-soft: 0 0 12px rgba(198, 255, 0, 0.18);
+  --zs-glow-tone: 0 0 24px color-mix(in oklab, var(--zs-tone) 40%, transparent);
+  --zs-shadow:    0 8px 32px rgba(0, 0, 0, 0.5);
+  --zs-shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.4);
 
   /* Движение — горизонтальное, «нить летит» */
   --zs-ease:      cubic-bezier(0.16, 1, 0.3, 1);

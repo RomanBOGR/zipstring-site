@@ -1,21 +1,23 @@
-/* ─── GOOGLE FONTS ─────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Onest:wght@300;400;500;600&display=swap');
+/* ─── DESIGN SYSTEM ────────────────────────────────────────────────────────── */
+/* Источник истины — zipstring-ds/tokens.css (он же импортит шрифты).
+   Ниже старые имена --bg/--lime/... алиасятся на токены --zs-*,
+   чтобы 2895 строк ниже не переписывать. Правишь бренд — в tokens.css. */
+@import url('../zipstring-ds/tokens.css');
 
-/* ─── DESIGN SYSTEM VARIABLES ──────────────────────────────────────────────── */
 :root {
-  --bg: #080808;
-  --bg2: #111111;
-  --bg3: #1a1a1a;
-  --lime: #C6FF00;
-  --lime-dim: #9fcc00;
-  --white: #f5f5f5;
-  --gray: #888;
-  --gray2: #555;
-  --border: rgba(255,255,255,0.08);
-  --font-display: 'Unbounded', sans-serif;
-  --font-body: 'Onest', sans-serif;
-  --radius: 12px;
-  --radius-lg: 20px;
+  --bg: var(--zs-bg);
+  --bg2: var(--zs-bg-2);
+  --bg3: var(--zs-bg-3);
+  --lime: var(--zs-lime);
+  --lime-dim: var(--zs-lime-dim);
+  --white: var(--zs-white);
+  --gray: var(--zs-gray);
+  --gray2: var(--zs-gray-2);
+  --border: var(--zs-border);
+  --font-display: var(--zs-font-display);
+  --font-body: var(--zs-font-body);
+  --radius: var(--zs-radius);
+  --radius-lg: var(--zs-radius-lg);
 }
 
 /* ─── RESET ─────────────────────────────────────────────────────────────────── */
