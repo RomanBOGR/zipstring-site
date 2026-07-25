@@ -149,6 +149,30 @@ function initAnnouncementBar() {
   });
 }
 
+// ─── SHOP LINKS ─────────────────────────────────────────────────────────────
+// Единственное место для ссылок на маркетплейсы. Появятся карточки WB/Ozon —
+// вписать URL сюда, и все 44 кнопки на сайте заработают разом.
+const SHOP_LINKS = {
+  wildberries: '', // TODO: ссылка на магазин/карточку Wildberries
+  ozon: ''         // TODO: ссылка на магазин/карточку Ozon
+};
+
+function initShopLinks() {
+  const map = { 'btn-wb': SHOP_LINKS.wildberries, 'btn-ozon': SHOP_LINKS.ozon };
+  for (const [cls, url] of Object.entries(map)) {
+    document.querySelectorAll('.' + cls).forEach(a => {
+      if (url) {
+        a.href = url; a.target = '_blank'; a.rel = 'noopener';
+      } else {
+        // Ссылки ещё нет — не ведём в никуда, помечаем «скоро»
+        a.setAttribute('aria-disabled', 'true');
+        a.title = 'Скоро в продаже';
+        a.addEventListener('click', e => e.preventDefault());
+      }
+    });
+  }
+}
+
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
@@ -158,4 +182,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initReviewsSlider();
   initAnnouncementBar();
+  initShopLinks();
 });
