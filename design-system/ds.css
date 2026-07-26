@@ -9,7 +9,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 a { color: var(--zs-lime); text-decoration: none; }
-h1,h2,h3,h4 { font-family: var(--zs-font-display); line-height: 1.1; font-weight: 800; letter-spacing: var(--zs-tracking); text-wrap: balance; }
+h1,h2,h3,h4 { font-family: var(--zs-font-display); line-height: var(--zs-leading-tight); font-weight: 800; letter-spacing: var(--zs-tracking); text-wrap: balance; }
+h3, h4 { line-height: var(--zs-leading-snug); }
 code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 /* единый inline-code во всей системе */
 :not(pre) > code { background: #141414; border: 1px solid var(--zs-border); border-radius: 6px; padding: .08rem .4rem; font-size: .82em; color: var(--zs-lime); }
@@ -43,14 +44,14 @@ code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 
 /* ── page header ── */
 .ds-hero { padding-bottom: 1.5rem; margin-bottom: 2rem; border-bottom: 1px solid var(--zs-border); }
-.ds-kicker { color: var(--zs-lime); font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
-.ds-hero h1 { font-size: clamp(2rem,5vw,3.4rem); font-weight: 900; margin: .5rem 0; }
+.ds-kicker { color: var(--zs-lime); font-size: var(--zs-text-eyebrow); font-weight: 600; letter-spacing: var(--zs-tracking-wide); text-transform: uppercase; font-family: var(--zs-font-body); }
+.ds-hero h1 { font-size: var(--zs-text-h1); font-weight: 900; letter-spacing: var(--zs-tracking-tight); margin: .5rem 0; }
 .ds-hero p { color: var(--zs-gray); max-width: 64ch; }
 
 /* ── sections ── */
 .ds-section { padding: 2.2rem 0; border-bottom: 1px solid var(--zs-border); }
 .ds-section:last-child { border-bottom: 0; }
-.ds-eyebrow { color: var(--zs-lime); font-size: .74rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.ds-eyebrow { color: var(--zs-lime); font-size: var(--zs-text-eyebrow); font-weight: 600; letter-spacing: var(--zs-tracking-wide); text-transform: uppercase; font-family: var(--zs-font-body); }
 .ds-section h2 { font-size: clamp(1.4rem,3vw,2rem); margin: .3rem 0 .5rem; }
 .ds-section h3 { font-size: var(--zs-text-h3); margin: 1.4rem 0 .6rem; }
 .ds-lead { color: var(--zs-gray); max-width: 68ch; }
