@@ -2988,3 +2988,16 @@ p {
   border: 1px solid rgba(198,255,0,0.3); color: var(--lime);
   border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 600;
 }
+
+/* ─── СРАВНЕНИЕ: ZipString vs дешёвые аналоги ─────────────────────────────── */
+.compare-section { padding: var(--zs-section, 96px) 0; background: var(--bg2); }
+.compare-wrap { max-width: 900px; margin: 32px auto 0; overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-lg); }
+.compare-table { border-collapse: collapse; width: 100%; min-width: 560px; }
+.compare-table th, .compare-table td { padding: 16px 18px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; vertical-align: top; }
+.compare-table thead th { font-family: var(--font-display); font-weight: 700; font-size: 13px; background: var(--bg3); }
+.compare-table thead th:last-child { color: var(--lime); }
+.compare-table td:first-child { color: var(--white); font-weight: 500; width: 22%; }
+.compare-table .cmp-bad { color: #ff9a9a; }
+.compare-table .cmp-good { color: var(--lime); }
+.compare-table tr:last-child td { border-bottom: 0; }
+.compare-note { max-width: 900px; margin: 16px auto 0; font-size: 13px; color: var(--gray); text-align: center; }
