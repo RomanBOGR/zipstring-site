@@ -22,6 +22,7 @@
 </style>
 </head>
 <body>
+<a href="#main" class="skip">К содержимому</a>
 <div class="ds-shell">
 
   <!-- ═══ NAV (единая на всех страницах DS; active = class="on") ═══ -->
@@ -30,7 +31,7 @@
     <div class="tagline">Neon Loop · дизайн-система бренда</div>
     <a href="index.html">Обзор</a>
     <div class="group">Основы</div>
-    <a href="foundations.html" class="on">Основы (токены)</a>
+    <a href="foundations.html" class="on" aria-current="page">Основы (токены)</a>
     <a href="components.html">Компоненты</a>
     <div class="group">Бренд</div>
     <a href="brand.html">Бренд и голос</a>
@@ -46,7 +47,7 @@
     <a href="../zipstring-ds/marketing-kit.md" class="ext">marketing-kit.md</a>
   </aside>
 
-  <main class="ds-main"><div class="ds-wrap">
+  <main class="ds-main" id="main"><div class="ds-wrap">
 
     <header class="ds-hero">
       <div class="ds-kicker">Токены системы</div>
@@ -78,7 +79,7 @@
       <div class="ds-grid c4">
         <div class="swatch"><div class="chip" style="background:var(--zs-white)"></div><div class="meta"><b>Основной текст</b><code>--zs-white</code> · #F5F5F5</div></div>
         <div class="swatch"><div class="chip" style="background:var(--zs-gray)"></div><div class="meta"><b>Вторичный</b><code>--zs-gray</code> · #888888</div></div>
-        <div class="swatch"><div class="chip" style="background:var(--zs-gray-2)"></div><div class="meta"><b>Тусклый · muted</b><code>--zs-gray-2</code> · #555555</div></div>
+        <div class="swatch"><div class="chip" style="background:var(--zs-gray-2)"></div><div class="meta"><b>Тусклый · muted</b><code>--zs-gray-2</code> · #8A8A8A</div></div>
       </div>
 
       <h3>Продуктовые тона</h3>
@@ -133,15 +134,15 @@
 
       <h3>Шкала размеров</h3>
       <div class="ds-card">
-        <div class="fx-type"><small>--zs-text-hero · clamp(2.5rem, 1rem + 7vw, 6rem) · Unbounded 900</small>
+        <div class="fx-type"><small>--zs-text-hero · clamp(2.6rem, 1rem + 7vw, 6rem) · Unbounded 900</small>
           <div style="font-family:var(--zs-font-display);font-weight:900;font-size:var(--zs-text-hero);line-height:1.08;letter-spacing:var(--zs-tracking)">Neon Loop</div></div>
-        <div class="fx-type"><small>--zs-text-h2 · clamp(1.5rem, 1rem + 2vw, 2.5rem) · Unbounded 800</small>
+        <div class="fx-type"><small>--zs-text-h2 · clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem) · Unbounded 800</small>
           <div style="font-family:var(--zs-font-display);font-weight:800;font-size:var(--zs-text-h2);line-height:1.1">Заголовок раздела</div></div>
         <div class="fx-type"><small>--zs-text-lg · 1.35rem · Onest</small>
           <div style="font-size:var(--zs-text-lg)">Крупный лид-абзац перед демо трюка.</div></div>
-        <div class="fx-type"><small>--zs-text-base · clamp(1rem, 0.92rem + 0.4vw, 1.125rem) · Onest</small>
+        <div class="fx-type"><small>--zs-text-base · clamp(1rem, 0.95rem + 0.25vw, 1.0625rem) · Onest</small>
           <div style="font-size:var(--zs-text-base)">Базовый текст. ZipString раскручивается вокруг пальца и делает петли в воздухе.</div></div>
-        <div class="fx-type"><small>--zs-text-sm · 0.85rem · Onest</small>
+        <div class="fx-type"><small>--zs-text-sm · 0.875rem · Onest</small>
           <div style="font-size:var(--zs-text-sm);color:var(--zs-gray)">Мелкий текст: подписи, сноски, метаданные.</div></div>
       </div>
       <div class="pill-row">

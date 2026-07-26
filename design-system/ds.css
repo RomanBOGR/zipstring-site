@@ -2,7 +2,7 @@
 @import url('../zipstring-ds/tokens.css');
 
 * { box-sizing: border-box; margin: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; color-scheme: dark; }
 body {
   background: var(--zs-bg); color: var(--zs-white);
   font-family: var(--zs-font-body); line-height: var(--zs-leading);
@@ -130,10 +130,9 @@ table.ds-tbl { border-collapse: collapse; width: 100%; min-width: 520px; font-si
 .ds-footer { padding: 2rem 0 4rem; color: var(--zs-gray-2); font-size: .78rem; }
 
 /* ── mobile ── */
-.ds-burger { display: none; }
 @media (max-width: 860px) {
   .ds-shell { grid-template-columns: 1fr; }
   .ds-nav { position: static; height: auto; flex-direction: row; flex-wrap: wrap; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--zs-border); }
   .ds-nav .brand, .ds-nav .tagline, .ds-nav .group { width: 100%; }
-  .ds-nav a { font-size: .85rem; padding: .6rem .8rem; }
+  .ds-nav a { font-size: .85rem; padding: .6rem .8rem; min-height: 44px; display: flex; align-items: center; }
 }

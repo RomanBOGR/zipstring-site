@@ -1,11 +1,17 @@
 // ─── FAQ ACCORDION ────────────────────────────────────────────────────────────
 function initFAQ() {
-  document.querySelectorAll('.faq-question').forEach(btn => {
+  const qs = document.querySelectorAll('.faq-question');
+  qs.forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+  qs.forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        const q = i.querySelector('.faq-question');
+        if (q) q.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
     });
   });
 }
@@ -107,10 +113,17 @@ function initReviewsSlider() {
   btnNext?.addEventListener('click', () => { clearInterval(autoId); next(); startAuto(); });
   btnPrev?.addEventListener('click', () => { clearInterval(autoId); prev(); startAuto(); });
 
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function startAuto() {
+    if (reduceMotion) return;               // уважаем reduced-motion
     autoId = setInterval(next, 5000);
   }
   startAuto();
+
+  // Пауза автопрокрутки по наведению/фокусу (WCAG 2.2.2)
+  const outer = document.getElementById('reviewsSliderOuter') || slider;
+  ['mouseenter', 'focusin'].forEach(e => outer.addEventListener(e, () => clearInterval(autoId)));
+  ['mouseleave', 'focusout'].forEach(e => outer.addEventListener(e, startAuto));
 
   // Recalc on resize
   window.addEventListener('resize', () => {
