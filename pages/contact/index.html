@@ -18,7 +18,7 @@
 </head>
 <body>
   <div class="announcement" id="announcementBar">
-  Официальный дистрибьютор ZipString в России &nbsp;•&nbsp; Сертифицировано ASTM &amp; EN71 &nbsp;•&nbsp; 90 дней — гарантия возврата денег
+  Официальный дистрибьютор ZipString в России &nbsp;•&nbsp; Сертифицировано по ТР ТС 008/2011 &nbsp;•&nbsp; Гарантия 1 год
   <button class="announcement-close" id="announcementClose" aria-label="Закрыть">×</button>
 </div>
 <header>
@@ -44,7 +44,7 @@
 <!-- ─── PAGE HERO ─────────────────────────────────────────────────────────────── -->
 <section class="page-hero">
   <div class="page-hero-content">
-    <div class="page-hero-badge">✉️ Поддержка 24/7</div>
+    <div class="page-hero-badge">✉️ Служба поддержки</div>
     <h1 class="page-hero-title">Свяжитесь с нами</h1>
     <p class="page-hero-sub">Отвечаем на все вопросы в течение 24 часов. Мы здесь, чтобы помочь.</p>
   </div>
@@ -69,10 +69,10 @@
         <p style="font-size:13px;color:var(--gray);margin-top:8px;">Быстрые ответы и новости</p>
       </div>
       <div class="contact-card reveal reveal-delay-2">
-        <div class="contact-card-icon">⏰</div>
-        <h3>Время ответа</h3>
-        <p style="color:var(--lime);font-family:var(--font-display);font-weight:700;">В течение 24 часов</p>
-        <p style="font-size:13px;color:var(--gray);margin-top:8px;">Пн–Вс, 9:00–21:00 МСК</p>
+        <div class="contact-card-icon">📞</div>
+        <h3>Телефон</h3>
+        <p><a href="tel:88007072564">8 800 707-25-64</a></p>
+        <p style="font-size:13px;color:var(--gray);margin-top:8px;">Бесплатно по России · Пн–Вс, 9:00–21:00 МСК</p>
       </div>
     </div>
 
@@ -81,34 +81,39 @@
       <div>
         <span class="section-label reveal">Написать нам</span>
         <h2 class="section-title reveal" style="font-size:clamp(28px,3vw,44px);margin-bottom:32px;">Форма обратной<br>связи</h2>
-        <form class="contact-form reveal" onsubmit="return false;">
+        <form class="contact-form reveal" id="contactForm">
           <div class="form-group">
             <label class="form-label" for="name">Имя</label>
-            <input type="text" id="name" class="form-input" placeholder="Ваше имя" required>
+            <input type="text" id="name" name="name" class="form-input" placeholder="Ваше имя" required>
           </div>
           <div class="form-group">
             <label class="form-label" for="email">Email</label>
-            <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
           </div>
           <div class="form-group">
             <label class="form-label" for="subject">Тема</label>
-            <select id="subject" class="form-select">
+            <select id="subject" name="subject" class="form-select">
               <option value="" disabled selected>Выберите тему</option>
-              <option value="product">Вопрос о товаре</option>
-              <option value="wholesale">Оптовые закупки</option>
-              <option value="return">Возврат</option>
-              <option value="other">Другое</option>
+              <option value="Вопрос о товаре">Вопрос о товаре</option>
+              <option value="Оптовые закупки">Оптовые закупки</option>
+              <option value="Возврат">Возврат</option>
+              <option value="Другое">Другое</option>
             </select>
           </div>
           <div class="form-group">
             <label class="form-label" for="message">Сообщение</label>
-            <textarea id="message" class="form-textarea" placeholder="Расскажите нам о вашем вопросе..." required></textarea>
+            <textarea id="message" name="message" class="form-textarea" placeholder="Расскажите нам о вашем вопросе..." required></textarea>
           </div>
-          <button type="submit" class="btn-primary" style="width:fit-content;" onclick="handleFormSubmit(this)">
+          <!-- honeypot от ботов: люди это поле не видят -->
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true">
+          <button type="submit" class="btn-primary" id="contactSubmit" style="width:fit-content;">
             Отправить сообщение
           </button>
           <div id="form-success" style="display:none;background:rgba(198,255,0,0.1);border:1px solid rgba(198,255,0,0.3);border-radius:var(--radius);padding:16px;font-size:14px;color:var(--lime);">
             ✓ Сообщение отправлено! Ответим в течение 24 часов.
+          </div>
+          <div id="form-error" style="display:none;background:rgba(255,80,80,0.08);border:1px solid rgba(255,80,80,0.3);border-radius:var(--radius);padding:16px;font-size:14px;color:#ff8080;">
+            Не удалось отправить. Напишите нам напрямую: <a href="mailto:info@zipstring.ru" style="color:var(--lime);">info@zipstring.ru</a>
           </div>
         </form>
       </div>
@@ -208,8 +213,8 @@
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 ZipString. Официальный дистрибьютор в России.</div>
       <div class="footer-links">
-        <a href="#">Политика конфиденциальности</a>
-        <a href="#">Пользовательское соглашение</a>
+        <a href="/pages/privacy/">Политика конфиденциальности</a>
+        <a href="/pages/terms/">Пользовательское соглашение</a>
       </div>
     </div>
   </div>
@@ -218,17 +223,39 @@
 
   <script src="/js/main.js"></script>
   
-  <script>function handleFormSubmit(btn) {
-  const form = btn.closest('form');
-  const success = document.getElementById('form-success');
-  const name = form.querySelector('#name').value;
-  const email = form.querySelector('#email').value;
-  const message = form.querySelector('#message').value;
-  if (name && email && message) {
-    btn.style.display = 'none';
-    success.style.display = 'block';
-  }
-}
+  <script>
+  // Форма → FormSubmit (без бэкенда). Первое письмо активирует адрес.
+  // Сменить получателя — одна строка ниже.
+  const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/info@zipstring.ru';
+  const form = document.getElementById('contactForm');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (form._honey.value) return; // бот
+    const btn = document.getElementById('contactSubmit');
+    const ok  = document.getElementById('form-success');
+    const err = document.getElementById('form-error');
+    err.style.display = 'none';
+    btn.disabled = true; btn.textContent = 'Отправляем…';
+    try {
+      const res = await fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: form.name.value,
+          email: form.email.value,
+          subject: form.subject.value || 'Обращение с сайта',
+          message: form.message.value,
+          _subject: 'ZipString — новое обращение с сайта'
+        })
+      });
+      if (!res.ok) throw new Error('bad status');
+      btn.style.display = 'none';
+      ok.style.display = 'block';
+    } catch {
+      btn.disabled = false; btn.textContent = 'Отправить сообщение';
+      err.style.display = 'block';
+    }
+  });
 </script>
   
 </body>
