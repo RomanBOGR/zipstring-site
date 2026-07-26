@@ -2,7 +2,7 @@
 
 > Правила и токены бренда ZipString для AI-ассистента.
 > Источник смыслов — `brand.json` (выверен по бренд-платформе BabyOptGroup 18.05.2026),
-> ассеты — `docs/assets-map.md`.
+> реклама/креативы/контент — `marketing-kit.md`, ассеты — `docs/assets-map.md`.
 > Подключение: `<link rel="stylesheet" href="zipstring-ds/tokens.css">`
 
 ## Бренд в одном абзаце
