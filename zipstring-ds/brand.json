@@ -69,9 +69,10 @@
 
   "spec": {
     "ageFrom": "4+ (до 8 лет — под наблюдением взрослых)",
-    "power": "USB-C аккумулятор",
-    "materials": "Корпус: ABS-пластик + ПОМ (полиоксиметилен). Нити: полиэстер.",
+    "power": "Встроенный Li-ion аккумулятор 18650, 1200 мА·ч, 3.7 В (4.44 Вт·ч), зарядка USB-C",
+    "materials": "Корпус: ABS-пластик + ПОМ (полиоксиметилен) + нейлон. Нити: полиэстер.",
     "strings": "Original — 3 сменные нити; Aracna — 5 сменных нитей",
+    "tnved": "9503007500",
     "serviceLife": "10 лет",
     "warranty": "1 год с даты покупки",
     "safetyWarnings": [
@@ -129,7 +130,9 @@
     "manufacturer": "ZipString LLC, 10302 Papillon Trce, Alpharetta, GA 30022, США",
     "producedIn": "Китай: Huizhou Dapin Plastic Electronics Technology Co. Ltd., Guangdong",
     "operatorRu": "ООО «Бэйби Опт Груп» (уполномоченное изготовителем лицо)",
-    "operatorAddress": "199397, Россия, г. Санкт-Петербург, ул. Нахимова, д. 5, корп. 1, лит. А",
+    "operatorInn": "7801623948",
+    "operatorKpp": "780101001",
+    "operatorAddress": "199397, Россия, г. Санкт-Петербург, ул. Нахимова, д. 5, корп. 1, лит. А, пом. 128",
     "operatorSite": "www.BabyOptGroup.ru"
   },
 
