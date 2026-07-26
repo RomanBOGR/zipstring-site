@@ -2960,3 +2960,31 @@ p {
   cursor: default;
 }
 .btn-soon::before { content: '◷'; font-size: 15px; }
+
+/* ─── КЛУБ ZIPSTER (сообщество + контент-пиллары) ─────────────────────────── */
+.zipster-section { padding: var(--zs-section, 96px) 0; }
+.zipster-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-top: 40px;
+}
+.zipster-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: border-color .2s, transform .2s;
+}
+.zipster-card:hover { border-color: rgba(198,255,0,0.3); transform: translateY(-3px); }
+.zipster-card .z-icon { font-size: 26px; margin-bottom: 12px; }
+.zipster-card h4 { font-family: var(--font-display); font-size: 15px; margin-bottom: 6px; }
+.zipster-card p { font-size: 13px; color: var(--gray); line-height: 1.6; }
+.zipster-cta {
+  margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+}
+.zipster-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid rgba(198,255,0,0.3); color: var(--lime);
+  border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 600;
+}

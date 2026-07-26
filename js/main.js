@@ -173,6 +173,30 @@ function initShopLinks() {
   }
 }
 
+// ─── SOCIAL LINKS ─────────────────────────────────────────────────────────────
+// Единственное место для ссылок на соцсети. Появятся аккаунты — вписать URL сюда,
+// и все иконки/ссылки в футере и на «Контактах» заработают разом.
+const SOCIAL_LINKS = {
+  vk:        '', // TODO: ссылка на сообщество ВКонтакте
+  youtube:   '', // TODO: ссылка на YouTube-канал
+  instagram: '', // TODO: ссылка на Instagram (Meta признана экстремистской в РФ)
+  tiktok:    '', // TODO: ссылка на TikTok
+  telegram:  'https://t.me/zipstring_ru'
+};
+
+function initSocialLinks() {
+  document.querySelectorAll('[data-social]').forEach(a => {
+    const url = SOCIAL_LINKS[a.dataset.social];
+    if (url) {
+      a.href = url; a.target = '_blank'; a.rel = 'noopener';
+    } else {
+      a.setAttribute('aria-disabled', 'true');
+      a.title = 'Скоро';
+      a.addEventListener('click', e => e.preventDefault());
+    }
+  });
+}
+
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
@@ -183,4 +207,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initReviewsSlider();
   initAnnouncementBar();
   initShopLinks();
+  initSocialLinks();
 });
