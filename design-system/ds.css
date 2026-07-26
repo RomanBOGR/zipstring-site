@@ -9,8 +9,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 a { color: var(--zs-lime); text-decoration: none; }
-h1,h2,h3,h4 { font-family: var(--zs-font-display); line-height: 1.08; font-weight: 800; }
+h1,h2,h3,h4 { font-family: var(--zs-font-display); line-height: 1.1; font-weight: 800; letter-spacing: var(--zs-tracking); text-wrap: balance; }
 code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+/* единый inline-code во всей системе */
+:not(pre) > code { background: #141414; border: 1px solid var(--zs-border); border-radius: 6px; padding: .08rem .4rem; font-size: .82em; color: var(--zs-lime); }
+
+/* доступность: видимый фокус + уважение reduced-motion */
+:focus-visible { outline: 2px solid var(--zs-lime); outline-offset: 2px; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+.skip { position: absolute; left: -999px; top: 0; z-index: 100; background: var(--zs-lime); color: #000; padding: .5rem 1rem; border-radius: 0 0 8px 0; font-weight: 700; }
+.skip:focus { left: 0; }
 
 /* ── SHELL: сайдбар + контент ── */
 .ds-shell { display: grid; grid-template-columns: 264px 1fr; min-height: 100vh; }
@@ -42,18 +52,20 @@ code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 .ds-section:last-child { border-bottom: 0; }
 .ds-eyebrow { color: var(--zs-lime); font-size: .74rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
 .ds-section h2 { font-size: clamp(1.4rem,3vw,2rem); margin: .3rem 0 .5rem; }
-.ds-section h3 { font-size: 1.05rem; margin: 1.4rem 0 .6rem; }
+.ds-section h3 { font-size: var(--zs-text-h3); margin: 1.4rem 0 .6rem; }
 .ds-lead { color: var(--zs-gray); max-width: 68ch; }
-.ds-note { color: var(--zs-gray); font-size: .82rem; margin-top: 1rem; border-left: 2px solid var(--zs-lime); padding-left: 1rem; }
+.ds-note { color: var(--zs-gray); font-size: .82rem; margin-top: 1rem; border-left: 2px solid var(--zs-lime); padding-left: 1rem; max-width: 68ch; }
 
 /* ── grids & cards ── */
 .ds-grid { display: grid; gap: 1rem; margin-top: 1.4rem; }
 .c2 { grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); }
 .c3 { grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); }
 .c4 { grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); }
-.ds-card { background: var(--zs-bg-2); border: 1px solid var(--zs-border); border-radius: var(--zs-radius-lg); padding: 1.3rem 1.4rem; }
+.ds-card { background: var(--zs-bg-2); border: 1px solid var(--zs-border); border-radius: var(--zs-radius-lg); padding: 1.3rem 1.4rem; transition: border-color var(--zs-fast) var(--zs-ease), transform var(--zs-fast) var(--zs-ease); }
 .ds-card.hl { border-top: 3px solid var(--zs-lime); }
-.ds-card h3 { margin-top: 0; font-size: 1.02rem; }
+/* карточки-ссылки получают отклик */
+a.ds-card:hover { border-color: rgba(198,255,0,.3); transform: translateY(-2px); }
+.ds-card h3 { margin-top: 0; font-size: var(--zs-text-h3); }
 .ds-card p, .ds-card li { color: var(--zs-gray); font-size: .9rem; }
 .ds-card ul { padding-left: 1.1rem; margin-top: .4rem; }
 
@@ -80,7 +92,7 @@ code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 .ds-tbl-wrap { overflow-x: auto; border: 1px solid var(--zs-border); border-radius: var(--zs-radius-lg); margin-top: 1.2rem; }
 table.ds-tbl { border-collapse: collapse; width: 100%; min-width: 520px; font-size: .87rem; }
 .ds-tbl th, .ds-tbl td { text-align: left; padding: .7rem .9rem; border-bottom: 1px solid var(--zs-border); vertical-align: top; }
-.ds-tbl th { background: var(--zs-bg-2); font-family: var(--zs-font-display); font-weight: 700; font-size: .78rem; }
+.ds-tbl th { background: var(--zs-bg-2); font-family: var(--zs-font-body); font-weight: 600; font-size: .8rem; letter-spacing: 0; }
 .ds-tbl tr:last-child td { border-bottom: 0; }
 .bad { color: #ff9a9a; } .good { color: var(--zs-lime); }
 
@@ -122,5 +134,5 @@ table.ds-tbl { border-collapse: collapse; width: 100%; min-width: 520px; font-si
   .ds-shell { grid-template-columns: 1fr; }
   .ds-nav { position: static; height: auto; flex-direction: row; flex-wrap: wrap; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--zs-border); }
   .ds-nav .brand, .ds-nav .tagline, .ds-nav .group { width: 100%; }
-  .ds-nav a { font-size: .82rem; padding: .35rem .6rem; }
+  .ds-nav a { font-size: .85rem; padding: .6rem .8rem; }
 }
