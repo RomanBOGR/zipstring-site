@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZipString Design System — А/Б-тесты</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ds.css">
+</head>
+<body>
+<div class="ds-shell">
+
+  <!-- ═══ NAV (единая на всех страницах DS; active = class="on") ═══ -->
+  <aside class="ds-nav" aria-label="Разделы дизайн-системы">
+    <div class="brand">Zip<span>String</span> DS</div>
+    <div class="tagline">Neon Loop · дизайн-система бренда</div>
+    <a href="index.html">Обзор</a>
+    <div class="group">Основы</div>
+    <a href="foundations.html">Основы (токены)</a>
+    <a href="components.html">Компоненты</a>
+    <div class="group">Бренд</div>
+    <a href="brand.html">Бренд и голос</a>
+    <div class="group">Маркетинг</div>
+    <a href="marketing.html">Маркетинг</a>
+    <a href="creatives.html">Креативы и объявления</a>
+    <a href="content.html">Контент</a>
+    <a href="abtest.html" class="on">А/Б-тесты</a>
+    <div class="group">Исходники</div>
+    <a href="../zipstring-ds/tokens.css" class="ext">tokens.css</a>
+    <a href="../zipstring-ds/brand.json" class="ext">brand.json</a>
+    <a href="../zipstring-ds/ai-kit.md" class="ext">ai-kit.md</a>
+    <a href="../zipstring-ds/marketing-kit.md" class="ext">marketing-kit.md</a>
+  </aside>
+
+  <main class="ds-main"><div class="ds-wrap">
+
+    <header class="ds-hero">
+      <div class="ds-kicker">Как тестируем</div>
+      <h1>Гайд по А/Б-тестам</h1>
+      <p>Что против чего крутим, какие гипотезы проверяем и как честно меряем результат, когда покупка происходит на маркетплейсе. Варианты объявлений — на странице <a href="creatives.html">Креативы</a>, воронка и атрибуция — в <a href="marketing.html">Маркетинге</a>.</p>
+      <div style="margin-top:1rem"><span class="conf">⚠ Внутренний документ · часть данных — коммерческая тайна</span></div>
+    </header>
+
+    <!-- ПРИНЦИПЫ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Правила</span>
+      <h2>Принципы теста</h2>
+      <div class="ds-grid c3">
+        <div class="ds-card hl"><h3>Одна переменная</h3><p>Меняем что-то одно (хук / угол / креатив), остальное фиксируем. Иначе не поймём, что сработало.</p></div>
+        <div class="ds-card"><h3>Гипотеза заранее</h3><p>«Если [изменение], то [метрика] вырастет, потому что [причина]». Без гипотезы это не тест, а трата бюджета.</p></div>
+        <div class="ds-card"><h3>Хватает данных</h3><p>Не решаем на 20 кликах. Ориентир: ≥100 кликов и ≥1 неделя на вариант (перекрыть день недели).</p></div>
+      </div>
+      <div class="ds-note"><b>Главное для нашей воронки:</b> покупка идёт на WB/Ozon — Яндекс Директ её не видит. Поэтому сравниваем варианты по <b>прокси-цели</b> (клик «Где купить» / переход на карточку с UTM) и сверяем с продажами МП через <b>промокод/метку-артикул</b>. Финальная оценка — по <b>blended CAC</b> (все продажи ÷ весь расход), а не по платформенному ДРР.</div>
+    </section>
+
+    <!-- ЧТО МЕРИМ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Метрики по уровням воронки</span>
+      <h2>Что меряем</h2>
+      <div class="ds-tbl-wrap">
+        <table class="ds-tbl">
+          <thead><tr><th>Уровень</th><th>Метрика</th><th>О чём говорит</th></tr></thead>
+          <tbody>
+            <tr><td>Объявление / reel</td><td>CTR, досмотр (hook rate, 3-сек view)</td><td>Работает ли хук и угол</td></tr>
+            <tr><td>Переход</td><td>Клик «Где купить», переход на карточку (UTM)</td><td>Прокси-цель — заменяет невидимую покупку</td></tr>
+            <tr><td>Карточка МП</td><td>Конверсия в корзину/заказ, add-to-cart</td><td>Продаёт ли карточка</td></tr>
+            <tr><td>Экономика</td><td>Blended CAC, ДРР по промокоду</td><td>Окупаемость канала целиком</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- МАТРИЦА ТЕСТОВ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">План</span>
+      <h2>Матрица тестов</h2>
+      <p class="ds-lead">Начинаем сверху — самые дешёвые и быстрые тесты с наибольшим влиянием. Объявления-варианты готовы в <a href="creatives.html">Креативах</a> (22 шт по углам).</p>
+      <div class="ds-tbl-wrap">
+        <table class="ds-tbl">
+          <thead><tr><th>№</th><th>Что против чего</th><th>Гипотеза</th><th>Метрика решения</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><b>Угол объявления:</b> соц-доказательство (2 млн продано) vs боль родителя («оставит в покое») vs сравнение («не дешёвый веревкомет»)</td><td>Соц-доказательство даст выше CTR и переход в новой категории (снимает недоверие)</td><td>CTR + прокси-переходы</td></tr>
+            <tr><td>2</td><td><b>Хук reels:</b> «Первый трюк за 10 минут» vs «Эта штука оставит вас в покое» vs «Дешёвые рвутся за неделю»</td><td>Боль родителя удержит дольше, чем продуктовый хук</td><td>Hook rate + досмотр</td></tr>
+            <tr><td>3</td><td><b>Карточка МП:</b> с блоком «оригинал vs дешёвый» vs без него</td><td>Блок-сравнение поднимет конверсию, оправдав цену ×2–3</td><td>Конверсия карточки</td></tr>
+            <tr><td>4</td><td><b>Лендинг:</b> hero-видео vs фото-hero</td><td>Видео-демо даст выше переход «Где купить» (категория непонятна без показа)</td><td>Прокси-клик «Где купить»</td></tr>
+            <tr><td>5</td><td><b>Оффер в объявлении:</b> гарантия/возврат vs цена «от 2 290 ₽»</td><td>Risk-reversal снимет барьер цены лучше, чем сама цена</td><td>Переход + конверсия</td></tr>
+            <tr><td>6</td><td><b>Ретаргет:</b> тот же оффер vs cross-SKU (смотрел Original → показываем Aracna)</td><td>Другой оффер добьёт лучше повтора</td><td>Конверсия ретаргета</td></tr>
+            <tr><td>7</td><td><b>Плейсмент:</b> Директ Поиск vs РСЯ vs таргет ВК</td><td>Поиск окупится быстрее (горячий спрос)</td><td>Blended CAC по каналу</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ПРИОРИТИЗАЦИЯ + РЕШЕНИЯ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Как решаем</span>
+      <h2>Приоритет и правила решения</h2>
+      <div class="ds-grid c2">
+        <div class="ds-card hl">
+          <h3>Приоритет (ICE)</h3>
+          <p>Каждый тест оцениваем: <b>Impact</b> (влияние на продажи) × <b>Confidence</b> (уверенность) × <b>Ease</b> (простота запуска). Сначала — высокий ICE: тесты 1–3 (углы, хук, карточка) дешёвые и влияют сильно.</p>
+        </div>
+        <div class="ds-card">
+          <h3>Kill / Scale</h3>
+          <ul>
+            <li><b>Kill:</b> вариант проиграл на ≥100 кликов/неделю — выключаем.</li>
+            <li><b>Scale:</b> победил с явным отрывом — переносим бюджет и делаем 2–3 новые вариации на его основе.</li>
+            <li><b>Нет разницы:</b> оставляем дешевле в продакшене, тестируем следующую переменную.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="ds-note">Один тест — один вывод. Победивший угол/хук фиксируем в <a href="marketing.html">Маркетинге</a> и <code>marketing-kit.md</code>, чтобы не тестировать одно и то же дважды.</p>
+    </section>
+
+    <footer class="ds-footer">
+      ZipString Design System · Гайд по А/Б-тестам · KPI — ориентиры, уточняются после первых тестов. Атрибуция — см. блок «Как считаем» в <a href="marketing.html">Маркетинге</a>.
+    </footer>
+
+  </div></main>
+</div>
+</body>
+</html>
