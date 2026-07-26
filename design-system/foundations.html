@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZipString Design System — Основы (токены)</title>
+<link rel="stylesheet" href="ds.css">
+<style>
+  /* микро-фикс foundations: демо-примитивы, которых нет в ds.css */
+  .fx-bar { background: var(--zs-lime); height: 20px; border-radius: 4px; }
+  .fx-radius { background: var(--zs-bg-3); border: 1px solid var(--zs-border); aspect-ratio: 1; display: grid; place-items: end; padding: .5rem; }
+  .fx-radius span { font-size: .68rem; color: var(--zs-gray); font-family: ui-monospace, Menlo, monospace; }
+  .fx-glow { background: var(--zs-bg-2); border: 1px solid var(--zs-border); border-radius: var(--zs-radius); height: 100px; display: grid; place-items: center; font-size: .78rem; color: var(--zs-gray); font-family: ui-monospace, Menlo, monospace; }
+  .fx-type { border-bottom: 1px solid var(--zs-border); padding: .9rem 0; }
+  .fx-type:last-child { border-bottom: 0; }
+  .fx-type small { color: var(--zs-gray-2); font-size: .72rem; font-family: ui-monospace, Menlo, monospace; display: block; margin-bottom: .3rem; }
+  .fx-hover { display: inline-block; background: var(--zs-lime); color: #000; font-family: var(--zs-font-display); font-weight: 700; padding: .7rem 1.4rem; border-radius: var(--zs-radius); transition: transform var(--zs-fast) var(--zs-ease), box-shadow var(--zs-normal) var(--zs-ease); }
+  .fx-hover:hover { transform: translateX(6px); box-shadow: var(--zs-glow); }
+</style>
+</head>
+<body>
+<div class="ds-shell">
+
+  <!-- ═══ NAV (единая на всех страницах DS; active = class="on") ═══ -->
+  <aside class="ds-nav">
+    <div class="brand">Zip<span>String</span> DS</div>
+    <div class="tagline">Neon Loop · дизайн-система бренда</div>
+    <a href="index.html">Обзор</a>
+    <div class="group">Основы</div>
+    <a href="foundations.html" class="on">Основы (токены)</a>
+    <a href="components.html">Компоненты</a>
+    <div class="group">Бренд</div>
+    <a href="brand.html">Бренд и голос</a>
+    <a href="marketing.html">Маркетинг</a>
+    <a href="creatives.html">Креативы и объявления</a>
+    <div class="group">Исходники</div>
+    <a href="../zipstring-ds/tokens.css" class="ext">tokens.css</a>
+    <a href="../zipstring-ds/brand.json" class="ext">brand.json</a>
+    <a href="../zipstring-ds/ai-kit.md" class="ext">ai-kit.md</a>
+    <a href="../zipstring-ds/marketing-kit.md" class="ext">marketing-kit.md</a>
+  </aside>
+
+  <main class="ds-main"><div class="ds-wrap">
+
+    <header class="ds-hero">
+      <div class="ds-kicker">Токены системы</div>
+      <h1>Основы</h1>
+      <p>Все примитивы темы Neon Loop: цвет, типографика, ритм, форма, свет и движение. Значения — из <code>tokens.css</code>, источника истины. Не выдумывай новые — бери токен <code>--zs-*</code> и вставляй как есть.</p>
+    </header>
+
+    <!-- ═══ ЦВЕТ ═══ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Палитра</span>
+      <h2>Цвет</h2>
+      <p class="ds-lead">Тёмный холст, один лаймовый акцент, служебные тона текста и маркетплейсов. Светлых фонов в теме нет.</p>
+
+      <h3>Холст и границы</h3>
+      <div class="ds-grid c4">
+        <div class="swatch"><div class="chip" style="background:var(--zs-bg)"></div><div class="meta"><b>Фон</b><code>--zs-bg</code> · #080808</div></div>
+        <div class="swatch"><div class="chip" style="background:var(--zs-bg-2)"></div><div class="meta"><b>Фон 2 · карточки</b><code>--zs-bg-2</code> · #111111</div></div>
+        <div class="swatch"><div class="chip" style="background:var(--zs-bg-3)"></div><div class="meta"><b>Фон 3 · плашки</b><code>--zs-bg-3</code> · #1A1A1A</div></div>
+        <div class="swatch"><div class="chip" style="background:var(--zs-border)"></div><div class="meta"><b>Граница</b><code>--zs-border</code> · #FFF 8%</div></div>
+      </div>
+
+      <h3>Акцент</h3>
+      <div class="ds-grid c4">
+        <div class="swatch"><div class="chip" style="background:var(--zs-lime)"></div><div class="meta"><b>Лайм · акцент</b><code>--zs-lime</code> · #C6FF00</div></div>
+        <div class="swatch"><div class="chip" style="background:var(--zs-lime-dim)"></div><div class="meta"><b>Лайм приглушённый</b><code>--zs-lime-dim</code> · #9FCC00</div></div>
+      </div>
+
+      <h3>Текст</h3>
+      <div class="ds-grid c4">
+        <div class="swatch"><div class="chip" style="background:var(--zs-white)"></div><div class="meta"><b>Основной текст</b><code>--zs-white</code> · #F5F5F5</div></div>
+        <div class="swatch"><div class="chip" style="background:var(--zs-gray)"></div><div class="meta"><b>Вторичный</b><code>--zs-gray</code> · #888888</div></div>
+        <div class="swatch"><div class="chip" style="background:var(--zs-gray-2)"></div><div class="meta"><b>Тусклый · muted</b><code>--zs-gray-2</code> · #555555</div></div>
+      </div>
+
+      <h3>Продуктовые тона</h3>
+      <p class="ds-lead">Каждый SKU ведёт свой цвет через <code>--zs-tone</code>. Тон задаётся атрибутом <code>data-sku</code> на секции или странице.</p>
+      <div class="ds-grid c3">
+        <div class="swatch" data-sku="original"><div class="chip" style="background:var(--zs-tone)"></div><div class="meta"><b>Original</b><code>data-sku="original"</code> · tone = лайм</div></div>
+        <div class="swatch" data-sku="luma"><div class="chip" style="background:var(--zs-tone)"></div><div class="meta"><b>Luma · UV-свечение</b><code>data-sku="luma"</code> · tone = #7C3AED</div></div>
+        <div class="swatch" data-sku="aracna"><div class="chip" style="background:var(--zs-tone)"></div><div class="meta"><b>Aracna · вебшутер</b><code>data-sku="aracna"</code> · tone = #CB11AB</div></div>
+      </div>
+      <div class="pill-row">
+        <span class="pill">База: <code>--zs-tone</code></span>
+        <span class="pill">UV: <code>--zs-uv</code> #7C3AED</span>
+        <span class="pill">Web: <code>--zs-web</code> #CB11AB</span>
+      </div>
+
+      <h3>Маркетплейсы</h3>
+      <div class="ds-grid c4">
+        <div class="swatch"><div class="chip" style="background:var(--zs-wildberries)"></div><div class="meta"><b>Wildberries</b><code>--zs-wildberries</code> · #CB11AB</div></div>
+        <div class="swatch"><div class="chip" style="background:var(--zs-ozon)"></div><div class="meta"><b>Ozon</b><code>--zs-ozon</code> · #005BFF</div></div>
+      </div>
+
+      <div class="code"><pre>&lt;section data-sku="luma"&gt;
+  &lt;h2 style="color: var(--zs-tone)"&gt;Luma&lt;/h2&gt;      /* → фиолетовый UV */
+  &lt;a style="box-shadow: var(--zs-glow-tone)"&gt;...&lt;/a&gt;  /* halo под тон SKU */
+&lt;/section&gt;</pre></div>
+      <p class="ds-note">Один акцент на экран. Не смешивай лайм и продуктовые тона в одном блоке — тон переопределяет акцент только внутри своего SKU-контекста.</p>
+    </section>
+
+    <!-- ═══ ТИПОГРАФИКА ═══ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Шрифт и шкала</span>
+      <h2>Типографика</h2>
+      <p class="ds-lead">Дисплей — <b>Unbounded</b> (400/700/900), текст — <b>Onest</b> (300–600). Оба с кириллицей. Максимум два шрифта на экран.</p>
+
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <h3 style="margin-top:0">Unbounded — дисплей</h3>
+          <p style="font-family:var(--zs-font-display);font-weight:400;font-size:1.6rem;color:var(--zs-white);margin:.3rem 0">Нить летит 400</p>
+          <p style="font-family:var(--zs-font-display);font-weight:700;font-size:1.6rem;color:var(--zs-white);margin:.3rem 0">Нить летит 700</p>
+          <p style="font-family:var(--zs-font-display);font-weight:900;font-size:1.6rem;color:var(--zs-white);margin:.3rem 0">Нить летит 900</p>
+          <div class="pill-row"><span class="pill"><code>--zs-font-display</code></span></div>
+        </div>
+        <div class="ds-card">
+          <h3 style="margin-top:0">Onest — текст</h3>
+          <p style="font-family:var(--zs-font-body);font-weight:300;font-size:1.15rem;color:var(--zs-white);margin:.3rem 0">Крутится вокруг пальца 300</p>
+          <p style="font-family:var(--zs-font-body);font-weight:400;font-size:1.15rem;color:var(--zs-white);margin:.3rem 0">Крутится вокруг пальца 400</p>
+          <p style="font-family:var(--zs-font-body);font-weight:500;font-size:1.15rem;color:var(--zs-white);margin:.3rem 0">Крутится вокруг пальца 500</p>
+          <p style="font-family:var(--zs-font-body);font-weight:600;font-size:1.15rem;color:var(--zs-white);margin:.3rem 0">Крутится вокруг пальца 600</p>
+          <div class="pill-row"><span class="pill"><code>--zs-font-body</code></span></div>
+        </div>
+      </div>
+
+      <h3>Шкала размеров</h3>
+      <div class="ds-card">
+        <div class="fx-type"><small>--zs-text-hero · clamp(2.5rem, 1rem + 7vw, 6rem) · Unbounded 900</small>
+          <div style="font-family:var(--zs-font-display);font-weight:900;font-size:var(--zs-text-hero);line-height:1.08;letter-spacing:var(--zs-tracking)">Neon Loop</div></div>
+        <div class="fx-type"><small>--zs-text-h2 · clamp(1.5rem, 1rem + 2vw, 2.5rem) · Unbounded 800</small>
+          <div style="font-family:var(--zs-font-display);font-weight:800;font-size:var(--zs-text-h2);line-height:1.1">Заголовок раздела</div></div>
+        <div class="fx-type"><small>--zs-text-lg · 1.35rem · Onest</small>
+          <div style="font-size:var(--zs-text-lg)">Крупный лид-абзац перед демо трюка.</div></div>
+        <div class="fx-type"><small>--zs-text-base · clamp(1rem, 0.92rem + 0.4vw, 1.125rem) · Onest</small>
+          <div style="font-size:var(--zs-text-base)">Базовый текст. ZipString раскручивается вокруг пальца и делает петли в воздухе.</div></div>
+        <div class="fx-type"><small>--zs-text-sm · 0.85rem · Onest</small>
+          <div style="font-size:var(--zs-text-sm);color:var(--zs-gray)">Мелкий текст: подписи, сноски, метаданные.</div></div>
+      </div>
+      <div class="pill-row">
+        <span class="pill">Трекинг дисплея: <code>--zs-tracking</code> −0.02em</span>
+        <span class="pill">Интерлиньяж: <code>--zs-leading</code> 1.6</span>
+      </div>
+      <div class="code"><pre>h1 { font: 900 var(--zs-text-hero)/1.08 var(--zs-font-display); letter-spacing: var(--zs-tracking); }
+body { font-size: var(--zs-text-base); line-height: var(--zs-leading); }</pre></div>
+    </section>
+
+    <!-- ═══ SPACING ═══ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Ритм</span>
+      <h2>Отступы</h2>
+      <p class="ds-lead">Шкала внутренних отступов + один большой вертикальный ритм секций.</p>
+      <div class="ds-card">
+        <div style="display:flex;align-items:center;gap:1rem;margin:.5rem 0"><code style="min-width:150px;color:var(--zs-lime)">--zs-space-1</code><div class="fx-bar" style="width:var(--zs-space-1)"></div><span class="muted">0.5rem</span></div>
+        <div style="display:flex;align-items:center;gap:1rem;margin:.5rem 0"><code style="min-width:150px;color:var(--zs-lime)">--zs-space-2</code><div class="fx-bar" style="width:var(--zs-space-2)"></div><span class="muted">1rem</span></div>
+        <div style="display:flex;align-items:center;gap:1rem;margin:.5rem 0"><code style="min-width:150px;color:var(--zs-lime)">--zs-space-3</code><div class="fx-bar" style="width:var(--zs-space-3)"></div><span class="muted">1.5rem</span></div>
+        <div style="display:flex;align-items:center;gap:1rem;margin:.5rem 0"><code style="min-width:150px;color:var(--zs-lime)">--zs-space-4</code><div class="fx-bar" style="width:var(--zs-space-4)"></div><span class="muted">2.5rem</span></div>
+        <div style="display:flex;align-items:center;gap:1rem;margin:.5rem 0"><code style="min-width:150px;color:var(--zs-lime)">--zs-section</code><div class="fx-bar" style="width:var(--zs-section)"></div><span class="muted">clamp(3rem → 7rem)</span></div>
+      </div>
+      <div class="code"><pre>section { padding-block: var(--zs-section); }
+.card { padding: var(--zs-space-3); gap: var(--zs-space-2); }</pre></div>
+    </section>
+
+    <!-- ═══ РАДИУСЫ ═══ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Форма</span>
+      <h2>Радиусы</h2>
+      <div class="ds-grid c4">
+        <div class="fx-radius" style="border-radius:var(--zs-radius-sm)"><span>--zs-radius-sm · 8px</span></div>
+        <div class="fx-radius" style="border-radius:var(--zs-radius)"><span>--zs-radius · 12px</span></div>
+        <div class="fx-radius" style="border-radius:var(--zs-radius-lg)"><span>--zs-radius-lg · 20px</span></div>
+        <div class="fx-radius" style="border-radius:var(--zs-radius-xl)"><span>--zs-radius-xl · 32px</span></div>
+      </div>
+      <p class="ds-note"><code>sm</code> — пилюли навигации и мелкие чипы; <code>radius</code> — кнопки, свотчи; <code>lg</code> — карточки, демо-сцены; <code>xl</code> — крупные hero-блоки.</p>
+    </section>
+
+    <!-- ═══ СВЕЧЕНИЕ И ТЕНИ ═══ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Свет</span>
+      <h2>Свечение и тени</h2>
+      <p class="ds-lead">Визуальный код Neon Loop — нить в свете. Halo и глубина, дозированно.</p>
+      <div class="ds-grid c3">
+        <div class="fx-glow" style="box-shadow:var(--zs-glow)">--zs-glow</div>
+        <div class="fx-glow" style="box-shadow:var(--zs-glow-soft)">--zs-glow-soft</div>
+        <div class="fx-glow" data-sku="luma" style="box-shadow:var(--zs-glow-tone)">--zs-glow-tone</div>
+        <div class="fx-glow" style="box-shadow:var(--zs-shadow)">--zs-shadow</div>
+        <div class="fx-glow" style="box-shadow:var(--zs-shadow-sm)">--zs-shadow-sm</div>
+      </div>
+      <div class="pill-row">
+        <span class="pill"><code>--zs-glow</code> лайм-halo 24px</span>
+        <span class="pill"><code>--zs-glow-soft</code> мягкий 12px</span>
+        <span class="pill"><code>--zs-glow-tone</code> под тон SKU</span>
+        <span class="pill"><code>--zs-shadow</code> · <code>--zs-shadow-sm</code></span>
+      </div>
+      <div class="code"><pre>.btn:hover  { box-shadow: var(--zs-glow); }
+.card       { box-shadow: var(--zs-shadow); }
+[data-sku]  { box-shadow: var(--zs-glow-tone); }  /* halo окрашен в тон */</pre></div>
+    </section>
+
+    <!-- ═══ ДВИЖЕНИЕ ═══ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Движение</span>
+      <h2>Движение</h2>
+      <p class="ds-lead">Горизонтальное, «нить летит». Один easing, две скорости. Без пружин и bounce.</p>
+      <div class="ds-tbl-wrap">
+        <table class="ds-tbl">
+          <tr><th>Токен</th><th>Значение</th><th>Где</th></tr>
+          <tr><td><code>--zs-fast</code></td><td>150ms</td><td>hover, наведение, мелкие чипы</td></tr>
+          <tr><td><code>--zs-normal</code></td><td>300ms</td><td>появление, свечение, карточки</td></tr>
+          <tr><td><code>--zs-ease</code></td><td>cubic-bezier(0.16, 1, 0.3, 1)</td><td>easing по умолчанию для всего</td></tr>
+        </table>
+      </div>
+      <div class="demo" style="border-radius:var(--zs-radius-lg)">
+        <a class="fx-hover" href="#">Наведи на меня →</a>
+        <span class="muted">transform + glow на <code>--zs-fast</code> / <code>--zs-normal</code></span>
+      </div>
+      <div class="code"><pre>.btn { transition: transform var(--zs-fast) var(--zs-ease),
+                    box-shadow var(--zs-normal) var(--zs-ease); }
+.btn:hover { transform: translateX(6px); box-shadow: var(--zs-glow); }</pre></div>
+    </section>
+
+    <!-- ═══ КОНТЕЙНЕР ═══ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Раскладка</span>
+      <h2>Контейнер</h2>
+      <p class="ds-lead"><code>--zs-container</code> = <b>1200px</b> — максимальная ширина контентной колонки. Центрируется по горизонтали, дышит боковыми полями на узких экранах.</p>
+      <div class="code"><pre>.wrap { max-width: var(--zs-container); margin-inline: auto;
+        padding-inline: clamp(1rem, 4vw, 3rem); }</pre></div>
+      <p class="ds-note">Полноширинные фоны и видео — на всю ширину вьюпорта; текст и сетки — внутри контейнера.</p>
+    </section>
+
+    <footer class="ds-footer">
+      ZipString Design System · Neon Loop · все значения синхронны с <code>zipstring-ds/tokens.css</code>. Меняешь токен — меняется вся система.
+    </footer>
+
+  </div></main>
+</div>
+</body>
+</html>

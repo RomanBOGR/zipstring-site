@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZipString Design System — Компоненты</title>
+<link rel="stylesheet" href="ds.css">
+<!-- Реальные стили сайта, чтобы демо выглядели 1:1 как в проде. Грузим ПОСЛЕ ds.css. -->
+<link rel="stylesheet" href="../css/main.css">
+<style>
+  /* Локальные правки только для витрины компонентов внутри .demo.
+     main.css задаёт .section-label/.faq-* и т.п. абсолютные отступы/цвета —
+     здесь чуть усмиряем, чтобы примеры жили в тесной сцене демо. */
+  .demo { align-items: flex-start; }
+  .demo > * { margin: 0; }
+  /* header в проде sticky — в демо это ломает сцену, гасим */
+  .demo header { position: static; width: 100%; }
+  .demo .announcement { width: 100%; }
+  .demo .faq-item { width: 100%; }
+  .demo .faq-answer { max-height: none; }         /* показываем ответ раскрытым */
+  .demo .compare-wrap { margin-top: 0; width: 100%; }
+  .demo .product-card { max-width: 320px; }
+  .demo .contact-card, .demo .zipster-card { max-width: 280px; }
+  .demo .feature-item { min-width: 280px; }
+  .demo .contact-form { width: 100%; max-width: 420px; }
+  .glow-box {
+    width: 120px; height: 120px; border-radius: var(--zs-radius-lg);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .72rem; color: var(--zs-gray); text-align: center;
+    background: var(--zs-bg-2); border: 1px solid var(--zs-border);
+  }
+</style>
+</head>
+<body>
+<div class="ds-shell">
+
+  <!-- ═══ NAV (единая на всех страницах DS; active = class="on") ═══ -->
+  <aside class="ds-nav">
+    <div class="brand">Zip<span>String</span> DS</div>
+    <div class="tagline">Neon Loop · дизайн-система бренда</div>
+    <a href="index.html">Обзор</a>
+    <div class="group">Основы</div>
+    <a href="foundations.html">Основы (токены)</a>
+    <a href="components.html" class="on">Компоненты</a>
+    <div class="group">Бренд</div>
+    <a href="brand.html">Бренд и голос</a>
+    <a href="marketing.html">Маркетинг</a>
+    <a href="creatives.html">Креативы и объявления</a>
+    <div class="group">Исходники</div>
+    <a href="../zipstring-ds/tokens.css" class="ext">tokens.css</a>
+    <a href="../zipstring-ds/brand.json" class="ext">brand.json</a>
+    <a href="../zipstring-ds/ai-kit.md" class="ext">ai-kit.md</a>
+    <a href="../zipstring-ds/marketing-kit.md" class="ext">marketing-kit.md</a>
+  </aside>
+
+  <main class="ds-main"><div class="ds-wrap">
+
+    <header class="ds-hero">
+      <div class="ds-kicker">UI-кит</div>
+      <h1>Компоненты</h1>
+      <p>Живые компоненты сайта ZipString: настоящие классы из <code>css/main.css</code>, живьём в тёмной сцене + копируемый HTML под каждым. Всё держится на токенах <code>--zs-*</code>. Меняешь бренд — правишь <code>tokens.css</code>, компоненты подхватывают.</p>
+      <div style="margin-top:1rem"><span class="conf">Демо подтягивают реальный <code>../css/main.css</code> — что видишь, то и в проде</span></div>
+    </header>
+
+    <!-- ═══════════════════ КНОПКИ ═══════════════════ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Действия</span>
+      <h2>Кнопки</h2>
+      <p class="ds-lead">Дисплейный шрифт, uppercase, лайм для главного действия. Маркетплейс-кнопки несут фирменный цвет площадки (WB — маджента, Ozon — синий) и ставятся только для товаров, которые реально в продаже.</p>
+
+      <h3><code>.btn-primary</code> · <code>.btn-secondary</code></h3>
+      <p class="ds-lead">Основная пара CTA. Primary — лайм на чёрном, единственный на экране. Secondary — контурная, для второстепенного пути.</p>
+      <div class="demo">
+        <a href="#" class="btn-primary">Купить набор</a>
+        <a href="#" class="btn-secondary">Смотреть трюки</a>
+      </div>
+      <div class="code"><pre>&lt;a href="#" class="btn-primary"&gt;Купить набор&lt;/a&gt;
+&lt;a href="#" class="btn-secondary"&gt;Смотреть трюки&lt;/a&gt;</pre></div>
+      <p class="ds-note">Где: hero (<code>.hero-actions</code>), CTA-баннер (<code>.cta-btns</code>), spotlight (<code>.spotlight-actions</code>).</p>
+
+      <h3><code>.btn-wb</code> · <code>.btn-ozon</code></h3>
+      <p class="ds-lead">Кнопки покупки на маркетплейсах. Компактные, фирменный цвет площадки. Ссылки централизованы в <code>SHOP_LINKS</code>.</p>
+      <div class="demo">
+        <a href="#" class="btn-wb">Wildberries</a>
+        <a href="#" class="btn-ozon">Ozon</a>
+      </div>
+      <div class="code"><pre>&lt;div class="product-buy-btns"&gt;
+  &lt;a href="#" class="btn-wb"&gt;Wildberries&lt;/a&gt;
+  &lt;a href="#" class="btn-ozon"&gt;Ozon&lt;/a&gt;
+&lt;/div&gt;</pre></div>
+      <p class="ds-note">Где: карточка товара (<code>.product-buy-btns</code>), блок покупки на странице продукта (<code>.product-buy-row</code>).</p>
+
+      <h3><code>.btn-soon</code></h3>
+      <p class="ds-lead">Заглушка «Скоро в продаже» для SKU вне РФ-запуска (Luma). Пунктирная рамка в UV-фиолетовом, <code>cursor: default</code> — не ведёт никуда.</p>
+      <div class="demo">
+        <span class="btn-soon">Скоро в продаже</span>
+      </div>
+      <div class="code"><pre>&lt;span class="btn-soon"&gt;Скоро в продаже&lt;/span&gt;</pre></div>
+      <p class="ds-note">Где: карточка/страница Luma вместо кнопок WB/Ozon, пока товара нет в продаже.</p>
+    </section>
+
+    <!-- ═══════════════════ БЕЙДЖИ / ЛЕЙБЛЫ ═══════════════════ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Микро-акценты</span>
+      <h2>Бейджи и лейблы</h2>
+      <p class="ds-lead">Маленькие сигналы: статус в hero, «шапка» секции, токен-пилюли. Все лаймовые, дозированно.</p>
+
+      <h3><code>.hero-badge</code> + <code>.hero-badge-dot</code></h3>
+      <p class="ds-lead">Пилюля-статус над заголовком hero с пульсирующей точкой-индикатором.</p>
+      <div class="demo">
+        <span class="hero-badge"><span class="hero-badge-dot"></span> Оригинал ZipString · не подделка</span>
+      </div>
+      <div class="code"><pre>&lt;span class="hero-badge"&gt;
+  &lt;span class="hero-badge-dot"&gt;&lt;/span&gt; Оригинал ZipString · не подделка
+&lt;/span&gt;</pre></div>
+      <p class="ds-note">Где: hero главной. Аналог на внутренних — <code>.page-hero-badge</code>.</p>
+
+      <h3><code>.section-label</code></h3>
+      <p class="ds-lead">Надзаголовок секции — короткое лаймовое слово-рубрика над крупным <code>.section-title</code>.</p>
+      <div class="demo" style="flex-direction:column">
+        <span class="section-label">Наши наборы</span>
+        <div class="section-title" style="font-size:clamp(28px,4vw,44px)">Выбери свой ZipString</div>
+      </div>
+      <div class="code"><pre>&lt;span class="section-label"&gt;Наши наборы&lt;/span&gt;
+&lt;h2 class="section-title"&gt;Выбери свой ZipString&lt;/h2&gt;</pre></div>
+      <p class="ds-note">Где: заголовок каждой секции (products, why, tricks, reviews, faq).</p>
+
+      <h3><code>.pill</code></h3>
+      <p class="ds-lead">Токен-пилюля дизайн-системы (из <code>ds.css</code>). Служебный элемент документации — чипы токенов, тегов, значений.</p>
+      <div class="demo">
+        <span class="pill">Лайм <code>--zs-lime</code></span>
+        <span class="pill">Radius <code>--zs-radius-lg</code></span>
+        <span class="pill">Свечение <code>--zs-glow</code></span>
+      </div>
+      <div class="code"><pre>&lt;span class="pill"&gt;Лайм &lt;code&gt;--zs-lime&lt;/code&gt;&lt;/span&gt;</pre></div>
+      <p class="ds-note">Где: страницы DS (foundations, здесь). На сайте роль «бейджа на медиа» играют <code>.product-badge-new</code> / <code>.product-badge-glow</code>.</p>
+    </section>
+
+    <!-- ═══════════════════ КАРТОЧКИ ═══════════════════ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Контейнеры</span>
+      <h2>Карточки</h2>
+      <p class="ds-lead">Тёмная поверхность <code>--bg3</code>, тонкая рамка, лаймовая рамка + лёгкий подъём на hover.</p>
+
+      <h3><code>.product-card</code></h3>
+      <p class="ds-lead">Главная карточка каталога: медиа с бейджем → название → описание → цена → кнопки покупки.</p>
+      <div class="demo">
+        <a href="#" class="product-card" style="text-decoration:none">
+          <div class="product-media" style="background:radial-gradient(ellipse at 60% 40%, rgba(198,255,0,.18), #0d0d0d 70%)">
+            <span class="product-badge-new">Хит</span>
+          </div>
+          <div class="product-info">
+            <div class="product-name">ZipString Original</div>
+            <p class="product-desc">Базовый набор для первых трюков. Тихий мотор, USB-C зарядка.</p>
+            <div class="product-price-row">
+              <span class="product-price">1 490 ₽</span>
+              <span class="product-price-old">1 990 ₽</span>
+            </div>
+            <div class="product-buy-btns">
+              <a href="#" class="btn-wb">Wildberries</a>
+              <a href="#" class="btn-ozon">Ozon</a>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="code"><pre>&lt;a href="#" class="product-card"&gt;
+  &lt;div class="product-media"&gt;
+    &lt;img src="..." alt="ZipString Original"&gt;
+    &lt;span class="product-badge-new"&gt;Хит&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="product-info"&gt;
+    &lt;div class="product-name"&gt;ZipString Original&lt;/div&gt;
+    &lt;p class="product-desc"&gt;Базовый набор для первых трюков.&lt;/p&gt;
+    &lt;div class="product-price-row"&gt;
+      &lt;span class="product-price"&gt;1 490 ₽&lt;/span&gt;
+      &lt;span class="product-price-old"&gt;1 990 ₽&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="product-buy-btns"&gt;
+      &lt;a href="#" class="btn-wb"&gt;Wildberries&lt;/a&gt;
+      &lt;a href="#" class="btn-ozon"&gt;Ozon&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/a&gt;</pre></div>
+      <p class="ds-note">Бейдж на медиа: <code>.product-badge-new</code> (лайм) для хитов, <code>.product-badge-glow</code> (UV) для Luma. Где: секция каталога (<code>.products-grid</code>).</p>
+
+      <h3><code>.feature-item</code></h3>
+      <p class="ds-lead">Строка «иконка + текст» в списке фич продукта.</p>
+      <div class="demo">
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-text"><h4>Заряд 45 минут</h4><p>USB-C, хватает на вечер трюков</p></div>
+        </div>
+      </div>
+      <div class="code"><pre>&lt;div class="feature-item"&gt;
+  &lt;div class="feature-icon"&gt;⚡&lt;/div&gt;
+  &lt;div class="feature-text"&gt;
+    &lt;h4&gt;Заряд 45 минут&lt;/h4&gt;
+    &lt;p&gt;USB-C, хватает на вечер трюков&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre></div>
+      <p class="ds-note">Где: spotlight-блок продукта (<code>.features-list</code>).</p>
+
+      <h3><code>.contact-card</code></h3>
+      <p class="ds-lead">Карточка канала связи: иконка → заголовок → контакт-ссылка. Центрированная.</p>
+      <div class="demo">
+        <div class="contact-card">
+          <div class="contact-card-icon">✈️</div>
+          <h3>Telegram</h3>
+          <p><a href="#">@zipstring_ru</a></p>
+        </div>
+      </div>
+      <div class="code"><pre>&lt;div class="contact-card"&gt;
+  &lt;div class="contact-card-icon"&gt;✈️&lt;/div&gt;
+  &lt;h3&gt;Telegram&lt;/h3&gt;
+  &lt;p&gt;&lt;a href="#"&gt;@zipstring_ru&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</pre></div>
+      <p class="ds-note">Где: страница контактов (<code>.contact-cards</code>).</p>
+
+      <h3><code>.zipster-card</code></h3>
+      <p class="ds-lead">Карточка контент-пиллара клуба Zipster: эмодзи-иконка → заголовок → описание.</p>
+      <div class="demo">
+        <div class="zipster-card">
+          <div class="z-icon">🎬</div>
+          <h4>Разборы трюков</h4>
+          <p>Пошаговые видео от новичка до про — каждую неделю новый трюк.</p>
+        </div>
+      </div>
+      <div class="code"><pre>&lt;div class="zipster-card"&gt;
+  &lt;div class="z-icon"&gt;🎬&lt;/div&gt;
+  &lt;h4&gt;Разборы трюков&lt;/h4&gt;
+  &lt;p&gt;Пошаговые видео от новичка до про.&lt;/p&gt;
+&lt;/div&gt;</pre></div>
+      <p class="ds-note">Где: секция клуба Zipster (<code>.zipster-grid</code>).</p>
+    </section>
+
+    <!-- ═══════════════════ НАВИГАЦИЯ ═══════════════════ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Каркас</span>
+      <h2>Навигация</h2>
+
+      <h3><code>.announcement</code></h3>
+      <p class="ds-lead">Лаймовая плашка-объявление над шапкой. Закрывается (<code>.announcement-close</code>), состояние закрытия — <code>.dismissed</code>.</p>
+      <div class="demo" style="padding:0">
+        <div class="announcement" style="position:relative">Бесплатная доставка при заказе от 3 000 ₽ · Промокод LOOP10 — скидка 10%</div>
+      </div>
+      <div class="code"><pre>&lt;div class="announcement"&gt;
+  Бесплатная доставка от 3 000 ₽ · Промокод LOOP10
+  &lt;button class="announcement-close" aria-label="Закрыть"&gt;×&lt;/button&gt;
+&lt;/div&gt;</pre></div>
+
+      <h3><code>header</code> + <code>.header-inner</code> + <code>nav</code></h3>
+      <p class="ds-lead">Sticky-шапка с блюром: логотип → навигация → CTA. Активный пункт — <code>nav a.active</code> (лайм).</p>
+      <div class="demo" style="padding:0">
+        <header>
+          <div class="header-inner">
+            <a href="#" class="logo">Zip<span>String</span></a>
+            <nav>
+              <a href="#" class="active">Наборы</a>
+              <a href="#">Трюки</a>
+              <a href="#">О бренде</a>
+              <a href="#">Контакты</a>
+            </nav>
+            <a href="#" class="header-cta">Купить</a>
+          </div>
+        </header>
+      </div>
+      <div class="code"><pre>&lt;header&gt;
+  &lt;div class="header-inner"&gt;
+    &lt;a href="#" class="logo"&gt;Zip&lt;span&gt;String&lt;/span&gt;&lt;/a&gt;
+    &lt;nav&gt;
+      &lt;a href="#" class="active"&gt;Наборы&lt;/a&gt;
+      &lt;a href="#"&gt;Трюки&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;a href="#" class="header-cta"&gt;Купить&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</pre></div>
+      <p class="ds-note">Где: шапка всех страниц. Мобильная кнопка — <code>.menu-toggle</code>.</p>
+    </section>
+
+    <!-- ═══════════════════ HERO ═══════════════════ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Первый экран</span>
+      <h2>Hero</h2>
+      <p class="ds-lead">Полноэкранный <code>.hero</code>: видео/визуал справа, слева — градиент-подложка (<code>.hero::after</code>) под текстом, чтобы заголовок читался поверх видео. Ниже — уменьшенная схема-заглушка структуры.</p>
+      <div class="demo" style="padding:0">
+        <div style="position:relative; width:100%; min-height:280px; border-radius:var(--zs-radius-lg); overflow:hidden; background:radial-gradient(ellipse 80% 60% at 72% 40%, rgba(198,255,0,.10), transparent 70%), radial-gradient(ellipse 40% 40% at 30% 70%, rgba(124,58,237,.12), transparent 60%), var(--zs-bg); display:flex; align-items:flex-end;">
+          <div style="position:absolute; inset:0; background:linear-gradient(90deg, var(--zs-bg) 0%, rgba(8,8,8,.9) 34%, rgba(8,8,8,.5) 58%, transparent 100%);"></div>
+          <div style="position:relative; z-index:2; padding:32px;">
+            <span class="hero-badge"><span class="hero-badge-dot"></span> Оригинал ZipString</span>
+            <div style="font-family:var(--zs-font-display); font-weight:900; font-size:clamp(28px,5vw,52px); line-height:.92; letter-spacing:-.03em; margin:14px 0;">Нить, которая<br><em style="color:var(--zs-lime); font-style:normal">летит по кругу</em></div>
+            <div class="hero-actions">
+              <a href="#" class="btn-primary">Купить набор</a>
+              <a href="#" class="btn-secondary">Смотреть трюки</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="code"><pre>&lt;section class="hero"&gt;
+  &lt;div class="hero-bg"&gt;&lt;/div&gt;
+  &lt;div class="hero-visual"&gt;&lt;video ... /&gt;&lt;/div&gt;
+  &lt;div class="hero-content"&gt;
+    &lt;span class="hero-badge"&gt;&lt;span class="hero-badge-dot"&gt;&lt;/span&gt; Оригинал&lt;/span&gt;
+    &lt;h1 class="hero-title"&gt;Нить, которая &lt;em&gt;летит по кругу&lt;/em&gt;&lt;/h1&gt;
+    &lt;p class="hero-sub"&gt;...&lt;/p&gt;
+    &lt;div class="hero-actions"&gt;
+      &lt;a class="btn-primary"&gt;Купить набор&lt;/a&gt;
+      &lt;a class="btn-secondary"&gt;Смотреть трюки&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre></div>
+      <p class="ds-note">Градиент <code>.hero::after</code> (z-index 2) обязателен — без него текст сливается с видео. Внутренние страницы — <code>.page-hero</code>.</p>
+    </section>
+
+    <!-- ═══════════════════ ТАБЛИЦА СРАВНЕНИЯ ═══════════════════ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Убеждение</span>
+      <h2>Таблица сравнения</h2>
+      <p class="ds-lead"><code>.compare-table</code> в скролл-обёртке <code>.compare-wrap</code>: ZipString vs дешёвые аналоги. Последний столбец — лаймовый (наш), плюсы — <code>.cmp-good</code>, минусы — <code>.cmp-bad</code>.</p>
+      <div class="demo" style="padding:0">
+        <div class="compare-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr><th>Параметр</th><th>Дешёвый аналог</th><th>ZipString</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Мотор</td><td class="cmp-bad">Гудит, греется</td><td class="cmp-good">Тихий, холодный</td></tr>
+              <tr><td>Зарядка</td><td class="cmp-bad">micro-USB</td><td class="cmp-good">USB-C, 45 мин</td></tr>
+              <tr><td>Гарантия</td><td class="cmp-bad">Нет</td><td class="cmp-good">12 месяцев</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="code"><pre>&lt;div class="compare-wrap"&gt;
+  &lt;table class="compare-table"&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Параметр&lt;/th&gt;&lt;th&gt;Аналог&lt;/th&gt;&lt;th&gt;ZipString&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;Мотор&lt;/td&gt;&lt;td class="cmp-bad"&gt;Гудит&lt;/td&gt;&lt;td class="cmp-good"&gt;Тихий&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</pre></div>
+      <p class="ds-note">Где: страница продуктов (<code>.compare-section</code>). Подпись под таблицей — <code>.compare-note</code>.</p>
+    </section>
+
+    <!-- ═══════════════════ ФОРМЫ ═══════════════════ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Ввод</span>
+      <h2>Формы</h2>
+      <p class="ds-lead">Поля на тёмной поверхности, лаймовый фокус. Лейбл — дисплейный uppercase (<code>.form-label</code>). Группа поле+лейбл — <code>.form-group</code>.</p>
+      <div class="demo">
+        <div class="contact-form">
+          <div class="form-group">
+            <label class="form-label" for="d-name">Имя</label>
+            <input class="form-input" id="d-name" type="text" placeholder="Как к вам обращаться">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="d-topic">Тема</label>
+            <select class="form-select" id="d-topic">
+              <option>Вопрос по заказу</option>
+              <option>Оптовые поставки</option>
+              <option>Сотрудничество</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="d-msg">Сообщение</label>
+            <textarea class="form-textarea" id="d-msg" placeholder="Расскажите, чем помочь"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="code"><pre>&lt;div class="form-group"&gt;
+  &lt;label class="form-label" for="name"&gt;Имя&lt;/label&gt;
+  &lt;input class="form-input" id="name" type="text" placeholder="..."&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+  &lt;label class="form-label" for="topic"&gt;Тема&lt;/label&gt;
+  &lt;select class="form-select" id="topic"&gt;...&lt;/select&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+  &lt;label class="form-label" for="msg"&gt;Сообщение&lt;/label&gt;
+  &lt;textarea class="form-textarea" id="msg"&gt;&lt;/textarea&gt;
+&lt;/div&gt;</pre></div>
+      <p class="ds-note">Где: форма обратной связи (<code>.contact-form</code>). Всегда связывай <code>label for</code> с <code>id</code> поля.</p>
+    </section>
+
+    <!-- ═══════════════════ FAQ ═══════════════════ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Раскрывашка</span>
+      <h2>FAQ</h2>
+      <p class="ds-lead">Аккордеон: <code>.faq-item</code> с кнопкой-вопросом (<code>.faq-question</code>) и ответом (<code>.faq-answer</code>). Открытое состояние — класс <code>.open</code> на <code>.faq-item</code> (иконка <code>+</code> поворачивается в <code>×</code>, ответ раскрывается по max-height).</p>
+      <div class="demo" style="flex-direction:column; gap:0">
+        <div class="faq-item open" style="width:100%">
+          <button class="faq-question">Чем оригинал отличается от подделки?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Тихий сбалансированный мотор, USB-C, честная гарантия 12 месяцев и оригинальная нить в комплекте. У копий мотор гудит и греется.</div></div>
+        </div>
+        <div class="faq-item" style="width:100%">
+          <button class="faq-question">Сколько держит заряд?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Около 45 минут активной игры от одного заряда через USB-C.</div></div>
+        </div>
+      </div>
+      <div class="code"><pre>&lt;div class="faq-item"&gt;              &lt;!-- .open — раскрыто --&gt;
+  &lt;button class="faq-question"&gt;
+    Чем оригинал отличается от подделки?
+    &lt;span class="faq-icon"&gt;+&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="faq-answer"&gt;
+    &lt;div class="faq-answer-inner"&gt;Тихий мотор, USB-C, гарантия 12 мес.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre></div>
+      <p class="ds-note">Где: секция FAQ (<code>.faq-section</code>). Открытие/закрытие — JS переключает <code>.open</code>. Группы вопросов — <code>.faq-group</code> + <code>.faq-group-label</code>.</p>
+    </section>
+
+    <!-- ═══════════════════ ФИЛЬТР ═══════════════════ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Управление списком</span>
+      <h2>Фильтр</h2>
+      <p class="ds-lead"><code>.filter-bar</code> с кнопками-пилюлями <code>.filter-btn</code>. Активная (<code>.active</code>) — залита лаймом.</p>
+      <div class="demo">
+        <div class="filter-bar" style="margin-bottom:0">
+          <button class="filter-btn active">Все</button>
+          <button class="filter-btn">Новичок</button>
+          <button class="filter-btn">Средний</button>
+          <button class="filter-btn">Профи</button>
+        </div>
+      </div>
+      <div class="code"><pre>&lt;div class="filter-bar"&gt;
+  &lt;button class="filter-btn active"&gt;Все&lt;/button&gt;
+  &lt;button class="filter-btn"&gt;Новичок&lt;/button&gt;
+  &lt;button class="filter-btn"&gt;Средний&lt;/button&gt;
+&lt;/div&gt;</pre></div>
+      <p class="ds-note">Где: библиотека трюков — фильтр по уровню сложности над сеткой <code>.tricks-full-grid</code>.</p>
+    </section>
+
+    <!-- ═══════════════════ СВЕЧЕНИЕ ═══════════════════ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Атмосфера</span>
+      <h2>Свечение (glow)</h2>
+      <p class="ds-lead">Неоновое halo — визуальная подпись Neon Loop. Задаётся токенами тени, а не хардкодом. Тон свечения тянется из <code>--zs-tone</code> (лайм у Original, UV у Luma).</p>
+      <div class="demo">
+        <div class="glow-box" style="box-shadow:var(--zs-glow-soft)"><code>--zs-glow-soft</code></div>
+        <div class="glow-box" style="box-shadow:var(--zs-glow)"><code>--zs-glow</code></div>
+        <div class="glow-box" data-sku="luma" style="box-shadow:var(--zs-glow-tone); border-color:rgba(124,58,237,.4)"><code>--zs-glow-tone</code><br>(Luma / UV)</div>
+      </div>
+      <div class="code"><pre>&lt;!-- halo из токенов, без хардкода rgba --&gt;
+&lt;div style="box-shadow: var(--zs-glow-soft)"&gt;...&lt;/div&gt;
+&lt;div style="box-shadow: var(--zs-glow)"&gt;...&lt;/div&gt;
+
+&lt;!-- тоновое свечение: цвет тянется из --zs-tone секции --&gt;
+&lt;section data-sku="luma"&gt;
+  &lt;div style="box-shadow: var(--zs-glow-tone)"&gt;...&lt;/div&gt;
+&lt;/section&gt;</pre></div>
+      <p class="ds-note">Где: hover карточек, CTA-баннер (<code>.cta-inner::before</code>), spotlight-glow, hero-фон. Дозированно — 1–2 источника света на экран.</p>
+    </section>
+
+    <!-- ═══════════════════ DO / DON'T ═══════════════════ -->
+    <section class="ds-section">
+      <span class="ds-eyebrow">Правила применения</span>
+      <h2>Do / Don't</h2>
+      <div class="dd">
+        <div class="box do">
+          <h4>Делаем</h4>
+          <ul>
+            <li>WB / Ozon-кнопки — только у товаров, реально в продаже</li>
+            <li>Для Luma (вне РФ-запуска) — <code>.btn-soon</code> «Скоро в продаже»</li>
+            <li>Один <code>.btn-primary</code> на экран — главный путь</li>
+            <li>Цвет свечения берём из <code>--zs-tone</code> секции/SKU</li>
+            <li>Свечение через токены <code>--zs-glow*</code>, не хардкод rgba</li>
+            <li><code>label for</code> всегда связан с <code>id</code> поля</li>
+          </ul>
+        </div>
+        <div class="box no">
+          <h4>Не делаем</h4>
+          <ul>
+            <li>Не ставим WB / Ozon там, где товара ещё нет</li>
+            <li>Не заменяем <code>.btn-soon</code> активной кнопкой-заглушкой</li>
+            <li>Не кладём два <code>.btn-primary</code> рядом</li>
+            <li>Не пишем <code>box-shadow: 0 0 24px #C6FF00</code> руками</li>
+            <li>Не убираем <code>.hero::after</code> — текст сольётся с видео</li>
+            <li>Не заливаем радугой акцентов один экран</li>
+          </ul>
+        </div>
+      </div>
+      <p class="ds-note">Полный голос бренда и стоп-слова — на странице «Бренд и голос»; токены — на «Основы».</p>
+    </section>
+
+    <footer class="ds-footer">
+      ZipString Design System · Neon Loop · компоненты синхронны с <code>css/main.css</code>. Правишь бренд — в <code>zipstring-ds/tokens.css</code>, компоненты подхватят.
+    </footer>
+
+  </div></main>
+</div>
+</body>
+</html>

@@ -3,412 +3,372 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ZipString — Маркетинг-хаб (для команды)</title>
-<link rel="stylesheet" href="../zipstring-ds/tokens.css">
+<title>ZipString — Маркетинг · Neon Loop DS</title>
+<link rel="stylesheet" href="ds.css">
 <style>
-  * { box-sizing: border-box; margin: 0; }
-  :root { --maxw: 1100px; }
-  body { background: var(--zs-bg); color: var(--zs-white); font-family: var(--zs-font-body); line-height: var(--zs-leading); }
-  a { color: var(--zs-lime); }
-  h1,h2,h3,h4 { font-family: var(--zs-font-display); line-height: 1.08; }
-
-  /* layout */
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(1rem,4vw,2.5rem); }
-  header.top { padding: clamp(2.5rem,6vw,5rem) 0 2rem; border-bottom: 1px solid var(--zs-border); }
-  .kicker { color: var(--zs-lime); font-size: .8rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; }
-  header.top h1 { font-size: clamp(2.2rem,6vw,4rem); font-weight:900; margin:.6rem 0; }
-  header.top p { color: var(--zs-gray); max-width: 62ch; }
-  .conf { display:inline-block; margin-top:1rem; font-size:.75rem; color:#ffb3b3; border:1px solid rgba(255,80,80,.35); background:rgba(255,80,80,.06); border-radius:999px; padding:.35rem .9rem; }
-
-  /* sticky nav */
-  nav.jump { position: sticky; top:0; z-index:20; background:rgba(8,8,8,.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--zs-border); }
-  nav.jump .wrap { display:flex; gap:.4rem; overflow-x:auto; padding-top:.7rem; padding-bottom:.7rem; }
-  nav.jump a { white-space:nowrap; font-size:.82rem; color:var(--zs-gray); text-decoration:none; padding:.35rem .7rem; border-radius:999px; border:1px solid transparent; }
-  nav.jump a:hover { color:var(--zs-white); border-color:var(--zs-border); }
-
-  section { padding: clamp(2.5rem,6vw,4.5rem) 0; border-bottom:1px solid var(--zs-border); }
-  section > .wrap > h2 { font-size: clamp(1.5rem,3.5vw,2.2rem); font-weight:800; }
-  .lead { color:var(--zs-gray); max-width:66ch; margin-top:.7rem; }
-  .eyebrow { color:var(--zs-lime); font-size:.78rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
-
-  /* cards / grids */
-  .grid { display:grid; gap:1rem; margin-top:1.6rem; }
-  .g2 { grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
-  .g3 { grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
-  .card { background:var(--zs-bg-2); border:1px solid var(--zs-border); border-radius:var(--zs-radius-lg); padding:1.3rem 1.4rem; }
-  .card.hl { border-top:3px solid var(--zs-lime); }
-  .card h3 { font-size:1.05rem; margin-bottom:.5rem; }
-  .card h4 { font-size:.95rem; margin:.3rem 0; }
-  .card p, .card li { color:var(--zs-gray); font-size:.9rem; }
-  .card ul { padding-left:1.1rem; margin-top:.4rem; }
-  .num { font-family:var(--zs-font-display); font-weight:900; color:var(--zs-lime); font-size:1.4rem; }
-  .tag { display:inline-block; font-size:.7rem; color:var(--zs-gray); border:1px solid var(--zs-border); border-radius:999px; padding:.15rem .6rem; margin:.15rem .2rem 0 0; }
-  .kpi { margin-top:.9rem; padding-top:.7rem; border-top:1px dashed var(--zs-border); font-size:.82rem; color:var(--zs-white); }
-  .kpi b { color:var(--zs-lime); }
-
-  /* tables */
-  .tblwrap { overflow-x:auto; margin-top:1.4rem; border:1px solid var(--zs-border); border-radius:var(--zs-radius-lg); }
-  table { border-collapse:collapse; width:100%; min-width:560px; font-size:.88rem; }
-  th,td { text-align:left; padding:.7rem .9rem; border-bottom:1px solid var(--zs-border); vertical-align:top; }
-  th { background:var(--zs-bg-2); font-family:var(--zs-font-display); font-weight:700; font-size:.8rem; color:var(--zs-white); }
-  td.bad { color:#ff9a9a; }
-  td.good { color:var(--zs-lime); }
-  tr:last-child td { border-bottom:0; }
-
-  /* ad snippet */
-  .ad { background:#0f0f0f; border:1px solid var(--zs-border); border-radius:12px; padding:1rem 1.2rem; margin-top:.8rem; }
-  .ad .url { color:#6ab0ff; font-size:.78rem; }
-  .ad .ttl { color:#a7c7ff; font-size:1rem; font-weight:600; margin:.2rem 0; }
-  .ad .txt { color:var(--zs-gray); font-size:.85rem; }
-  code { background:#141414; border:1px solid var(--zs-border); border-radius:6px; padding:.1rem .4rem; font-size:.82rem; color:var(--zs-lime); }
-  .muted { color:var(--zs-gray-2, #666); font-size:.78rem; }
-  .do { color:var(--zs-lime); } .dont { color:#ff9a9a; }
-  footer.end { padding:2rem 0 4rem; }
-  .pill-row { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1rem; }
-  .pill { background:var(--zs-bg-2); border:1px solid var(--zs-border); border-radius:999px; padding:.3rem .8rem; font-size:.82rem; color:var(--zs-gray); }
+  /* микро-правила поверх ds.css (нет в общем слое) */
+  .num { font-family: var(--zs-font-display); font-weight: 900; color: var(--zs-lime); font-size: 1.4rem; }
+  .kpi { margin-top: .9rem; padding-top: .7rem; border-top: 1px dashed var(--zs-border); font-size: .82rem; color: var(--zs-white); }
+  .kpi b { color: var(--zs-lime); }
+  .do { color: var(--zs-lime); }
+  .dont { color: #ff9a9a; }
+  .ds-card code { background: #141414; border: 1px solid var(--zs-border); border-radius: 6px; padding: .1rem .4rem; font-size: .82rem; color: var(--zs-lime); }
+  .ds-footer code, .ds-note code { background: #141414; border: 1px solid var(--zs-border); border-radius: 6px; padding: .1rem .4rem; font-size: .8rem; color: var(--zs-lime); }
 </style>
 </head>
 <body>
+<div class="ds-shell">
 
-<header class="top"><div class="wrap">
-  <div class="kicker">ZipString Russia · внутренний документ</div>
-  <h1>Маркетинг-хаб</h1>
-  <p>Рабочий арсенал команды: позиционирование, аргументы против конкурентов, форматы креативов, готовые примеры для Яндекс Директа, план на старт и каналы продвижения. Данные — из бренд-платформы, конкурентного анализа и контент-плана (Google Drive).</p>
-  <span class="conf">⚠ Коммерческая тайна ООО «Бэйби Опт Груп» — не для публикации</span>
-</div></header>
+  <!-- ═══ NAV (единая на всех страницах DS; active = class="on") ═══ -->
+  <aside class="ds-nav">
+    <div class="brand">Zip<span>String</span> DS</div>
+    <div class="tagline">Neon Loop · дизайн-система бренда</div>
+    <a href="index.html">Обзор</a>
+    <div class="group">Основы</div>
+    <a href="foundations.html">Основы (токены)</a>
+    <a href="components.html">Компоненты</a>
+    <div class="group">Бренд</div>
+    <a href="brand.html">Бренд и голос</a>
+    <a href="marketing.html" class="on">Маркетинг</a>
+    <a href="creatives.html">Креативы и объявления</a>
+    <div class="group">Исходники</div>
+    <a href="../zipstring-ds/tokens.css" class="ext">tokens.css</a>
+    <a href="../zipstring-ds/brand.json" class="ext">brand.json</a>
+    <a href="../zipstring-ds/ai-kit.md" class="ext">ai-kit.md</a>
+    <a href="../zipstring-ds/marketing-kit.md" class="ext">marketing-kit.md</a>
+  </aside>
 
-<nav class="jump"><div class="wrap">
-  <a href="#base">Кратко</a>
-  <a href="#vs">Vs конкуренты</a>
-  <a href="#hooks">Углы</a>
-  <a href="#creo">Креативы</a>
-  <a href="#direct">Яндекс Директ</a>
-  <a href="#start">Старт: 5 шагов</a>
-  <a href="#promo">Продвижение: 5</a>
-  <a href="#content">Контент</a>
-  <a href="#tricks">Трюки</a>
-</div></nav>
+  <main class="ds-main"><div class="ds-wrap">
 
-<!-- КРАТКО -->
-<section id="base"><div class="wrap">
-  <span class="eyebrow">С чего начинать любой креатив</span>
-  <h2>Кратко: кто мы и как говорим</h2>
-  <div class="grid g3">
-    <div class="card hl">
-      <h3>Позиционирование</h3>
-      <p>Первая в мире ручная электрическая игрушка для запуска нити. Не «ещё один веревкомет с WB», а <b style="color:var(--zs-white)">оригинал, который не ломается и умеет 100+ трюков</b>.</p>
-      <p style="margin-top:.6rem;color:var(--zs-white)">Слоган: «Дай волю восхищению». Финал: <b class="do">«Запускай. Удивляй.»</b></p>
-    </div>
-    <div class="card">
-      <h3>Цена и рынок</h3>
-      <p>Конкуренты ≈220–900 ₽, ZipString ≈2000 ₽. Мы <b style="color:var(--zs-white)">премиум</b> — оправдываем качеством и трюками, а не «дешевле всех».</p>
-      <div class="pill-row">
-        <span class="pill">4+ / ядро 7–12</span><span class="pill">WB + Ozon</span><span class="pill">Original + Aracna</span>
+    <header class="ds-hero">
+      <div class="ds-kicker">ZipString Russia · внутренний документ</div>
+      <h1>Маркетинг-хаб</h1>
+      <p>Рабочий арсенал команды: позиционирование, аргументы против конкурентов, форматы креативов, готовые примеры для Яндекс Директа, план на старт и каналы продвижения. Данные — из бренд-платформы, конкурентного анализа и контент-плана (Google Drive).</p>
+      <div style="margin-top:1rem"><span class="conf">⚠ Коммерческая тайна ООО «Бэйби Опт Груп» — не для публикации</span></div>
+    </header>
+
+    <!-- КРАТКО -->
+    <section class="ds-section" id="base">
+      <span class="ds-eyebrow">С чего начинать любой креатив</span>
+      <h2>Кратко: кто мы и как говорим</h2>
+      <div class="ds-grid c3">
+        <div class="ds-card hl">
+          <h3>Позиционирование</h3>
+          <p>Первая в мире ручная электрическая игрушка для запуска нити. Не «ещё один веревкомет с WB», а <b style="color:var(--zs-white)">оригинал, который не ломается и умеет 100+ трюков</b>.</p>
+          <p style="margin-top:.6rem;color:var(--zs-white)">Слоган: «Дай волю восхищению». Финал: <b class="do">«Запускай. Удивляй.»</b></p>
+        </div>
+        <div class="ds-card">
+          <h3>Цена и рынок</h3>
+          <p>Конкуренты ≈220–900 ₽, ZipString ≈2000 ₽. Мы <b style="color:var(--zs-white)">премиум</b> — оправдываем качеством и трюками, а не «дешевле всех».</p>
+          <div class="pill-row">
+            <span class="pill">4+ / ядро 7–12</span><span class="pill">WB + Ozon</span><span class="pill">Original + Aracna</span>
+          </div>
+        </div>
+        <div class="ds-card">
+          <h3>Голос</h3>
+          <p class="do">✅ Показываем в действии, глаголы, коротко, на «ты» с детьми / «вы» с родителями.</p>
+          <p class="dont" style="margin-top:.5rem">⛔ Стоп-слова: уникальный, революционный, лучший в мире, не имеющий аналогов, невероятный, «на 100%».</p>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <h3>Голос</h3>
-      <p class="do">✅ Показываем в действии, глаголы, коротко, на «ты» с детьми / «вы» с родителями.</p>
-      <p class="dont" style="margin-top:.5rem">⛔ Стоп-слова: уникальный, революционный, лучший в мире, не имеющий аналогов, невероятный, «на 100%».</p>
-    </div>
-  </div>
-  <p class="muted" style="margin-top:1rem">Полный голос бренда → <code>zipstring-ds/ai-kit.md</code> · смыслы → <code>brand.json</code> · арсенал → <code>marketing-kit.md</code></p>
-</div></section>
+      <p class="muted" style="margin-top:1rem">Полный голос бренда → <code>zipstring-ds/ai-kit.md</code> · смыслы → <code>brand.json</code> · арсенал → <code>marketing-kit.md</code></p>
+    </section>
 
-<!-- VS КОНКУРЕНТЫ -->
-<section id="vs"><div class="wrap">
-  <span class="eyebrow">Главный аргумент премиум-цены</span>
-  <h2>ZipString vs дешёвые аналоги</h2>
-  <p class="lead">Из отзывов и тестов конкурентов (RomaLab, ЦДМ Игрушки, ЗАНДЕР, Semybear). Используем в карточках, лендинге, Директе и роликах.</p>
-  <div class="tblwrap"><table>
-    <tr><th>Что важно</th><th>Дешёвые аналоги (220–900 ₽)</th><th>ZipString</th></tr>
-    <tr><td>Нить</td><td class="bad">Путается и рвётся</td><td class="good">Не путается, 3 сменные нити в комплекте</td></tr>
-    <tr><td>Трюки</td><td class="bad">Крутится «только по кругу»</td><td class="good">100+ трюков, библиотека и видео по QR</td></tr>
-    <tr><td>Питание</td><td class="bad">Батарейки (часто нет в комплекте)</td><td class="good">USB-C аккумулятор, заряжается</td></tr>
-    <tr><td>Механика</td><td class="bad">Кнопка/мотор быстро ломаются, шумит</td><td class="good">2 синхромотора — стабильно и тихо</td></tr>
-    <tr><td>Инструкция</td><td class="bad">Часто отсутствует</td><td class="good">Инструкция + обучающие видео</td></tr>
-    <tr><td>Гарантия</td><td class="bad">Нет / кустарь</td><td class="good">Официальный дистрибьютор, гарантия 1 год, ТР ТС 008/2011</td></tr>
-  </table></div>
-  <p class="muted" style="margin-top:.8rem">Приём для рекламы: «дёшево — но ломается за неделю» против «дороже — и радует надолго».</p>
-</div></section>
+    <!-- VS КОНКУРЕНТЫ -->
+    <section class="ds-section" id="vs">
+      <span class="ds-eyebrow">Главный аргумент премиум-цены</span>
+      <h2>ZipString vs дешёвые аналоги</h2>
+      <p class="ds-lead">Из отзывов и тестов конкурентов (RomaLab, ЦДМ Игрушки, ЗАНДЕР, Semybear). Используем в карточках, лендинге, Директе и роликах.</p>
+      <div class="ds-tbl-wrap"><table class="ds-tbl">
+        <tr><th>Что важно</th><th>Дешёвые аналоги (220–900 ₽)</th><th>ZipString</th></tr>
+        <tr><td>Нить</td><td class="bad">Путается и рвётся</td><td class="good">Не путается, 3 сменные нити в комплекте</td></tr>
+        <tr><td>Трюки</td><td class="bad">Крутится «только по кругу»</td><td class="good">100+ трюков, библиотека и видео по QR</td></tr>
+        <tr><td>Питание</td><td class="bad">Батарейки (часто нет в комплекте)</td><td class="good">USB-C аккумулятор, заряжается</td></tr>
+        <tr><td>Механика</td><td class="bad">Кнопка/мотор быстро ломаются, шумит</td><td class="good">2 синхромотора — стабильно и тихо</td></tr>
+        <tr><td>Инструкция</td><td class="bad">Часто отсутствует</td><td class="good">Инструкция + обучающие видео</td></tr>
+        <tr><td>Гарантия</td><td class="bad">Нет / кустарь</td><td class="good">Официальный дистрибьютор, гарантия 1 год, ТР ТС 008/2011</td></tr>
+      </table></div>
+      <p class="muted" style="margin-top:.8rem">Приём для рекламы: «дёшево — но ломается за неделю» против «дороже — и радует надолго».</p>
+    </section>
 
-<!-- УГЛЫ -->
-<section id="hooks"><div class="wrap">
-  <span class="eyebrow">О чём говорить</span>
-  <h2>Рекламные углы и боли</h2>
-  <div class="grid g2">
-    <div class="card">
-      <h3>4 боли покупателя</h3>
-      <ul>
-        <li>Ребёнка не вытащить из дома / из телефона</li>
-        <li>В поездке/на даче нечем занять, кроме гаджета</li>
-        <li>Игрушки надоедают за день</li>
-        <li>Новый непонятный продукт — «а вдруг сложно / на один раз»</li>
-      </ul>
-      <p style="margin-top:.6rem">Каждый креатив закрывает одну боль + показывает продукт в действии.</p>
-    </div>
-    <div class="card hl">
-      <h3>Хуки (первые 2 секунды ролика)</h3>
-      <ul>
-        <li>«Эта штука наконец оставит вас в покое» (мама отдыхает, дети играют)</li>
-        <li>«Первый трюк — за 10 минут. Справится даже ребёнок»</li>
-        <li>«Не игрушка на один день — 100+ трюков»</li>
-        <li>«В школу, во двор, на дачу — влезает в карман»</li>
-        <li>«Дешёвые веревкометы рвутся и путаются. Это — оригинал»</li>
-        <li>«В основе — физика. На выходе — магия»</li>
-      </ul>
-    </div>
-  </div>
-</div></section>
-
-<!-- КРЕАТИВЫ -->
-<section id="creo"><div class="wrap">
-  <span class="eyebrow">Форматы под каждую площадку</span>
-  <h2>Варианты креативов</h2>
-  <p class="lead">Один hero-актив (видео «первый трюк за 10 минут») переиспользуем во всех форматах. Ассеты — банк <code>assets/zipstring-media/</code> (168 видео, 545 фото).</p>
-  <div class="grid g2">
-    <div class="card hl">
-      <h3>🎬 Reels / Shorts / TikTok · 9:16, 7–15 сек</h3>
-      <p>Главный формат (категория продаётся через демонстрацию).</p>
-      <ul>
-        <li><b>Демо-трюк:</b> крупный план нити + вау-реакция</li>
-        <li><b>«Мама отдыхает»:</b> дети играют вдвоём, родитель в покое</li>
-        <li><b>«Повтори с первого раза»:</b> человек, который не пробовал</li>
-        <li><b>Челлендж:</b> кто быстрее / по раундам</li>
-        <li><b>Aracna:</b> притянуть предмет, закрыть дверь «как Человек-паук»</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>🛒 Карточка WB / Ozon</h3>
-      <ul>
-        <li>Видео на карточке (16:9) — трюки крупным планом</li>
-        <li>Rich-инфографика: 6 фото-слайдов «что в комплекте / как работает»</li>
-        <li>Слайд-сравнение «оригинал vs дешёвый веревкомет»</li>
-        <li>Слайд «100+ трюков по QR» + «USB-C, без батареек»</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>🖼 Баннеры РСЯ · статика</h3>
-      <ul>
-        <li>Продукт на тёмном фоне, лаймовый акцент, 1 хук</li>
-        <li>Форматы 1:1, 16:9, 9:16 из одного макета</li>
-        <li>Текст на баннере ≤ 5 слов: «Первый трюк за 10 минут»</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>🎠 Карусель / статика для соцсетей</h3>
-      <ul>
-        <li>«5 трюков за 30 секунд» (карусель-гайд)</li>
-        <li>«Почему не дешёвый веревкомет» (5 слайдов сравнения)</li>
-        <li>Подарочный угол к НГ: «то, что не надоест»</li>
-      </ul>
-    </div>
-  </div>
-  <p class="muted" style="margin-top:1rem">Правило: сначала показать продукт в действии, потом текст. Без стоп-слов. Финал-кадр — «Запускай. Удивляй.» + где купить.</p>
-</div></section>
-
-<!-- ЯНДЕКС ДИРЕКТ -->
-<section id="direct"><div class="wrap">
-  <span class="eyebrow">Готово к запуску</span>
-  <h2>Примеры для Яндекс Директа</h2>
-  <p class="lead">Спрос по категории уже есть (люди ищут «веревкомет / зип стринг / лассо»). Две кампании: Поиск (горячий спрос) + РСЯ (охват и ретаргет).</p>
-
-  <div class="grid g2">
-    <div class="card">
-      <h3>Кампания 1 — Поиск</h3>
-      <h4>Ключевые фразы</h4>
-      <div class="pill-row">
-        <span class="pill">купить веревкомет</span><span class="pill">зип стринг игрушка</span>
-        <span class="pill">zipstring купить</span><span class="pill">loop lasso игрушка</span>
-        <span class="pill">веревочная пусковая установка</span><span class="pill">стрингшутер</span>
-        <span class="pill">антийойо веревкомет</span><span class="pill">игрушка с летающей нитью</span>
+    <!-- УГЛЫ -->
+    <section class="ds-section" id="hooks">
+      <span class="ds-eyebrow">О чём говорить</span>
+      <h2>Рекламные углы и боли</h2>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <h3>4 боли покупателя</h3>
+          <ul>
+            <li>Ребёнка не вытащить из дома / из телефона</li>
+            <li>В поездке/на даче нечем занять, кроме гаджета</li>
+            <li>Игрушки надоедают за день</li>
+            <li>Новый непонятный продукт — «а вдруг сложно / на один раз»</li>
+          </ul>
+          <p style="margin-top:.6rem">Каждый креатив закрывает одну боль + показывает продукт в действии.</p>
+        </div>
+        <div class="ds-card hl">
+          <h3>Хуки (первые 2 секунды ролика)</h3>
+          <ul>
+            <li>«Эта штука наконец оставит вас в покое» (мама отдыхает, дети играют)</li>
+            <li>«Первый трюк — за 10 минут. Справится даже ребёнок»</li>
+            <li>«Не игрушка на один день — 100+ трюков»</li>
+            <li>«В школу, во двор, на дачу — влезает в карман»</li>
+            <li>«Дешёвые веревкометы рвутся и путаются. Это — оригинал»</li>
+            <li>«В основе — физика. На выходе — магия»</li>
+          </ul>
+        </div>
       </div>
-      <h4 style="margin-top:.9rem">Минус-слова</h4>
-      <p class="muted">бесплатно, скачать, своими руками, из бумаги, майнкрафт, роблокс, отзывы (если только продажа)</p>
-      <div class="ad">
-        <div class="url">zipstring.ru · Официальный дистрибьютор</div>
-        <div class="ttl">ZipString — оригинал, 100+ трюков</div>
-        <div class="txt">Летающая нить, USB-C, не путается. Гарантия 1 год. На WB и Ozon с доставкой по РФ.</div>
+    </section>
+
+    <!-- КРЕАТИВЫ -->
+    <section class="ds-section" id="creo">
+      <span class="ds-eyebrow">Форматы под каждую площадку</span>
+      <h2>Варианты креативов</h2>
+      <p class="ds-lead">Один hero-актив (видео «первый трюк за 10 минут») переиспользуем во всех форматах. Ассеты — банк <code>assets/zipstring-media/</code> (168 видео, 545 фото).</p>
+      <div class="ds-grid c2">
+        <div class="ds-card hl">
+          <h3>🎬 Reels / Shorts / TikTok · 9:16, 7–15 сек</h3>
+          <p>Главный формат (категория продаётся через демонстрацию).</p>
+          <ul>
+            <li><b>Демо-трюк:</b> крупный план нити + вау-реакция</li>
+            <li><b>«Мама отдыхает»:</b> дети играют вдвоём, родитель в покое</li>
+            <li><b>«Повтори с первого раза»:</b> человек, который не пробовал</li>
+            <li><b>Челлендж:</b> кто быстрее / по раундам</li>
+            <li><b>Aracna:</b> притянуть предмет, закрыть дверь «как Человек-паук»</li>
+          </ul>
+        </div>
+        <div class="ds-card">
+          <h3>🛒 Карточка WB / Ozon</h3>
+          <ul>
+            <li>Видео на карточке (16:9) — трюки крупным планом</li>
+            <li>Rich-инфографика: 6 фото-слайдов «что в комплекте / как работает»</li>
+            <li>Слайд-сравнение «оригинал vs дешёвый веревкомет»</li>
+            <li>Слайд «100+ трюков по QR» + «USB-C, без батареек»</li>
+          </ul>
+        </div>
+        <div class="ds-card">
+          <h3>🖼 Баннеры РСЯ · статика</h3>
+          <ul>
+            <li>Продукт на тёмном фоне, лаймовый акцент, 1 хук</li>
+            <li>Форматы 1:1, 16:9, 9:16 из одного макета</li>
+            <li>Текст на баннере ≤ 5 слов: «Первый трюк за 10 минут»</li>
+          </ul>
+        </div>
+        <div class="ds-card">
+          <h3>🎠 Карусель / статика для соцсетей</h3>
+          <ul>
+            <li>«5 трюков за 30 секунд» (карусель-гайд)</li>
+            <li>«Почему не дешёвый веревкомет» (5 слайдов сравнения)</li>
+            <li>Подарочный угол к НГ: «то, что не надоест»</li>
+          </ul>
+        </div>
       </div>
-      <div class="ad">
-        <div class="url">zipstring.ru</div>
-        <div class="ttl">Веревкомет ZipString — не ломается</div>
-        <div class="txt">Первый трюк за 10 минут. 3 нити в комплекте. Официально, сертификат ТР ТС.</div>
+      <p class="muted" style="margin-top:1rem">Правило: сначала показать продукт в действии, потом текст. Без стоп-слов. Финал-кадр — «Запускай. Удивляй.» + где купить.</p>
+    </section>
+
+    <!-- ЯНДЕКС ДИРЕКТ -->
+    <section class="ds-section" id="direct">
+      <span class="ds-eyebrow">Готово к запуску</span>
+      <h2>Примеры для Яндекс Директа</h2>
+      <p class="ds-lead">Спрос по категории уже есть (люди ищут «веревкомет / зип стринг / лассо»). Две кампании: Поиск (горячий спрос) + РСЯ (охват и ретаргет).</p>
+
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <h3>Кампания 1 — Поиск</h3>
+          <h4>Ключевые фразы</h4>
+          <div class="pill-row">
+            <span class="pill">купить веревкомет</span><span class="pill">зип стринг игрушка</span>
+            <span class="pill">zipstring купить</span><span class="pill">loop lasso игрушка</span>
+            <span class="pill">веревочная пусковая установка</span><span class="pill">стрингшутер</span>
+            <span class="pill">антийойо веревкомет</span><span class="pill">игрушка с летающей нитью</span>
+          </div>
+          <h4 style="margin-top:.9rem">Минус-слова</h4>
+          <p class="muted">бесплатно, скачать, своими руками, из бумаги, майнкрафт, роблокс, отзывы (если только продажа)</p>
+          <div class="ad-search" style="margin-top:.8rem">
+            <div class="u">zipstring.ru · Официальный дистрибьютор</div>
+            <div class="t">ZipString — оригинал, 100+ трюков</div>
+            <div class="d">Летающая нить, USB-C, не путается. Гарантия 1 год. На WB и Ozon с доставкой по РФ.</div>
+          </div>
+          <div class="ad-search" style="margin-top:.8rem">
+            <div class="u">zipstring.ru</div>
+            <div class="t">Веревкомет ZipString — не ломается</div>
+            <div class="d">Первый трюк за 10 минут. 3 нити в комплекте. Официально, сертификат ТР ТС.</div>
+          </div>
+          <p class="muted" style="margin-top:.6rem">Быстрые ссылки: Original · Aracna · Библиотека трюков · Где купить</p>
+        </div>
+
+        <div class="ds-card hl">
+          <h3>Кампания 2 — РСЯ + ретаргет</h3>
+          <h4>Аудитории</h4>
+          <ul>
+            <li>Интересы: детские игрушки, товары для детей, родители</li>
+            <li>Ключи категории (как на Поиске) + «подарок ребёнку 7–12»</li>
+            <li>Look-alike по посетителям сайта / карточек</li>
+            <li>Ретаргет: были на сайте, не купили → добить видео-демо</li>
+          </ul>
+          <h4 style="margin-top:.7rem">Креативы РСЯ</h4>
+          <ul>
+            <li>Видео-демо трюка 9:16/16:9 (главный)</li>
+            <li>Статика: продукт на тёмном + хук «Первый трюк за 10 минут»</li>
+            <li>Сравнение «оригинал vs дешёвый» (для сомневающихся)</li>
+          </ul>
+          <div class="ad-search" style="margin-top:.8rem">
+            <div class="t">Ребёнок залипнет — но не в телефон</div>
+            <div class="d">ZipString: летающая нить и 100+ трюков. Оригинал, гарантия 1 год.</div>
+          </div>
+          <p class="kpi"><b>Ориентир:</b> РСЯ CTR ~0.3–0.7%, целевая ДРР по Директу ≤ 15–20% на старте, оптимизация по добавлению в корзину/переходу на MP.</p>
+        </div>
       </div>
-      <p class="muted" style="margin-top:.6rem">Быстрые ссылки: Original · Aracna · Библиотека трюков · Где купить</p>
-    </div>
+      <p class="muted" style="margin-top:1rem">Заголовки Директа ≤ 56 симв., текст ≤ 81 симв. Числа приблизительные — уточняются после теста.</p>
+    </section>
 
-    <div class="card hl">
-      <h3>Кампания 2 — РСЯ + ретаргет</h3>
-      <h4>Аудитории</h4>
-      <ul>
-        <li>Интересы: детские игрушки, товары для детей, родители</li>
-        <li>Ключи категории (как на Поиске) + «подарок ребёнку 7–12»</li>
-        <li>Look-alike по посетителям сайта / карточек</li>
-        <li>Ретаргет: были на сайте, не купили → добить видео-демо</li>
-      </ul>
-      <h4 style="margin-top:.7rem">Креативы РСЯ</h4>
-      <ul>
-        <li>Видео-демо трюка 9:16/16:9 (главный)</li>
-        <li>Статика: продукт на тёмном + хук «Первый трюк за 10 минут»</li>
-        <li>Сравнение «оригинал vs дешёвый» (для сомневающихся)</li>
-      </ul>
-      <div class="ad">
-        <div class="ttl">Ребёнок залипнет — но не в телефон</div>
-        <div class="txt">ZipString: летающая нить и 100+ трюков. Оригинал, гарантия 1 год.</div>
+    <!-- СТАРТ: 5 ШАГОВ -->
+    <section class="ds-section" id="start">
+      <span class="ds-eyebrow">Исследование · что сделать на старте</span>
+      <h2>5 шагов на старте</h2>
+      <p class="ds-lead">Оптимальный фундамент для нового премиум-продукта в новой категории на маркетплейсах. Порядок = приоритет. Цифры — ориентиры для планирования, не обещания.</p>
+
+      <div class="ds-grid c2">
+        <div class="ds-card hl">
+          <div class="num">01</div>
+          <h3>Продающие карточки WB/Ozon</h3>
+          <p><b class="do">Что:</b> rich-контент, видео, инфографика, SEO по синонимам категории.</p>
+          <p><b class="do">Почему:</b> маркетплейс — основной канал продаж, категория ищется поиском. Карточка решает конверсию.</p>
+          <p><b class="do">Как:</b> 8–10 слайдов, видео 16:9, слайд-сравнение, ключи (веревкомет/зип стринг/лассо) в тайтл и характеристики.</p>
+          <p class="kpi"><b>Результат:</b> конверсия карточки 8–12%, база под весь трафик. <b>Без этого остальное сливает бюджет.</b></p>
+        </div>
+        <div class="ds-card">
+          <div class="num">02</div>
+          <h3>Hero-видео «первый трюк за 10 минут»</h3>
+          <p><b class="do">Что:</b> 1 главный ролик + 5–7 коротких трюк-роликов.</p>
+          <p><b class="do">Почему:</b> #1 барьер новой категории — «непонятно, что это». Демонстрация снимает его. В США бренд вырос на 90% UGC-видео.</p>
+          <p><b class="do">Как:</b> снять из банка/заново, переиспользовать в карточке, Reels, РСЯ, лендинге.</p>
+          <p class="kpi"><b>Результат:</b> демонстрация даёт +20–40% к добавлению в корзину vs карточка без видео.</p>
+        </div>
+        <div class="ds-card">
+          <div class="num">03</div>
+          <h3>Отзывы и рейтинг с первых продаж</h3>
+          <p><b class="do">Что:</b> раздачи за честный отзыв (в рамках правил MP), быстрые ответы на вопросы, работа с первыми отзывами.</p>
+          <p><b class="do">Почему:</b> барьер недоверия к неизвестному премиуму — ключевой. Рейтинг влияет на ранжирование MP.</p>
+          <p class="kpi"><b>Результат:</b> цель 4.7+★ и 30–50 отзывов на SKU в первые 4–6 недель → рост органических показов.</p>
+        </div>
+        <div class="ds-card">
+          <div class="num">04</div>
+          <h3>Инфографика-сравнение «оригинал vs дешёвый»</h3>
+          <p><b class="do">Что:</b> блок сравнения на карточке и лендинге (уже в макете сайта).</p>
+          <p><b class="do">Почему:</b> оправдывает цену ×2–3 против аналогов, снимает возражение «почему так дорого».</p>
+          <p class="kpi"><b>Результат:</b> меньше отказов по цене, выше конверсия «сомневающихся».</p>
+        </div>
+        <div class="ds-card">
+          <div class="num">05</div>
+          <h3>Запуск соцсетей + Клуб Zipster</h3>
+          <p><b class="do">Что:</b> VK/TikTok/YouTube Shorts + стартовый челлендж/розыгрыш, актуальные «трюки/инструкции/где купить».</p>
+          <p><b class="do">Почему:</b> продукт вирусный и UGC-driven; сообщество = поток контента + защита статуса «оригинал».</p>
+          <p class="kpi"><b>Результат:</b> первые UGC, органический охват, база ретаргета.</p>
+        </div>
       </div>
-      <p class="kpi"><b>Ориентир:</b> РСЯ CTR ~0.3–0.7%, целевая ДРР по Директу ≤ 15–20% на старте, оптимизация по добавлению в корзину/переходу на MP.</p>
-    </div>
-  </div>
-  <p class="muted" style="margin-top:1rem">Заголовки Директа ≤ 56 симв., текст ≤ 81 симв. Числа приблизительные — уточняются после теста.</p>
-</div></section>
+    </section>
 
-<!-- СТАРТ: 5 ШАГОВ -->
-<section id="start"><div class="wrap">
-  <span class="eyebrow">Исследование · что сделать на старте</span>
-  <h2>5 шагов на старте</h2>
-  <p class="lead">Оптимальный фундамент для нового премиум-продукта в новой категории на маркетплейсах. Порядок = приоритет. Цифры — ориентиры для планирования, не обещания.</p>
+    <!-- ПРОДВИЖЕНИЕ -->
+    <section class="ds-section" id="promo">
+      <span class="ds-eyebrow">Каналы трафика</span>
+      <h2>5 вариантов продвижения</h2>
+      <p class="ds-lead">От самого «горячего» и окупаемого к охватному. Запускать по мере готовности фундамента (карточки + видео + отзывы).</p>
 
-  <div class="grid g2">
-    <div class="card hl">
-      <div class="num">01</div>
-      <h3>Продающие карточки WB/Ozon</h3>
-      <p><b class="do">Что:</b> rich-контент, видео, инфографика, SEO по синонимам категории.</p>
-      <p><b class="do">Почему:</b> маркетплейс — основной канал продаж, категория ищется поиском. Карточка решает конверсию.</p>
-      <p><b class="do">Как:</b> 8–10 слайдов, видео 16:9, слайд-сравнение, ключи (веревкомет/зип стринг/лассо) в тайтл и характеристики.</p>
-      <p class="kpi"><b>Результат:</b> конверсия карточки 8–12%, база под весь трафик. <b>Без этого остальное сливает бюджет.</b></p>
-    </div>
-    <div class="card">
-      <div class="num">02</div>
-      <h3>Hero-видео «первый трюк за 10 минут»</h3>
-      <p><b class="do">Что:</b> 1 главный ролик + 5–7 коротких трюк-роликов.</p>
-      <p><b class="do">Почему:</b> #1 барьер новой категории — «непонятно, что это». Демонстрация снимает его. В США бренд вырос на 90% UGC-видео.</p>
-      <p><b class="do">Как:</b> снять из банка/заново, переиспользовать в карточке, Reels, РСЯ, лендинге.</p>
-      <p class="kpi"><b>Результат:</b> демонстрация даёт +20–40% к добавлению в корзину vs карточка без видео.</p>
-    </div>
-    <div class="card">
-      <div class="num">03</div>
-      <h3>Отзывы и рейтинг с первых продаж</h3>
-      <p><b class="do">Что:</b> раздачи за честный отзыв (в рамках правил MP), быстрые ответы на вопросы, работа с первыми отзывами.</p>
-      <p><b class="do">Почему:</b> барьер недоверия к неизвестному премиуму — ключевой. Рейтинг влияет на ранжирование MP.</p>
-      <p class="kpi"><b>Результат:</b> цель 4.7+★ и 30–50 отзывов на SKU в первые 4–6 недель → рост органических показов.</p>
-    </div>
-    <div class="card">
-      <div class="num">04</div>
-      <h3>Инфографика-сравнение «оригинал vs дешёвый»</h3>
-      <p><b class="do">Что:</b> блок сравнения на карточке и лендинге (уже в макете сайта).</p>
-      <p><b class="do">Почему:</b> оправдывает цену ×2–3 против аналогов, снимает возражение «почему так дорого».</p>
-      <p class="kpi"><b>Результат:</b> меньше отказов по цене, выше конверсия «сомневающихся».</p>
-    </div>
-    <div class="card">
-      <div class="num">05</div>
-      <h3>Запуск соцсетей + Клуб Zipster</h3>
-      <p><b class="do">Что:</b> VK/TikTok/YouTube Shorts + стартовый челлендж/розыгрыш, актуальные «трюки/инструкции/где купить».</p>
-      <p><b class="do">Почему:</b> продукт вирусный и UGC-driven; сообщество = поток контента + защита статуса «оригинал».</p>
-      <p class="kpi"><b>Результат:</b> первые UGC, органический охват, база ретаргета.</p>
-    </div>
-  </div>
-</div></section>
-
-<!-- ПРОДВИЖЕНИЕ -->
-<section id="promo"><div class="wrap">
-  <span class="eyebrow">Каналы трафика</span>
-  <h2>5 вариантов продвижения</h2>
-  <p class="lead">От самого «горячего» и окупаемого к охватному. Запускать по мере готовности фундамента (карточки + видео + отзывы).</p>
-
-  <div class="grid g2">
-    <div class="card hl">
-      <div class="num">01</div>
-      <h3>Внутренняя реклама маркетплейсов</h3>
-      <p>WB «Продвижение» + Ozon реклама (авто-кампании + поиск). Трафик ведёт прямо к покупке — самый короткий путь.</p>
-      <p class="kpi"><b>Доказано:</b> на MP это самый окупаемый канал. <b>Ориентир:</b> ДРР 10–15% при готовой карточке.</p>
-    </div>
-    <div class="card">
-      <div class="num">02</div>
-      <h3>Яндекс Директ (Поиск + РСЯ)</h3>
-      <p>Ловим существующий спрос по «веревкомет/зип стринг/лассо» + охват в РСЯ + ретаргет. Ведём на лендинг/карточки.</p>
-      <p class="kpi"><b>Ориентир:</b> Поиск — тёплый трафик, РСЯ — масштаб; ДРР ≤ 15–20% на старте.</p>
-    </div>
-    <div class="card">
-      <div class="num">03</div>
-      <h3>Посев у детских/семейных микро-блогеров</h3>
-      <p>Reels/Shorts/TikTok, микро- и нано-инфлюенсеры (родители, семьи). Даёт охват + доверие + UGC-актив.</p>
-      <p class="kpi"><b>Доказано:</b> глобально бренд рос на UGC. <b>Ориентир:</b> 10–20 посевов/мес, отбор по engagement, а не подписчикам.</p>
-    </div>
-    <div class="card">
-      <div class="num">04</div>
-      <h3>Таргет ВКонтакте</h3>
-      <p>Родители 25–45, гео РФ; сообщество + ретаргет + look-alike. Видео-демо и сравнение как креативы.</p>
-      <p class="kpi"><b>Ориентир:</b> тест 3–5 аудиторий × 3 креатива, масштабируем победителей.</p>
-    </div>
-    <div class="card">
-      <div class="num">05</div>
-      <h3>UGC-челленджи и розыгрыши (Zipster)</h3>
-      <p>«Придумай свой трюк», «мой первый трюк», баттлы с отметкой друга. Органика + вирусность + отзывы.</p>
-      <p class="kpi"><b>Результат:</b> дешёвый органический охват, поток пользовательского контента для рекламы.</p>
-    </div>
-  </div>
-  <p class="muted" style="margin-top:1rem">Последовательность: сначала #1–2 (окупаемый трафик к готовой карточке) → затем #3–5 (охват, доверие, органика).</p>
-</div></section>
-
-<!-- КОНТЕНТ -->
-<section id="content"><div class="wrap">
-  <span class="eyebrow">Из контент-плана</span>
-  <h2>Рубрики и готовые идеи роликов</h2>
-  <div class="grid g2">
-    <div class="card">
-      <h3>5 рубрик (reels)</h3>
-      <ul>
-        <li>Сценарии одному — трюки, «занять себя без экрана»</li>
-        <li>С другом/семьёй — повод собраться</li>
-        <li>Повтори трюк с первого раза — доступность</li>
-        <li>Челлендж — кто быстрее / по раундам</li>
-        <li>Сценарии в разных местах — двор, дача, дорога, школа</li>
-      </ul>
-    </div>
-    <div class="card hl">
-      <h3>Готовые идеи</h3>
-      <ul>
-        <li>«Эта штука оставит вас в покое»: мама отдыхает, дети играют вдвоём</li>
-        <li>«Три трюка за 30 секунд»</li>
-        <li>Aracna в быту: закрыть дверь, притянуть предмет</li>
-        <li>Челлендж с шоколадом по раундам · трюки с дедулей</li>
-        <li>«45 минут подряд без телефона»</li>
-        <li>Инструкции Original / Aracna · «Где купить»</li>
-      </ul>
-    </div>
-  </div>
-</div></section>
-
-<!-- ТРЮКИ -->
-<section id="tricks"><div class="wrap">
-  <span class="eyebrow">Для сценариев и подписей</span>
-  <h2>Библиотека трюков и розыгрыши</h2>
-  <div class="grid g2">
-    <div class="card">
-      <h3>Названия трюков</h3>
-      <p style="color:var(--zs-white)">RU-канон:</p>
-      <div class="pill-row">
-        <span class="pill">Штопор</span><span class="pill">Проскок</span><span class="pill">Портал</span><span class="pill">Бесконечность</span><span class="pill">Стрельба из лука</span><span class="pill">Человек-паук</span><span class="pill">Лассо</span><span class="pill">Непослушная нить</span><span class="pill">Вихрь</span><span class="pill">Колесо</span><span class="pill">Виолончель</span>
+      <div class="ds-grid c2">
+        <div class="ds-card hl">
+          <div class="num">01</div>
+          <h3>Внутренняя реклама маркетплейсов</h3>
+          <p>WB «Продвижение» + Ozon реклама (авто-кампании + поиск). Трафик ведёт прямо к покупке — самый короткий путь.</p>
+          <p class="kpi"><b>Доказано:</b> на MP это самый окупаемый канал. <b>Ориентир:</b> ДРР 10–15% при готовой карточке.</p>
+        </div>
+        <div class="ds-card">
+          <div class="num">02</div>
+          <h3>Яндекс Директ (Поиск + РСЯ)</h3>
+          <p>Ловим существующий спрос по «веревкомет/зип стринг/лассо» + охват в РСЯ + ретаргет. Ведём на лендинг/карточки.</p>
+          <p class="kpi"><b>Ориентир:</b> Поиск — тёплый трафик, РСЯ — масштаб; ДРР ≤ 15–20% на старте.</p>
+        </div>
+        <div class="ds-card">
+          <div class="num">03</div>
+          <h3>Посев у детских/семейных микро-блогеров</h3>
+          <p>Reels/Shorts/TikTok, микро- и нано-инфлюенсеры (родители, семьи). Даёт охват + доверие + UGC-актив.</p>
+          <p class="kpi"><b>Доказано:</b> глобально бренд рос на UGC. <b>Ориентир:</b> 10–20 посевов/мес, отбор по engagement, а не подписчикам.</p>
+        </div>
+        <div class="ds-card">
+          <div class="num">04</div>
+          <h3>Таргет ВКонтакте</h3>
+          <p>Родители 25–45, гео РФ; сообщество + ретаргет + look-alike. Видео-демо и сравнение как креативы.</p>
+          <p class="kpi"><b>Ориентир:</b> тест 3–5 аудиторий × 3 креатива, масштабируем победителей.</p>
+        </div>
+        <div class="ds-card">
+          <div class="num">05</div>
+          <h3>UGC-челленджи и розыгрыши (Zipster)</h3>
+          <p>«Придумай свой трюк», «мой первый трюк», баттлы с отметкой друга. Органика + вирусность + отзывы.</p>
+          <p class="kpi"><b>Результат:</b> дешёвый органический охват, поток пользовательского контента для рекламы.</p>
+        </div>
       </div>
-      <p style="color:var(--zs-white);margin-top:.7rem">EN (оригинал):</p>
-      <p class="muted">Corkscrew · Step-through · Portal · Infinity · Bow & Arrow · Spider-Man · Lasso · Cartwheels · The Glitch · The Zipup · The Beard · Closer · Zip Goal · Zip Fish'n</p>
-    </div>
-    <div class="card">
-      <h3>Идеи розыгрышей (Zipster)</h3>
-      <ul>
-        <li>«Придумай свой трюк» — самым креативным Aracna</li>
-        <li>«Мой первый трюк с ZipString» — 3 победителя, Original/Aracna</li>
-        <li>«Сними трюк N с хештегом»</li>
-        <li>«Отметь друга для баттла» (VK)</li>
-      </ul>
-    </div>
-  </div>
-</div></section>
+      <p class="muted" style="margin-top:1rem">Последовательность: сначала #1–2 (окупаемый трафик к готовой карточке) → затем #3–5 (охват, доверие, органика).</p>
+    </section>
 
-<footer class="end"><div class="wrap">
-  <p class="muted">Источники: бренд-платформа (18.05.2026), сравнительный анализ конкурентов, обзор рынка (MPStats), контент-план, SMM-стратегия — Google Drive BabyOptGroup. Синхронно с <code>zipstring-ds/marketing-kit.md</code>. Цифры-ориентиры уточняются после первых тестов.</p>
-</div></footer>
+    <!-- КОНТЕНТ -->
+    <section class="ds-section" id="content">
+      <span class="ds-eyebrow">Из контент-плана</span>
+      <h2>Рубрики и готовые идеи роликов</h2>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <h3>5 рубрик (reels)</h3>
+          <ul>
+            <li>Сценарии одному — трюки, «занять себя без экрана»</li>
+            <li>С другом/семьёй — повод собраться</li>
+            <li>Повтори трюк с первого раза — доступность</li>
+            <li>Челлендж — кто быстрее / по раундам</li>
+            <li>Сценарии в разных местах — двор, дача, дорога, школа</li>
+          </ul>
+        </div>
+        <div class="ds-card hl">
+          <h3>Готовые идеи</h3>
+          <ul>
+            <li>«Эта штука оставит вас в покое»: мама отдыхает, дети играют вдвоём</li>
+            <li>«Три трюка за 30 секунд»</li>
+            <li>Aracna в быту: закрыть дверь, притянуть предмет</li>
+            <li>Челлендж с шоколадом по раундам · трюки с дедулей</li>
+            <li>«45 минут подряд без телефона»</li>
+            <li>Инструкции Original / Aracna · «Где купить»</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
+    <!-- ТРЮКИ -->
+    <section class="ds-section" id="tricks">
+      <span class="ds-eyebrow">Для сценариев и подписей</span>
+      <h2>Библиотека трюков и розыгрыши</h2>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <h3>Названия трюков</h3>
+          <p style="color:var(--zs-white)">RU-канон:</p>
+          <div class="pill-row">
+            <span class="pill">Штопор</span><span class="pill">Проскок</span><span class="pill">Портал</span><span class="pill">Бесконечность</span><span class="pill">Стрельба из лука</span><span class="pill">Человек-паук</span><span class="pill">Лассо</span><span class="pill">Непослушная нить</span><span class="pill">Вихрь</span><span class="pill">Колесо</span><span class="pill">Виолончель</span>
+          </div>
+          <p style="color:var(--zs-white);margin-top:.7rem">EN (оригинал):</p>
+          <p class="muted">Corkscrew · Step-through · Portal · Infinity · Bow &amp; Arrow · Spider-Man · Lasso · Cartwheels · The Glitch · The Zipup · The Beard · Closer · Zip Goal · Zip Fish'n</p>
+        </div>
+        <div class="ds-card">
+          <h3>Идеи розыгрышей (Zipster)</h3>
+          <ul>
+            <li>«Придумай свой трюк» — самым креативным Aracna</li>
+            <li>«Мой первый трюк с ZipString» — 3 победителя, Original/Aracna</li>
+            <li>«Сними трюк N с хештегом»</li>
+            <li>«Отметь друга для баттла» (VK)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="ds-footer">
+      Источники: бренд-платформа (18.05.2026), сравнительный анализ конкурентов, обзор рынка (MPStats), контент-план, SMM-стратегия — Google Drive BabyOptGroup. Синхронно с <code>zipstring-ds/marketing-kit.md</code>. Цифры-ориентиры уточняются после первых тестов.
+    </footer>
+
+  </div></main>
+</div>
 </body>
 </html>

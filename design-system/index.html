@@ -4,161 +4,103 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ZipString Design System — Neon Loop</title>
-<link rel="stylesheet" href="../zipstring-ds/tokens.css">
-<style>
-  * { box-sizing: border-box; margin: 0; }
-  body { background: var(--zs-bg); color: var(--zs-white); font-family: var(--zs-font-body); line-height: var(--zs-leading); padding: clamp(1.5rem, 5vw, 5rem); }
-  h1, h2, h3 { font-family: var(--zs-font-display); line-height: 1.05; }
-  h1 { font-size: var(--zs-text-hero); font-weight: 900; }
-  h1 .accent { color: var(--zs-lime); }
-  .sub { color: var(--zs-gray); max-width: 60ch; margin-top: 1rem; }
-  section { margin-top: clamp(3rem, 8vw, 6rem); }
-  h2 { font-size: 1.5rem; font-weight: 700; border-bottom: 1px solid var(--zs-border); padding-bottom: .5rem; margin-bottom: 1.5rem; }
-  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-  .swatch { border-radius: var(--zs-radius); overflow: hidden; border: 1px solid var(--zs-border); }
-  .swatch .chip { height: 90px; }
-  .swatch .meta { padding: .6rem .8rem; font-size: .8rem; background: var(--zs-bg-2); }
-  .swatch .meta b { display: block; }
-  .swatch .meta code { color: var(--zs-gray); font-size: .75rem; }
-  .type-row { padding: 1rem 0; border-bottom: 1px solid var(--zs-border); }
-  .type-row small { color: var(--zs-gray); font-family: var(--zs-font-body); font-size: .8rem; display:block; margin-bottom:.3rem; }
-  .products { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-  .card { background: var(--zs-bg-2); border: 1px solid var(--zs-border); border-radius: var(--zs-radius-lg); padding: 1.5rem; border-top: 3px solid var(--zs-tone); }
-  .card h3 { font-size: 1.2rem; color: var(--zs-tone); }
-  .card .price { font-family: var(--zs-font-display); font-weight: 700; margin-top: .8rem; }
-  .card p { color: var(--zs-gray); font-size: .9rem; margin-top: .4rem; }
-  .btns { display: flex; gap: .5rem; margin-top: 3rem; }
-  .btn { padding: .7rem 1.2rem; border-radius: var(--zs-radius); font-weight: 600; font-size: .85rem; text-decoration: none; color: #fff; }
-  .btn.wb { background: var(--zs-wildberries); }
-  .btn.ozon { background: var(--zs-ozon); }
-  .btn.lime { background: var(--zs-lime); color: #000; }
-  .note { color: var(--zs-gray); font-size: .85rem; margin-top: 3rem; border-left: 2px solid var(--zs-lime); padding-left: 1rem; }
-  .glow-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-  .glow-box { width: 120px; height: 120px; border-radius: var(--zs-radius-lg); display: grid; place-items: center; font-size: .75rem; color: var(--zs-gray); background: var(--zs-bg-2); border: 1px solid var(--zs-border); }
-  .glow-box.a { box-shadow: var(--zs-glow); }
-  .glow-box.b { box-shadow: var(--zs-glow-soft); }
-  .glow-box.c { box-shadow: var(--zs-shadow); }
-  .glow-box.tone { box-shadow: var(--zs-glow-tone); }
-  .rhythm { display: flex; align-items: flex-end; gap: .75rem; }
-  .rhythm div { background: var(--zs-lime); width: 40px; border-radius: var(--zs-radius-sm); }
-  .rhythm span { color: var(--zs-gray); font-size: .7rem; display:block; text-align:center; margin-top:.3rem; }
-  .voice { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-  .voice .col { background: var(--zs-bg-2); border: 1px solid var(--zs-border); border-radius: var(--zs-radius-lg); padding: 1.2rem 1.4rem; }
-  .voice .col.ok { border-top: 3px solid var(--zs-lime); }
-  .voice .col.no { border-top: 3px solid #ff5050; }
-  .voice h3 { font-size: 1rem; margin-bottom: .6rem; }
-  .voice ul { list-style: none; }
-  .voice li { color: var(--zs-gray); font-size: .85rem; padding: .25rem 0; border-bottom: 1px solid var(--zs-border); }
-  .voice li:last-child { border: 0; }
-  .formula { font-size: .9rem; color: var(--zs-white); }
-  .formula code { color: var(--zs-lime); }
-  .chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
-  .chips span { background: var(--zs-bg-2); border: 1px solid var(--zs-border); border-radius: 999px; padding: .3rem .8rem; font-size: .8rem; color: var(--zs-gray); }
-</style>
+<link rel="stylesheet" href="ds.css">
 </head>
 <body>
+<div class="ds-shell">
 
-<header>
-  <h1>ZipString <span class="accent">Neon Loop</span></h1>
-  <p class="sub">Дизайн-система бренда. Тёмный холст, свет от неона и продукта.
-  Токены — <code>zipstring-ds/tokens.css</code>, смыслы — <code>docs/brand-brief.md</code>.</p>
-  <p class="sub" style="margin-top:.6rem;"><a href="marketing.html" style="color:var(--zs-lime);font-weight:600;">→ Маркетинг-хаб для команды</a> (углы, креативы, Яндекс Директ, план на старт и продвижение)</p>
-</header>
+  <!-- ═══ NAV (единая на всех страницах DS; active = class="on") ═══ -->
+  <aside class="ds-nav">
+    <div class="brand">Zip<span>String</span> DS</div>
+    <div class="tagline">Neon Loop · дизайн-система бренда</div>
+    <a href="index.html" class="on">Обзор</a>
+    <div class="group">Основы</div>
+    <a href="foundations.html">Основы (токены)</a>
+    <a href="components.html">Компоненты</a>
+    <div class="group">Бренд</div>
+    <a href="brand.html">Бренд и голос</a>
+    <a href="marketing.html">Маркетинг</a>
+    <a href="creatives.html">Креативы и объявления</a>
+    <div class="group">Исходники</div>
+    <a href="../zipstring-ds/tokens.css" class="ext">tokens.css</a>
+    <a href="../zipstring-ds/brand.json" class="ext">brand.json</a>
+    <a href="../zipstring-ds/ai-kit.md" class="ext">ai-kit.md</a>
+    <a href="../zipstring-ds/marketing-kit.md" class="ext">marketing-kit.md</a>
+  </aside>
 
-<section>
-  <h2>Цвет</h2>
-  <div class="grid">
-    <div class="swatch"><div class="chip" style="background:var(--zs-bg)"></div><div class="meta"><b>bg</b><code>#080808</code></div></div>
-    <div class="swatch"><div class="chip" style="background:var(--zs-bg-2)"></div><div class="meta"><b>bg-2</b><code>#111111</code></div></div>
-    <div class="swatch"><div class="chip" style="background:var(--zs-lime)"></div><div class="meta"><b>lime · акцент</b><code>#C6FF00</code></div></div>
-    <div class="swatch"><div class="chip" style="background:var(--zs-uv)"></div><div class="meta"><b>uv · Luma</b><code>#7c3aed</code></div></div>
-    <div class="swatch"><div class="chip" style="background:var(--zs-web)"></div><div class="meta"><b>web · Aracna</b><code>#CB11AB</code></div></div>
-    <div class="swatch"><div class="chip" style="background:var(--zs-ozon)"></div><div class="meta"><b>Ozon</b><code>#005BFF</code></div></div>
-    <div class="swatch"><div class="chip" style="background:var(--zs-white)"></div><div class="meta"><b>white · текст</b><code>#f5f5f5</code></div></div>
-    <div class="swatch"><div class="chip" style="background:var(--zs-gray)"></div><div class="meta"><b>gray</b><code>#888888</code></div></div>
-  </div>
-</section>
+  <main class="ds-main"><div class="ds-wrap">
 
-<section>
-  <h2>Типографика</h2>
-  <div class="type-row"><small>Unbounded 900 · hero</small><span style="font-family:var(--zs-font-display);font-weight:900;font-size:clamp(2rem,6vw,4rem)">Дай волю восхищению</span></div>
-  <div class="type-row"><small>Unbounded 700 · заголовок</small><span style="font-family:var(--zs-font-display);font-weight:700;font-size:1.8rem">Три устройства. Бесконечные трюки.</span></div>
-  <div class="type-row"><small>Onest 400 · текст</small><span style="font-size:var(--zs-text-base)">Нажми на кнопку — и нить парит в воздухе. Осваивай трюки с первых минут.</span></div>
-  <div class="type-row"><small>Onest 600 · акцент</small><span style="font-weight:600">Официальный дистрибьютор в России · ТР ТС 008/2011 · гарантия 1 год</span></div>
-</section>
+    <header class="ds-hero">
+      <div class="ds-kicker">ZipString Russia · дизайн-система</div>
+      <h1>Neon Loop</h1>
+      <p>Единая система бренда: токены, компоненты, голос, маркетинг и креативы в одном месте. Тёмный холст, свет от неона и продукта, лаймовый акцент. Всё построено на <code>tokens.css</code> — не выдумывай значения, бери из системы.</p>
+      <div style="margin-top:1rem"><span class="conf">⚠ Внутренний документ · часть данных — коммерческая тайна</span></div>
+    </header>
 
-<section>
-  <h2>Продукты — тон на SKU</h2>
-  <div class="products">
-    <div class="card" data-sku="original"><h3>ZipString Original</h3><div class="price">от 2 290 ₽</div><p>Классика, красный/синий (Try Me), 3 нити, USB-C.</p></div>
-    <div class="card" data-sku="aracna"><h3>ZipString Aracna</h3><div class="price">от 3 690 ₽</div><p>Голубой, 5 сменных нитей, USB-C.</p></div>
-    <div class="card" data-sku="luma"><h3>ZipString Luma <span style="font-size:.6em;color:var(--zs-lime);vertical-align:middle;">СКОРО</span></h3><div class="price">от 2 890 ₽</div><p>LED заряжает UV/Glow нити. В РФ-запуск не входит.</p></div>
-  </div>
-</section>
+    <section class="ds-section">
+      <span class="ds-eyebrow">Карта системы</span>
+      <h2>Разделы</h2>
+      <div class="ds-grid c2">
+        <a class="ds-card hl" href="foundations.html" style="color:inherit">
+          <h3>Основы (токены) →</h3>
+          <p>Цвет, типографика, spacing, радиусы, свечение/тени, движение, контейнер. Все <code>--zs-*</code> с именами и применением.</p>
+        </a>
+        <a class="ds-card" href="components.html" style="color:inherit">
+          <h3>Компоненты →</h3>
+          <p>Кнопки, бейджи, карточки, hero, шапка/футер, формы, FAQ, слайдер, таблица сравнения — живьём + копируемый код.</p>
+        </a>
+        <a class="ds-card" href="brand.html" style="color:inherit">
+          <h3>Бренд и голос →</h3>
+          <p>Позиционирование, сегменты, tone-of-voice, лексика do/avoid, речевые формулы, названия трюков, линейка.</p>
+        </a>
+        <a class="ds-card" href="marketing.html" style="color:inherit">
+          <h3>Маркетинг →</h3>
+          <p>Аргументы против конкурентов, рекламные углы, Яндекс Директ, план на старт и каналы продвижения.</p>
+        </a>
+        <a class="ds-card" href="creatives.html" style="color:inherit">
+          <h3>Креативы и объявления →</h3>
+          <p>Макеты reels, баннеров РСЯ, слайдов карточки WB/Ozon, объявлений Директа — с реальными ассетами и готовыми текстами.</p>
+        </a>
+        <div class="ds-card">
+          <h3>Исходники</h3>
+          <p>Источник истины: <code>tokens.css</code>, <code>brand.json</code>, <code>ai-kit.md</code>, <code>marketing-kit.md</code> (в сайдбаре).</p>
+        </div>
+      </div>
+    </section>
 
-<section>
-  <h2>Свечение — код Neon Loop</h2>
-  <div class="glow-row">
-    <div class="glow-box a">glow</div>
-    <div class="glow-box b">glow-soft</div>
-    <div class="glow-box tone" data-sku="aracna">glow-tone</div>
-    <div class="glow-box c">shadow</div>
-  </div>
-</section>
+    <section class="ds-section">
+      <span class="ds-eyebrow">Принципы</span>
+      <h2>Neon Loop — правила</h2>
+      <div class="dd">
+        <div class="box do">
+          <h4>Делаем</h4>
+          <ul>
+            <li>Тёмный холст, свет от неона и продукта</li>
+            <li>Один акцент — лайм, дозированно</li>
+            <li>Каждый SKU ведёт свой тон (<code>--zs-tone</code>)</li>
+            <li>Движение горизонтальное, «нить летит»</li>
+            <li>Видео-демо трюков крупным планом</li>
+          </ul>
+        </div>
+        <div class="box no">
+          <h4>Не делаем</h4>
+          <ul>
+            <li>Светлые фоны «для чистоты»</li>
+            <li>Радугу акцентов на одном экране</li>
+            <li>Три шрифта на экране</li>
+            <li>Пружинящие bounce-анимации</li>
+            <li>Стоковые градиентные блобы</li>
+          </ul>
+        </div>
+      </div>
+      <p class="ds-note">Полный голос бренда и стоп-слова — на странице «Бренд и голос» и в <code>ai-kit.md</code>.</p>
+    </section>
 
-<section>
-  <h2>Ритм — шкала отступов</h2>
-  <div class="rhythm">
-    <div style="height:0.5rem"></div><div style="height:1rem"></div><div style="height:1.5rem"></div><div style="height:2.5rem"></div>
-  </div>
-  <div class="rhythm" style="margin-top:.2rem"><span style="width:40px">1</span><span style="width:40px">2</span><span style="width:40px">3</span><span style="width:40px">4</span></div>
-</section>
+    <footer class="ds-footer">
+      ZipString Design System · Neon Loop · синхронно с <code>zipstring-ds/</code>. Источники данных — бренд-платформа, конкурентный анализ, контент-план (Google Drive, BabyOptGroup).
+    </footer>
 
-<section>
-  <h2>Голос бренда — копирайт</h2>
-  <p class="sub" style="margin-bottom:1.5rem;">Сначала показать продукт в действии, затем ценность, и только потом характеристики. Не объясняем — показываем. Не убеждаем — удивляем. Полные правила — <code>zipstring-ds/ai-kit.md</code>.</p>
-  <div class="voice">
-    <div class="col ok">
-      <h3>✅ Лексика</h3>
-      <ul>
-        <li>запускать, осваивать, придумывать, парить</li>
-        <li>удивление, восторг, «момент восхищения», магия</li>
-        <li>двор, дача, школа, дорога, отпуск, компания</li>
-        <li>зипстер, клуб, трюки, челленджи</li>
-      </ul>
-    </div>
-    <div class="col no">
-      <h3>⛔ Стоп-слова</h3>
-      <ul>
-        <li>уникальный, революционный, не имеющий аналогов</li>
-        <li>лучший в мире, идеально, на 100%</li>
-        <li>игрушечка, малыш, крошка (инфантильное)</li>
-        <li>осуществлять, реализовывать (канцелярит)</li>
-      </ul>
-    </div>
-    <div class="col">
-      <h3>Речевые формулы</h3>
-      <ul>
-        <li class="formula"><code>[физика] + [магия]</code><br>«В основе — законы физики. На выходе — магия.»</li>
-        <li class="formula"><code>[глагол]. [глагол].</code><br>«Запускай. Удивляй.»</li>
-        <li class="formula"><code>[факт] + [вывод]</code><br>«Более 2 миллионов покупателей по всему миру.»</li>
-      </ul>
-    </div>
-  </div>
-  <div class="chips">
-    <span>Штопор</span><span>Проскок</span><span>Портал</span><span>Бесконечность</span><span>Стрельба из лука</span><span>Человек-паук</span><span>Лассо</span><span>Непослушная нить</span>
-  </div>
-</section>
-
-<section>
-  <h2>Кнопки</h2>
-  <div class="btns">
-    <a class="btn lime" href="#">Смотреть продукты</a>
-    <a class="btn wb" href="#">Wildberries</a>
-    <a class="btn ozon" href="#">Ozon</a>
-  </div>
-  <p class="note">Регалии (2M+ устройств, 1B+ просмотров, Shark Tank, Toy of the Year 2026, Forbes/USA Today/ABC/CBS) подтверждены владельцем к публикации. Данные бренда выверены по бренд-платформе — <code>zipstring-ds/brand.json</code>. Медиа-банк 168 видео + 545 фото — <code>docs/assets-map.md</code>.</p>
-</section>
-
+  </div></main>
+</div>
 </body>
 </html>
