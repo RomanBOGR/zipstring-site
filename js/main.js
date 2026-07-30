@@ -39,6 +39,29 @@ function initScrollReveal() {
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
 
+// ─── АВТОПЛЕЙ ДЕМО-ВИДЕО ПО ВИДИМОСТИ ──────────────────────────────────────────
+// На тач-устройствах onmouseover не срабатывает — демо-видео (трюки, карточки
+// продуктов) заводим при попадании в вьюпорт и паузим при уходе. Reduced-motion —
+// не трогаем (poster остаётся статичным).
+function initVideoAutoplay() {
+  const vids = document.querySelectorAll('.trick-video, .product-media-video');
+  if (!vids.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const v = e.target;
+      if (e.isIntersecting) {
+        v.play().catch(() => {}); // автоплей могут заблокировать — тихо игнорим
+      } else if (!v.paused) {
+        v.pause();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  vids.forEach(v => io.observe(v));
+}
+
 // ─── MOBILE MENU ──────────────────────────────────────────────────────────────
 function initMobileMenu() {
   const toggle = document.getElementById('menuToggle');
@@ -221,4 +244,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnnouncementBar();
   initShopLinks();
   initSocialLinks();
+  initVideoAutoplay();
 });

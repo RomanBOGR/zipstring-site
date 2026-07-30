@@ -799,6 +799,13 @@ nav a.active {
   object-fit: cover;
 }
 
+/* Квадратный медиа-бокс под квадратные креативы (Aracna web-shooter 1080×1080) —
+   иначе cover в вертикали 3/4 срезает голову и надпись. Два класса перебивают
+   и десктоп 3/4, и мобильный 16/9 без !important. */
+.spotlight-media.spotlight-media--square {
+  aspect-ratio: 1;
+}
+
 .spotlight-glow {
   position: absolute;
   inset: -20%;
@@ -3021,4 +3028,8 @@ p {
   background: rgba(8,8,8,0.7); border: 1px solid var(--border); border-radius: 999px;
   padding: 4px 10px; font-size: 11px; color: var(--lime); pointer-events: none;
   font-family: var(--font-display); font-weight: 700;
+}
+/* На тач-экранах наводить нечем — видео заводится автоплеем по видимости */
+@media (hover: none) {
+  .product-media .play-hint { display: none; }
 }
