@@ -193,41 +193,48 @@ nav a.active {
   overflow: hidden;
   position: relative;
 }
-/* Подложка под текст: слева плотный фон → справа видно видео.
-   Держит заголовок читаемым, даже если он заходит на картинку. */
+/* Полноэкранное видео-hero: видео на весь экран, overlay слева (под текст) и
+   снизу (читаемость CTA + скрыть остатки титров в роликах). */
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background: linear-gradient(90deg,
-    var(--bg) 0%, rgba(8,8,8,0.92) 34%, rgba(8,8,8,0.55) 58%, rgba(8,8,8,0.1) 80%, transparent 100%);
+  background:
+    linear-gradient(90deg,
+      var(--bg) 0%, rgba(8,8,8,0.9) 28%, rgba(8,8,8,0.55) 52%, rgba(8,8,8,0.15) 76%, rgba(8,8,8,0.4) 100%),
+    linear-gradient(0deg,
+      rgba(8,8,8,0.85) 0%, rgba(8,8,8,0.35) 18%, transparent 42%);
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(198,255,0,0.07) 0%, transparent 70%),
-              radial-gradient(ellipse 40% 40% at 30% 70%, rgba(100,0,200,0.08) 0%, transparent 60%),
-              var(--bg);
+  z-index: 0;
+  background: var(--bg);
 }
 
 .hero-visual {
   position: absolute;
   inset: 0;
   z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
   pointer-events: none;
 }
 
 .hero-placeholder {
-  width: 500px;
-  height: 500px;
-  margin-right: 80px;
-  opacity: 0.85;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .hero-string-art {
@@ -661,7 +668,7 @@ nav a.active {
 .product-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.5s ease;
 }
 
@@ -1304,12 +1311,13 @@ nav a.active {
 
 .faq-group-label {
   font-family: var(--font-display);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 800;
   color: var(--lime);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   display: block;
 }
 
@@ -1734,7 +1742,7 @@ footer {
 }
 
 .trick-full-media {
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 5;
   position: relative;
   overflow: hidden;
 }
@@ -1755,15 +1763,41 @@ footer {
 
 .trick-full-level {
   display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--font-display);
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 100px;
   width: fit-content;
 }
+/* Иконка сложности (точки) + цвет по уровню — иначе бейдж был белым текстом без фона */
+.trick-full-level::before {
+  font-size: 8px;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+.trick-full-level.beginner {
+  background: rgba(198,255,0,0.15);
+  color: var(--lime);
+  border: 1px solid rgba(198,255,0,0.3);
+}
+.trick-full-level.beginner::before { content: "●○○"; }
+.trick-full-level.intermediate {
+  background: rgba(251,191,36,0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(251,191,36,0.3);
+}
+.trick-full-level.intermediate::before { content: "●●○"; }
+.trick-full-level.advanced {
+  background: rgba(239,68,68,0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239,68,68,0.3);
+}
+.trick-full-level.advanced::before { content: "●●●"; }
 
 .trick-full-btn {
   margin-top: 4px;
@@ -2375,8 +2409,11 @@ footer {
     font-size: clamp(40px, 12vw, 72px);
   }
 
-  .hero-visual {
-    opacity: 0.3;
+  /* На мобиле видео остаётся фоном во весь экран; читаемость держит overlay */
+  .hero::after {
+    background:
+      linear-gradient(0deg,
+        rgba(8,8,8,0.94) 0%, rgba(8,8,8,0.7) 30%, rgba(8,8,8,0.4) 55%, rgba(8,8,8,0.55) 100%);
   }
 
   .gallery-grid {
@@ -3013,15 +3050,15 @@ p {
 
 /* ─── A11Y (UI/UX-прогон) ─────────────────────────────────────────────────── */
 :focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; border-radius: 4px; }
-.skip-link { position: absolute; left: -999px; top: 0; z-index: 2000; background: var(--lime); color: #000; font-weight: 700; padding: .6rem 1rem; border-radius: 0 0 8px 0; }
-.skip-link:focus { left: 0; }
+.skip-link { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+.skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; clip-path: none; z-index: 3000; background: var(--lime); color: #000; font-weight: 700; padding: .6rem 1rem; border-radius: 8px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   html { scroll-behavior: auto !important; }
 }
 
 /* ─── ВИДЕО В КАРТОЧКАХ ПРОДУКТОВ (hover-play, без autoplay — бережём перф) ─── */
-.product-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.product-media video { width: 100%; height: 100%; object-fit: contain; display: block; }
 .product-media { position: relative; }
 .product-media .play-hint {
   position: absolute; right: 12px; bottom: 12px; z-index: 2;
