@@ -68,21 +68,20 @@ function initMobileMenu() {
   const nav = document.getElementById('mainNav');
   if (!toggle || !nav) return;
 
-  toggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    toggle.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
+  function setOpen(open) {
+    nav.classList.toggle('open', open);
+    toggle.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
+    toggle.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';  // блокируем скролл фона
+  }
+
+  toggle.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
   toggle.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); }
   });
-  nav.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
 }
 
 // ─── SMOOTH SCROLL ────────────────────────────────────────────────────────────

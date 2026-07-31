@@ -2294,27 +2294,55 @@ footer {
 }
 
 @media (max-width: 768px) {
+  /* Фуллскрин-оверлей (паттерн babiators): плотный градиент, dvh,
+     opacity/visibility для плавности, пункты со ступенчатым появлением. */
   nav {
-    display: none;
+    display: flex;
     position: fixed;
     inset: 0;
-    background: rgba(8, 8, 8, 0.98);
-    backdrop-filter: blur(20px);
+    width: 100%;
+    height: 100dvh;
+    z-index: 90;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    z-index: 200;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 104px 28px 40px;
+    overflow-y: auto;
+    background:
+      radial-gradient(130% 70% at 100% 0%, rgba(198,255,0,0.14), transparent 55%),
+      radial-gradient(120% 60% at 0% 100%, rgba(124,58,237,0.18), transparent 60%),
+      linear-gradient(180deg, #0d0d0d 0%, #060606 100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .34s ease, visibility .34s;
   }
 
   nav.open {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   nav a {
-    font-size: 20px;
-    letter-spacing: 0.08em;
+    width: 100%;
+    padding: 18px 4px;
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    opacity: 0;
+    transform: translateY(20px);
   }
+  nav.open a { animation: navLinkIn .5s cubic-bezier(.16,1,.3,1) forwards; }
+  nav.open a:nth-child(1) { animation-delay: .08s; }
+  nav.open a:nth-child(2) { animation-delay: .15s; }
+  nav.open a:nth-child(3) { animation-delay: .22s; }
+  nav.open a:nth-child(4) { animation-delay: .29s; }
+  nav.open a:nth-child(5) { animation-delay: .36s; }
+  nav a:active { color: var(--lime); }
 
   .menu-toggle {
     display: flex;
@@ -3069,4 +3097,14 @@ p {
 /* На тач-экранах наводить нечем — видео заводится автоплеем по видимости */
 @media (hover: none) {
   .product-media .play-hint { display: none; }
+}
+
+/* Мобильное меню: ступенчатое появление пунктов */
+@keyframes navLinkIn { to { opacity: 1; transform: translateY(0); } }
+
+/* Мобильное меню открыто: убираем announcement, логотип поверх оверлея */
+@media (max-width: 768px) {
+  body.menu-open .announcement { display: none; }
+  body.menu-open .logo { position: relative; z-index: 95; }
+  body.menu-open header { background: transparent; border-bottom-color: transparent; }
 }
