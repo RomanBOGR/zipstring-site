@@ -2332,6 +2332,7 @@ footer {
     font-size: 28px;
     font-weight: 800;
     letter-spacing: -0.01em;
+    color: var(--white);
     border-bottom: 1px solid rgba(255,255,255,0.08);
     opacity: 0;
     transform: translateY(20px);
@@ -3105,6 +3106,7 @@ p {
 /* Мобильное меню открыто: убираем announcement, логотип поверх оверлея */
 @media (max-width: 768px) {
   body.menu-open .announcement { display: none; }
-  body.menu-open .logo { position: relative; z-index: 95; }
+  body.menu-open .logo { position: relative; z-index: 95; color: var(--white); }
+  body.menu-open .menu-toggle { z-index: 300; }
   body.menu-open header { background: transparent; border-bottom-color: transparent; }
 }
