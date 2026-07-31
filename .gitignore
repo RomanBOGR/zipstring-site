@@ -2,3 +2,5 @@
 
 # Медиа-исходники (скрап zipstring.com, 2.3 ГБ) — только локально
 assets/zipstring-media/
+.playwright-mcp/
+*.jpeg
