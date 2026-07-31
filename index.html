@@ -414,85 +414,46 @@
       <a href="/pages/tricks/" class="btn-secondary reveal">Вся библиотека →</a>
     </div>
     <div class="tricks-grid">
-      <!-- Unicorn -->
-      <div class="trick-card reveal">
-        <div class="trick-card-bg" style="background:linear-gradient(180deg,#0d0d0d 0%,#111 100%);">
-          <svg viewBox="0 0 200 356" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;">
-            <ellipse cx="100" cy="178" rx="60" ry="20" stroke="#C6FF00" stroke-width="2" style="transform-origin:100px 178px;animation:spin 4s linear infinite;"/>
-            <ellipse cx="100" cy="178" rx="40" ry="60" stroke="rgba(198,255,0,0.6)" stroke-width="1.5" style="transform-origin:100px 178px;animation:spinReverse 3s linear infinite;"/>
-            <circle cx="100" cy="178" r="8" fill="#C6FF00" style="animation:pulse 2s ease-in-out infinite;"/>
-            <path d="M100 60 L108 90 L100 85 L92 90 Z" fill="#C6FF00" opacity="0.8" style="animation:float 3s ease-in-out infinite;"/>
-          </svg>
-          <div class="trick-play">
-            <div class="play-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-        </div>
-        <span class="trick-level beginner">Начинающий</span>
-        <span class="trick-label">Единорог</span>
-      </div>
-      <!-- Web Shooter -->
-      <div class="trick-card reveal reveal-delay-1">
-        <div class="trick-card-bg" style="background:linear-gradient(180deg,#0a0a0f 0%,#0d0d18 100%);">
-          <svg viewBox="0 0 200 356" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;">
-            <line x1="100" y1="178" x2="160" y2="100" stroke="#C6FF00" stroke-width="1.5" style="animation:glow 2s ease-in-out infinite;"/>
-            <line x1="100" y1="178" x2="40" y2="100" stroke="#C6FF00" stroke-width="1.5" style="animation:glow 2s ease-in-out infinite 0.3s;"/>
-            <line x1="100" y1="178" x2="170" y2="178" stroke="#C6FF00" stroke-width="1.5" style="animation:glow 2s ease-in-out infinite 0.6s;"/>
-            <line x1="100" y1="178" x2="30" y2="178" stroke="#C6FF00" stroke-width="1.5" style="animation:glow 2s ease-in-out infinite 0.9s;"/>
-            <line x1="100" y1="178" x2="160" y2="256" stroke="#C6FF00" stroke-width="1.5" style="animation:glow 2s ease-in-out infinite 1.2s;"/>
-            <line x1="100" y1="178" x2="40" y2="256" stroke="#C6FF00" stroke-width="1.5" style="animation:glow 2s ease-in-out infinite 1.5s;"/>
-            <circle cx="100" cy="178" r="30" stroke="rgba(198,255,0,0.3)" stroke-width="1" fill="none"/>
-            <circle cx="100" cy="178" r="60" stroke="rgba(198,255,0,0.15)" stroke-width="1" fill="none"/>
-            <circle cx="100" cy="178" r="6" fill="#C6FF00"/>
-          </svg>
-          <div class="trick-play">
-            <div class="play-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
+      <!-- Лук и стрела -->
+      <a href="/pages/tricks/" class="trick-card reveal">
+        <div class="trick-card-bg">
+          <video class="trick-video" muted loop playsinline preload="metadata" poster="/assets/img/poster/trick-01.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+            <source src="/assets/video/trick-01.mp4" type="video/mp4">
+          </video>
         </div>
         <span class="trick-level intermediate">Средний</span>
-        <span class="trick-label">Вебшутер</span>
-      </div>
-      <!-- Wave -->
-      <div class="trick-card reveal reveal-delay-2">
-        <div class="trick-card-bg" style="background:linear-gradient(180deg,#080810 0%,#0a0a12 100%);">
-          <svg viewBox="0 0 200 356" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;">
-            <path d="M20,178 Q45,130 70,178 Q95,226 120,178 Q145,130 170,178 Q180,200 190,178" stroke="#C6FF00" stroke-width="2.5" fill="none" style="animation:glow 2s ease-in-out infinite;stroke-dasharray:200;animation:drawPath 3s ease-in-out infinite alternate;"/>
-            <path d="M20,198 Q45,150 70,198 Q95,246 120,198 Q145,150 170,198 Q180,220 190,198" stroke="rgba(198,255,0,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="200" style="animation:drawPath 3s ease-in-out infinite alternate 0.5s;"/>
-            <circle cx="20" cy="178" r="4" fill="#C6FF00" style="animation:snakeWave 2s ease-in-out infinite;"/>
-          </svg>
-          <div class="trick-play">
-            <div class="play-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
+        <span class="trick-label">Лук и стрела</span>
+      </a>
+      <!-- Скрипка -->
+      <a href="/pages/tricks/" class="trick-card reveal reveal-delay-1">
+        <div class="trick-card-bg">
+          <video class="trick-video" muted loop playsinline preload="metadata" poster="/assets/img/poster/trick-02.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+            <source src="/assets/video/trick-02.mp4" type="video/mp4">
+          </video>
+        </div>
+        <span class="trick-level advanced">Продвинутый</span>
+        <span class="trick-label">Скрипка</span>
+      </a>
+      <!-- Штопор -->
+      <a href="/pages/tricks/" class="trick-card reveal reveal-delay-2">
+        <div class="trick-card-bg">
+          <video class="trick-video" muted loop playsinline preload="metadata" poster="/assets/img/poster/trick-05.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+            <source src="/assets/video/trick-05.mp4" type="video/mp4">
+          </video>
         </div>
         <span class="trick-level beginner">Начинающий</span>
-        <span class="trick-label">Волна</span>
-      </div>
-      <!-- Halo -->
-      <div class="trick-card reveal reveal-delay-3">
-        <div class="trick-card-bg" style="background:linear-gradient(180deg,#0d080d 0%,#100810 100%);">
-          <svg viewBox="0 0 200 356" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;">
-            <circle cx="100" cy="178" r="70" stroke="#C6FF00" stroke-width="2" stroke-dasharray="20 8" style="transform-origin:100px 178px;animation:spin 6s linear infinite;"/>
-            <circle cx="100" cy="178" r="50" stroke="rgba(198,255,0,0.5)" stroke-width="1.5" stroke-dasharray="12 6" style="transform-origin:100px 178px;animation:spinReverse 4s linear infinite;"/>
-            <circle cx="100" cy="178" r="30" stroke="rgba(198,255,0,0.3)" stroke-width="1" style="transform-origin:100px 178px;animation:spin 3s linear infinite;"/>
-            <circle cx="100" cy="108" r="5" fill="#C6FF00" style="transform-origin:100px 178px;animation:spin 6s linear infinite;"/>
-            <circle cx="100" cy="248" r="5" fill="#C6FF00" style="transform-origin:100px 178px;animation:spin 6s linear infinite;"/>
-            <circle cx="30" cy="178" r="4" fill="rgba(198,255,0,0.6)" style="transform-origin:100px 178px;animation:spinReverse 4s linear infinite;"/>
-            <circle cx="170" cy="178" r="4" fill="rgba(198,255,0,0.6)" style="transform-origin:100px 178px;animation:spinReverse 4s linear infinite;"/>
-          </svg>
-          <div class="trick-play">
-            <div class="play-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
+        <span class="trick-label">Штопор</span>
+      </a>
+      <!-- Портал -->
+      <a href="/pages/tricks/" class="trick-card reveal reveal-delay-3">
+        <div class="trick-card-bg">
+          <video class="trick-video" muted loop playsinline preload="metadata" poster="/assets/img/poster/trick-08.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+            <source src="/assets/video/trick-08.mp4" type="video/mp4">
+          </video>
         </div>
         <span class="trick-level intermediate">Средний</span>
-        <span class="trick-label">Ореол</span>
-      </div>
+        <span class="trick-label">Портал</span>
+      </a>
     </div>
   </div>
 </section>
