@@ -1599,14 +1599,17 @@ footer {
   align-items: flex-end;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(180deg, var(--bg3) 0%, var(--bg) 100%);
+  background: url('/assets/img/page-hero-bg.jpg') center/cover no-repeat, var(--bg);
 }
 
+/* Затемнение: слева/снизу плотный фон под заголовок, неон проступает справа-сверху */
 .page-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 60% at 60% 30%, rgba(198,255,0,0.06) 0%, transparent 70%);
+  background:
+    linear-gradient(90deg, var(--bg) 0%, rgba(8,8,8,0.82) 34%, rgba(8,8,8,0.4) 68%, rgba(8,8,8,0.15) 100%),
+    linear-gradient(0deg, var(--bg) 0%, rgba(8,8,8,0.5) 22%, transparent 55%);
 }
 
 .page-hero-content {
