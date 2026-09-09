@@ -17,7 +17,15 @@
   --blue-deep: #103C79;   /* затемнение для футера и подложек */
   --teal:      #2CCDF1;   /* основной */
   --teal-soft: #E6F8FE;
-  --yellow:    #EEEA25;   /* нить на макетах */
+  --yellow:    #EEEA25;   /* цвет нити на макетах — это не бренд-цвет, а цвет продукта */
+
+  /* Вторичные и третичные по брендбуку (стр. 11-13) */
+  --red:       #FF0E0E;
+  --blue-mid:  #2D60A7;
+  --mint:      #0EFFB0;
+  --grey-1:    #DCDEE0;
+  --grey-2:    #AFB0B3;
+  --orange:    #F69F0F;
   --white:     #FFFFFF;
   --ink:       #0E2A4F;   /* текст на светлом */
 
@@ -207,8 +215,34 @@ nav a:hover, nav a[aria-current] { border-color: var(--teal); }
   transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
 }
 .card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
-.card-media { aspect-ratio: 4 / 3; background: var(--white); overflow: hidden; }
-.card-media img, .card-media video { width: 100%; height: 100%; object-fit: cover; }
+/* Карточка товара по образцу UX/UI из брендбука (стр. 27):
+   устройство на teal-подложке с точечным паттерном, не кроп фотобаннера */
+.card-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--teal);
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  overflow: hidden;
+}
+.card-media::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('assets/pattern-dots.svg') right -40px bottom -40px / 60% no-repeat;
+  opacity: 0.5;
+}
+/* абсолютом: в grid процентный max-height считается от строки, которую сам же
+   и растягивает картинка — устройство уезжало вниз и обрезалось */
+.card-media img {
+  position: absolute;
+  inset: 22px;
+  width: calc(100% - 44px);
+  height: calc(100% - 44px);
+  object-fit: contain;
+}
+.card-media.is-empty { background: var(--blue-mid); }
+.card-media.is-empty img { max-width: 92px; opacity: 0.85; }
 .card-body { padding: 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .card-name { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 1.4rem; color: var(--blue); }
 .card-hook { color: #38618f; flex: 1; }
@@ -216,6 +250,7 @@ nav a:hover, nav a[aria-current] { border-color: var(--teal); }
 .card .btn { align-self: flex-start; }
 .card.is-soon { background: #F1F4F8; }
 .card.is-soon .card-name, .card.is-soon .card-price { color: #6E86A5; }
+.card.is-soon .pill-light { background: var(--grey-1); color: #4E6683; }
 
 /* ─── ТРЮКИ ─────────────────────────────────────────────────────────────────── */
 .tricks { background: var(--teal); color: var(--blue); padding: var(--section) 0; }
