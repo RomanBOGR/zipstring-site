@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex">
 <link rel="preload" as="font" type="font/woff2" href="fonts/GolosText-Black.woff2?v=2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/Exo2-Regular.woff2?v=2" crossorigin>
-<link rel="stylesheet" href="style.css?v=11">
+<link rel="stylesheet" href="style.css?v=16">
 </head>
 <body>
 
@@ -16,7 +16,7 @@
 
 <header>
   <div class="wrap header-in">
-    <a href="/v2/" class="logo"><img src="assets/logo-blue.png" alt="ZipString" width="946" height="190"></a>
+    <a href="/v2/" class="logo"><img src="assets/logo-blue.svg" alt="ZipString" width="528" height="188"></a>
     <nav>
       <a href="#product">О товаре</a>
       <a href="#products">Продукты</a>
@@ -87,6 +87,21 @@
   </div>
 </section>
 
+
+<!-- ─── ФИЧИ (иконки из брендбука) ────────────────────────────────────────────── -->
+<section class="features">
+  <div class="wrap">
+    <ul class="feats">
+      <li><i class="ico" style="--ico:url('assets/icons/tricks.svg')"></i><span>100+ трюков<br>в библиотеке</span></li>
+      <li><i class="ico" style="--ico:url('assets/icons/screenfree.svg')"></i><span>Игра<br>без экрана</span></li>
+      <li><i class="ico" style="--ico:url('assets/icons/age.svg')"></i><span>С 4 лет<br>и взрослым</span></li>
+      <li><i class="ico" style="--ico:url('assets/icons/pocket.svg')"></i><span>Помещается<br>в карман</span></li>
+      <li><i class="ico" style="--ico:url('assets/icons/glow.svg')"></i><span>Светящиеся<br>нити в комплекте</span></li>
+    </ul>
+  </div>
+  <div class="wave" style="color:var(--white)" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0 46c180-52 340 34 520 34s280-72 470-72 300 62 450 40v42H0z"/></svg></div>
+</section>
+
 <!-- ─── ПРОДУКТЫ ──────────────────────────────────────────────────────────────── -->
 <section class="products" id="products">
   <div class="wrap">
@@ -104,7 +119,8 @@
         <div class="card-body">
           <span class="pill pill-light">В продаже</span>
           <h3 class="card-name">Original</h3>
-          <p class="card-hook">Классика, с которой началась революция. Красный или синий, 3 сменные нити, USB-C.</p>
+          <p class="card-hook">Классика, с которой началась революция. 3 сменные нити и USB-C в комплекте.</p>
+          <div class="swatches"><span style="--c:#E71E25" title="Rockit Red"></span><span style="--c:#1E62AE" title="Bodacious Blue"></span></div>
           <div class="card-price">от 2 290 ₽</div>
           <a href="/pages/original/" class="btn btn-blue">Подробнее</a>
         </div>
@@ -115,7 +131,8 @@
         <div class="card-body">
           <span class="pill pill-light">В продаже</span>
           <h3 class="card-name">Aracna</h3>
-          <p class="card-hook">Больше нитей в комплекте — больше трюков. Запуск и возврат нити, 5 сменных нитей.</p>
+          <p class="card-hook">Больше нитей в комплекте — больше трюков. Запуск и возврат нити.</p>
+          <div class="swatches"><span style="--c:#4CC4F2" title="Aesthetic Aqua"></span></div>
           <div class="card-price">от 3 690 ₽</div>
           <a href="/pages/aracna/" class="btn btn-blue">Подробнее</a>
         </div>
@@ -136,23 +153,42 @@
   </div>
 </section>
 
+
+<!-- ─── LIFESTYLE ─────────────────────────────────────────────────────────────── -->
+<section class="life">
+  <div class="wrap">
+    <div class="life-head">
+      <span class="eyebrow" style="color:var(--blue)">Где угодно</span>
+      <h2 class="h2">Двор, комната, берег<span class="squiggle-wrap"><svg class="squiggle" viewBox="0 0 260 60" aria-hidden="true"><path d="M8 44c26-40 52 12 78-16s52 30 78 2 60-18 88-10"/></svg></span></h2>
+      <p class="life-sub">ZipString помещается в карман и работает без интернета. Достал — и вокруг сразу собирается компания.</p>
+    </div>
+    <div class="life-grid">
+      <figure class="life-a"><img src="assets/life-jump.webp" alt="Отец и сын запускают нить во дворе" loading="lazy" width="1400" height="787"><figcaption>Во дворе с родителями</figcaption></figure>
+      <figure class="life-b"><img src="assets/life-curly.webp" alt="Девочка играет с ZipString дома" loading="lazy" width="1400" height="933"><figcaption>Дома вместо экрана</figcaption></figure>
+      <figure class="life-c"><img src="assets/life-beach.webp" alt="Девочка с ZipString у реки" loading="lazy" width="1400" height="787"><figcaption>На прогулке</figcaption></figure>
+    </div>
+  </div>
+  <div class="wave" style="color:var(--teal)" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0 46c180-52 340 34 520 34s280-72 470-72 300 62 450 40v42H0z"/></svg></div>
+</section>
+
 <!-- ─── ТРЮКИ ─────────────────────────────────────────────────────────────────── -->
 <section class="tricks" id="tricks">
   <div class="wrap">
     <div class="sec-head">
       <div>
         <span class="eyebrow">Библиотека</span>
-        <h2 class="h2">100+ трюков</h2>
+        <h2 class="h2">100+ трюков<span class="squiggle-wrap"><svg class="squiggle" viewBox="0 0 260 60" aria-hidden="true"><path d="M8 44c26-40 52 12 78-16s52 30 78 2 60-18 88-10"/></svg></span></h2>
       </div>
       <a href="/pages/tricks/" class="btn btn-white">Вся библиотека</a>
     </div>
     <div class="tricks-grid">
       <div class="trick"><video muted loop playsinline preload="none" poster="/assets/img/poster/trick-01.jpg" data-src="/assets/video/trick-01.mp4"></video><span>Лук и стрела</span></div>
       <div class="trick"><video muted loop playsinline preload="none" poster="/assets/img/poster/trick-03.jpg" data-src="/assets/video/trick-03.mp4"></video><span>Вихрь</span></div>
-      <div class="trick"><video muted loop playsinline preload="none" poster="/assets/img/poster/trick-05.jpg" data-src="/assets/video/trick-05.mp4"></video><span>Штопор</span></div>
+      <div class="trick"><video muted loop playsinline preload="none" poster="/assets/img/poster/trick-04.jpg" data-src="/assets/video/trick-04.mp4"></video><span>Брызги</span></div>
       <div class="trick"><video muted loop playsinline preload="none" poster="/assets/img/poster/trick-08.jpg" data-src="/assets/video/trick-08.mp4"></video><span>Портал</span></div>
     </div>
   </div>
+  <div class="wave" style="color:var(--white)" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0 46c180-52 340 34 520 34s280-72 470-72 300 62 450 40v42H0z"/></svg></div>
 </section>
 
 <!-- ─── ДОВЕРИЕ ───────────────────────────────────────────────────────────────── -->
@@ -161,7 +197,7 @@
     <span class="eyebrow" style="color:var(--blue)">О бренде</span>
     <h2 class="h2">Игрушка, которую увидел весь мир</h2>
     <div class="trust-grid">
-      <div class="stat"><div class="stat-num">2 000 000+</div><div class="stat-txt">устройств продано по миру</div></div>
+      <div class="stat is-fill"><div class="stat-num">2 000 000+</div><div class="stat-txt">устройств продано по миру</div></div>
       <div class="stat"><div class="stat-num">1 млрд</div><div class="stat-txt">просмотров роликов с ZipString</div></div>
       <div class="stat"><div class="stat-num">4+</div><div class="stat-txt">возраст, с которого играют</div></div>
       <div class="stat"><div class="stat-num">1 год</div><div class="stat-txt">гарантия официального дистрибьютора</div></div>
@@ -174,10 +210,12 @@
       <span class="pill pill-light">Toy of the Year 2026</span>
     </div>
   </div>
+  <div class="wave" style="color:var(--blue)" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0 46c180-52 340 34 520 34s280-72 470-72 300 62 450 40v42H0z"/></svg></div>
 </section>
 
 <!-- ─── CTA ───────────────────────────────────────────────────────────────────── -->
 <section class="cta">
+  <img class="cta-mark" src="assets/monogram-white.svg" alt="" aria-hidden="true" width="240" height="240">
   <div class="wrap">
     <span class="eyebrow">Запускай. Удивляй.</span>
     <h2 class="h2">Дай волю восхищению</h2>
@@ -196,7 +234,7 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-logo">
-        <img src="assets/logo-white.svg" alt="ZipString" width="446" height="159">
+        <img src="assets/logo-light.svg" alt="ZipString" width="528" height="188">
         <p>Официальный дистрибьютор ZipString в России. Запусти нить — открой мир трюков.</p>
       </div>
       <div>
@@ -238,7 +276,14 @@
     items.forEach(function (it) {
       if (!it.isIntersecting) return;
       var v = it.target;
-      if (!v.src) { v.src = v.dataset.src; v.play().catch(function () {}); }
+      if (!v.src) {
+        v.src = v.dataset.src;
+        // у роликов в конце англоязычные титры — крутим только сам трюк
+        v.addEventListener('timeupdate', function () {
+          if (v.duration && v.currentTime > v.duration * 0.8) v.currentTime = 0;
+        });
+        v.play().catch(function () {});
+      }
       io.unobserve(v);
     });
   }, { rootMargin: '200px' });
