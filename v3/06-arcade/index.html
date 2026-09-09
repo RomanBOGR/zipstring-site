@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — Аркада</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="/v3/base.css"><link rel="stylesheet" href="style.css?v=1">
+</head><body>
+<div class="hud">
+  <a href="/v3/" class="back">← ВАРИАНТЫ</a>
+  <span class="hud-mid">УРОВЕНЬ 01 · ПЕРВЫЙ ЗАПУСК</span>
+  <span class="score">СЧЁТ <b id="score">000000</b></span>
+</div>
+
+<main>
+<section class="stage">
+  <div class="glow"></div>
+  <div class="stage-in">
+    <span class="ready">Press start</span>
+    <h1>ЗАПУСТИ<br><span class="neon">НИТЬ</span></h1>
+    <p>Кнопка — и петля висит в воздухе. Дальше только твоя рука и сто с лишним трюков.</p>
+    <div class="row"><a href="#shop" class="btn">Начать игру</a><a href="/pages/tricks/" class="btn ghost">Список трюков</a></div>
+  </div>
+  <div class="screen">
+    <video autoplay muted loop playsinline preload="auto" poster="/assets/img/poster/hero.jpg"><source src="/assets/video/hero.mp4" type="video/mp4"></video>
+    <div class="scan"></div>
+  </div>
+</section>
+
+<section class="board">
+  <h2>Таблица рекордов</h2>
+  <ul class="rank">
+    <li><span class="pos">01</span><span class="nm">Продано устройств</span><b>2 000 000+</b></li>
+    <li><span class="pos">02</span><span class="nm">Просмотров роликов</span><b>1 000 000 000</b></li>
+    <li><span class="pos">03</span><span class="nm">Скорость нити</span><b>65 км/ч</b></li>
+    <li><span class="pos">04</span><span class="nm">Трюков в библиотеке</span><b>100+</b></li>
+  </ul>
+</section>
+
+<section class="pick" id="shop">
+  <h2>Выбери персонажа</h2>
+  <div class="chars">
+    <a class="char" href="/pages/original/">
+      <img src="/v2/assets/product-original.webp" alt="Original" width="1298" height="900" loading="lazy">
+      <h3>ORIGINAL</h3>
+      <dl><div><dt>нити</dt><dd>3</dd></div><div><dt>вес</dt><dd>лёгкий</dd></div><div><dt>цена</dt><dd>2 290 ₽</dd></div></dl>
+    </a>
+    <a class="char" href="/pages/aracna/">
+      <img src="/v2/assets/product-aracna.webp" alt="Aracna" width="272" height="900" loading="lazy">
+      <h3>ARACNA</h3>
+      <dl><div><dt>нити</dt><dd>5</dd></div><div><dt>возврат</dt><dd>есть</dd></div><div><dt>цена</dt><dd>3 690 ₽</dd></div></dl>
+    </a>
+  </div>
+</section>
+
+<section class="moves">
+  <h2>Комбо</h2>
+  <div class="mgrid">
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-01.mp4" poster="/assets/img/poster/trick-01.jpg"></video><figcaption>Лук и стрела</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-03.mp4" poster="/assets/img/poster/trick-03.jpg"></video><figcaption>Вихрь</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-04.mp4" poster="/assets/img/poster/trick-04.jpg"></video><figcaption>Брызги</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-08.mp4" poster="/assets/img/poster/trick-08.jpg"></video><figcaption>Портал</figcaption></figure>
+  </div>
+</section>
+
+<section class="final">
+  <h2>ИГРА НАЧИНАЕТСЯ</h2>
+  <div class="row"><a href="#wb" class="btn">Wildberries</a><a href="#ozon" class="btn ghost">Ozon</a></div>
+</section>
+</main>
+<footer class="fin">ZipString Russia · официальный дистрибьютор · 2026</footer>
+<script>
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;var v=x.target;
+    if(!v.src){v.src=v.dataset.src;v.addEventListener('timeupdate',function(){if(v.duration&&v.currentTime>v.duration*.8)v.currentTime=0});v.play().catch(function(){})}io.unobserve(v)})},{rootMargin:'200px'});
+  document.querySelectorAll('video[data-src]').forEach(function(v){io.observe(v)});
+  // счётчик в HUD растёт вместе с прокруткой — «очки» за пройденный путь
+  var el=document.getElementById('score');
+  addEventListener('scroll',function(){var h=document.documentElement;
+    var p=Math.round(h.scrollTop/(h.scrollHeight-h.clientHeight)*128400);
+    el.textContent=String(p).padStart(6,'0');},{passive:true});
+</script>
+</body></html>

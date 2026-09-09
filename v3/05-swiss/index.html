@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — Сетка</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="/v3/base.css"><link rel="stylesheet" href="style.css?v=1">
+</head><body>
+<header class="top">
+  <a href="/v3/" class="back">← Варианты</a>
+  <img src="/v2/assets/logo-blue.svg" alt="ZipString" width="528" height="188">
+  <nav><a href="#product">Продукт</a><a href="#range">Линейка</a><a href="#tricks">Трюки</a><a href="#buy">Купить</a></nav>
+</header>
+
+<main class="grid12">
+  <section class="hero">
+    <p class="meta"><span>ZipString Original / Aracna</span><span>Санкт-Петербург</span><span>2026</span></p>
+    <h1>Летающая<br>нить</h1>
+    <p class="lede">Закольцованная нить разгоняется до 65 км/ч и держится в воздухе, повторяя движение руки.</p>
+  </section>
+
+  <figure class="frame">
+    <video autoplay muted loop playsinline preload="auto" poster="/assets/img/poster/hero.jpg"><source src="/assets/video/hero.mp4" type="video/mp4"></video>
+  </figure>
+
+  <section class="specs" id="product">
+    <h2>Что это</h2>
+    <table>
+      <tr><th>Принцип</th><td>Два ролика раскручивают петлю нити</td></tr>
+      <tr><th>Скорость</th><td>до 65 км/ч</td></tr>
+      <tr><th>Питание</th><td>USB-C, аккумулятор в корпусе</td></tr>
+      <tr><th>Нити</th><td>3 длины: 79 / 163 / 244 см</td></tr>
+      <tr><th>Возраст</th><td>от 4 лет, до 8 — со взрослым</td></tr>
+      <tr><th>Сертификат</th><td>ТР ТС 008/2011, гарантия 1 год</td></tr>
+    </table>
+  </section>
+
+  <section class="range" id="range">
+    <h2>Линейка</h2>
+    <div class="two">
+      <article><img src="/v2/assets/product-original.webp" alt="Original" width="1298" height="900" loading="lazy">
+        <h3>Original</h3><p>Три нити, USB-C. Красный или синий.</p><span class="p">2 290 ₽</span></article>
+      <article><img src="/v2/assets/product-aracna.webp" alt="Aracna" width="272" height="900" loading="lazy">
+        <h3>Aracna</h3><p>Пять нитей, запуск и возврат, крепление на предплечье.</p><span class="p">3 690 ₽</span></article>
+    </div>
+  </section>
+
+  <section class="tricks" id="tricks">
+    <h2>Трюки</h2>
+    <ol class="tlist">
+      <li><video muted loop playsinline preload="none" data-src="/assets/video/trick-01.mp4" poster="/assets/img/poster/trick-01.jpg"></video><span>Лук и стрела</span></li>
+      <li><video muted loop playsinline preload="none" data-src="/assets/video/trick-03.mp4" poster="/assets/img/poster/trick-03.jpg"></video><span>Вихрь</span></li>
+      <li><video muted loop playsinline preload="none" data-src="/assets/video/trick-04.mp4" poster="/assets/img/poster/trick-04.jpg"></video><span>Брызги</span></li>
+      <li><video muted loop playsinline preload="none" data-src="/assets/video/trick-08.mp4" poster="/assets/img/poster/trick-08.jpg"></video><span>Портал</span></li>
+    </ol>
+  </section>
+
+  <section class="buy" id="buy">
+    <h2>Где купить</h2>
+    <p>Оригинал с гарантией — на маркетплейсах официального дистрибьютора.</p>
+    <div class="links"><a href="#wb">Wildberries →</a><a href="#ozon">Ozon →</a></div>
+  </section>
+</main>
+<footer class="bot"><span>ООО «Бэйби Опт Груп» · официальный дистрибьютор ZipString в России</span><span>2026</span></footer>
+<script>
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;var v=x.target;
+    if(!v.src){v.src=v.dataset.src;v.addEventListener('timeupdate',function(){if(v.duration&&v.currentTime>v.duration*.8)v.currentTime=0});v.play().catch(function(){})}io.unobserve(v)})},{rootMargin:'200px'});
+  document.querySelectorAll('video[data-src]').forEach(function(v){io.observe(v)});
+</script>
+</body></html>

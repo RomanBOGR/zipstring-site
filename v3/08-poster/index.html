@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — Плакат</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="/v3/base.css"><link rel="stylesheet" href="style.css?v=1">
+</head><body>
+<a href="/v3/" class="back">← Варианты</a>
+
+<main>
+<section class="poster">
+  <h1 class="mega" aria-label="Нить летит">
+    <span class="l1">НИТЬ</span>
+    <span class="l2">ЛЕ<em>ТИТ</em></span>
+  </h1>
+  <video class="cut" autoplay muted loop playsinline preload="auto" poster="/assets/img/poster/hero.jpg"><source src="/assets/video/hero.mp4" type="video/mp4"></video>
+  <p class="claim">Закольцованная нить разгоняется до 65 км/ч<br>и держится в воздухе, повторяя руку.</p>
+  <div class="edge-note"><span>ZipString Original · Aracna</span><span>Официальный дистрибьютор в России</span></div>
+</section>
+
+<section class="split">
+  <div class="half blue">
+    <h2>2 290 ₽</h2>
+    <p>Original — три нити, USB-C, красный или синий</p>
+    <img src="/v2/assets/product-original.webp" alt="Original" width="1298" height="900" loading="lazy">
+    <a href="/pages/original/" class="btn">Взять Original</a>
+  </div>
+  <div class="half teal">
+    <h2>3 690 ₽</h2>
+    <p>Aracna — пять нитей, запуск и возврат</p>
+    <img src="/v2/assets/product-aracna.webp" alt="Aracna" width="272" height="900" loading="lazy">
+    <a href="/pages/aracna/" class="btn dark">Взять Aracna</a>
+  </div>
+</section>
+
+<section class="marquee"><div class="mq"><span>100+ ТРЮКОВ · 100+ ТРЮКОВ · 100+ ТРЮКОВ · 100+ ТРЮКОВ ·&nbsp;</span><span>100+ ТРЮКОВ · 100+ ТРЮКОВ · 100+ ТРЮКОВ · 100+ ТРЮКОВ ·&nbsp;</span></div></section>
+
+<section class="quad">
+  <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-01.mp4" poster="/assets/img/poster/trick-01.jpg"></video><figcaption>01 Лук и стрела</figcaption></figure>
+  <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-03.mp4" poster="/assets/img/poster/trick-03.jpg"></video><figcaption>02 Вихрь</figcaption></figure>
+  <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-04.mp4" poster="/assets/img/poster/trick-04.jpg"></video><figcaption>03 Брызги</figcaption></figure>
+  <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-08.mp4" poster="/assets/img/poster/trick-08.jpg"></video><figcaption>04 Портал</figcaption></figure>
+</section>
+
+<section class="tail">
+  <h2>ЗАПУСКАЙ.<br>УДИВЛЯЙ.</h2>
+  <div class="row"><a href="#wb" class="btn">Wildberries</a><a href="#ozon" class="btn dark">Ozon</a></div>
+  <p class="fin">ТР ТС 008/2011 · гарантия 1 год · 2026</p>
+</section>
+</main>
+<script>
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;var v=x.target;
+    if(!v.src){v.src=v.dataset.src;v.addEventListener('timeupdate',function(){if(v.duration&&v.currentTime>v.duration*.8)v.currentTime=0});v.play().catch(function(){})}io.unobserve(v)})},{rootMargin:'200px'});
+  document.querySelectorAll('video[data-src]').forEach(function(v){io.observe(v)});
+</script>
+</body></html>

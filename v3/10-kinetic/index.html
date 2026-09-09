@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — Кинетика</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="/v3/base.css"><link rel="stylesheet" href="style.css?v=1">
+</head><body>
+<a href="/v3/" class="back">← Варианты</a>
+
+<main>
+<section class="kin">
+  <div class="lines">
+    <span class="line" data-dir="1"><i>НИТЬ</i><i>ЛЕТИТ</i><i>НИТЬ</i><i>ЛЕТИТ</i><i>НИТЬ</i><i>ЛЕТИТ</i></span>
+    <span class="line accent" data-dir="-1"><i>ПЕТЛЯ</i><i>ВИСИТ</i><i>ПЕТЛЯ</i><i>ВИСИТ</i><i>ПЕТЛЯ</i><i>ВИСИТ</i></span>
+    <span class="line" data-dir="1"><i>РУКА</i><i>ВЕДЁТ</i><i>РУКА</i><i>ВЕДЁТ</i><i>РУКА</i><i>ВЕДЁТ</i></span>
+  </div>
+  <div class="kin-card">
+    <video autoplay muted loop playsinline preload="auto" poster="/assets/img/poster/hero.jpg"><source src="/assets/video/hero.mp4" type="video/mp4"></video>
+    <div class="kin-txt">
+      <p>Закольцованная нить разгоняется до 65 км/ч и держится в воздухе. Первый трюк — за пять минут.</p>
+      <a href="#buy" class="btn magnet">Выбрать модель</a>
+    </div>
+  </div>
+</section>
+
+<section class="reveal" id="buy">
+  <h2 class="split-h" data-split>Две модели, один принцип</h2>
+  <div class="duo">
+    <a class="mcard" href="/pages/original/">
+      <span class="idx">01</span>
+      <img src="/v2/assets/product-original.webp" alt="Original" width="1298" height="900" loading="lazy">
+      <div class="mfoot"><h3>Original</h3><span>2 290 ₽</span></div>
+      <p>Три нити, USB-C, красный или синий</p>
+    </a>
+    <a class="mcard" href="/pages/aracna/">
+      <span class="idx">02</span>
+      <img src="/v2/assets/product-aracna.webp" alt="Aracna" width="272" height="900" loading="lazy">
+      <div class="mfoot"><h3>Aracna</h3><span>3 690 ₽</span></div>
+      <p>Пять нитей, запуск и возврат, на предплечье</p>
+    </a>
+  </div>
+</section>
+
+<section class="strip-t">
+  <div class="row-t">
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-01.mp4" poster="/assets/img/poster/trick-01.jpg"></video><figcaption>Лук и стрела</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-03.mp4" poster="/assets/img/poster/trick-03.jpg"></video><figcaption>Вихрь</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-04.mp4" poster="/assets/img/poster/trick-04.jpg"></video><figcaption>Брызги</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-08.mp4" poster="/assets/img/poster/trick-08.jpg"></video><figcaption>Портал</figcaption></figure>
+  </div>
+</section>
+
+<section class="end">
+  <h2 class="split-h" data-split>Запускай. Удивляй.</h2>
+  <div class="row"><a href="#wb" class="btn magnet">Wildberries</a><a href="#ozon" class="btn ghost magnet">Ozon</a></div>
+  <p class="fin">Официальный дистрибьютор в России · гарантия 1 год</p>
+</section>
+</main>
+
+<script>
+  // строки бегут от скролла: направление у каждой своё, скорость — от смещения
+  var lines=[].slice.call(document.querySelectorAll('.line'));
+  var ticking=false;
+  function draw(){var y=scrollY;
+    lines.forEach(function(l){var d=+l.dataset.dir;l.style.transform='translate3d('+(-y*0.25*d%50)+'%,0,0)'});
+    ticking=false;}
+  addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(draw);ticking=true}},{passive:true});
+
+  // заголовки собираются по словам при входе в кадр
+  document.querySelectorAll('[data-split]').forEach(function(h){
+    h.innerHTML=h.textContent.trim().split(' ').map(function(w,i){
+      return '<span style="--d:'+(i*70)+'ms">'+w+'</span>';}).join(' ');
+  });
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.3});
+  document.querySelectorAll('.split-h,.mcard,.row-t figure').forEach(function(n){io.observe(n)});
+
+  var vio=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;var v=x.target;
+    if(!v.src){v.src=v.dataset.src;v.addEventListener('timeupdate',function(){if(v.duration&&v.currentTime>v.duration*.8)v.currentTime=0});v.play().catch(function(){})}vio.unobserve(v)})},{rootMargin:'200px'});
+  document.querySelectorAll('video[data-src]').forEach(function(v){vio.observe(v)});
+
+  // магнитные кнопки
+  document.querySelectorAll('.magnet').forEach(function(b){
+    b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();
+      b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.3)+'px)';});
+    b.addEventListener('pointerleave',function(){b.style.transform=''});
+  });
+</script>
+</body></html>

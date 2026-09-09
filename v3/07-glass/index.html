@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — Стекло</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="/v3/base.css"><link rel="stylesheet" href="style.css?v=1">
+</head><body>
+<div class="bg" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<header class="nav glass">
+  <a href="/v3/" class="back">← Варианты</a>
+  <img src="/v2/assets/logo-light.svg" alt="ZipString" width="528" height="188">
+  <a href="#buy" class="btn sm">Купить</a>
+</header>
+
+<main>
+<section class="hero">
+  <div class="panel glass">
+    <span class="tag">Мировой бестселлер</span>
+    <h1>Нить, которая держится в воздухе</h1>
+    <p>Двухроликовый механизм разгоняет петлю до 65 км/ч. Она повторяет движение руки — и это видно с первой секунды.</p>
+    <div class="row"><a href="#buy" class="btn">Выбрать модель</a><a href="/pages/tricks/" class="btn out">Смотреть трюки</a></div>
+    <ul class="chips"><li>2 000 000+ продано</li><li>100+ трюков</li><li>4+</li></ul>
+  </div>
+  <div class="tube glass">
+    <video autoplay muted loop playsinline preload="auto" poster="/assets/img/poster/hero.jpg"><source src="/assets/video/hero.mp4" type="video/mp4"></video>
+  </div>
+</section>
+
+<section class="shelf" id="buy">
+  <article class="card glass">
+    <img src="/v2/assets/product-original.webp" alt="Original" width="1298" height="900" loading="lazy">
+    <h2>Original</h2><p>Три нити, USB-C. Красный или синий.</p>
+    <div class="foot"><span>2 290 ₽</span><a href="/pages/original/" class="btn sm">Подробнее</a></div>
+  </article>
+  <article class="card glass">
+    <img src="/v2/assets/product-aracna.webp" alt="Aracna" width="272" height="900" loading="lazy">
+    <h2>Aracna</h2><p>Пять нитей, запуск и возврат, крепление на предплечье.</p>
+    <div class="foot"><span>3 690 ₽</span><a href="/pages/aracna/" class="btn sm">Подробнее</a></div>
+  </article>
+  <article class="card glass soon">
+    <img src="/v2/assets/monogram-white.svg" alt="" aria-hidden="true" width="120" height="120" class="mono">
+    <h2>Luma</h2><p>LED заряжает нить, трюки светятся в темноте. Скоро в России.</p>
+    <div class="foot"><span>2 890 ₽</span><span class="soon-tag">Скоро</span></div>
+  </article>
+</section>
+
+<section class="reel">
+  <div class="reel-head glass"><h2>Трюки</h2><a href="/pages/tricks/" class="btn sm out">Все 100+</a></div>
+  <div class="reel-grid">
+    <video muted loop playsinline preload="none" data-src="/assets/video/trick-01.mp4" poster="/assets/img/poster/trick-01.jpg"></video>
+    <video muted loop playsinline preload="none" data-src="/assets/video/trick-03.mp4" poster="/assets/img/poster/trick-03.jpg"></video>
+    <video muted loop playsinline preload="none" data-src="/assets/video/trick-04.mp4" poster="/assets/img/poster/trick-04.jpg"></video>
+    <video muted loop playsinline preload="none" data-src="/assets/video/trick-08.mp4" poster="/assets/img/poster/trick-08.jpg"></video>
+  </div>
+</section>
+
+<section class="end glass">
+  <h2>Дай волю восхищению</h2>
+  <div class="row"><a href="#wb" class="btn">Wildberries</a><a href="#ozon" class="btn out">Ozon</a></div>
+</section>
+</main>
+<footer class="fin">Официальный дистрибьютор ZipString в России · ТР ТС 008/2011 · гарантия 1 год</footer>
+<script>
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;var v=x.target;
+    if(!v.src){v.src=v.dataset.src;v.addEventListener('timeupdate',function(){if(v.duration&&v.currentTime>v.duration*.8)v.currentTime=0});v.play().catch(function(){})}io.unobserve(v)})},{rootMargin:'200px'});
+  document.querySelectorAll('video[data-src]').forEach(function(v){io.observe(v)});
+</script>
+</body></html>

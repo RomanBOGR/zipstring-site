@@ -1,0 +1,67 @@
+/* «Аркада» — игрушка как игра: HUD, таблица рекордов, выбор персонажа.
+   Подпись варианта: счётчик очков в шапке растёт от прокрутки — страница сама играется. */
+body{background:#071E42;color:#DDEBFB;
+  background-image:linear-gradient(rgba(44,205,241,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(44,205,241,.05) 1px,transparent 1px);
+  background-size:44px 44px}
+.hud{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:12px clamp(14px,3vw,40px);background:rgba(7,30,66,.85);backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(44,205,241,.35);font-family:var(--accent);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.hud-mid{color:#7FB6E8}
+.score b{color:var(--teal)}
+
+.stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,60px);align-items:center;
+  padding:clamp(36px,7vw,110px) clamp(16px,4vw,56px);position:relative;overflow:hidden}
+.glow{position:absolute;width:60vw;height:60vw;left:-20vw;top:-20vw;border-radius:50%;
+  background:radial-gradient(circle,rgba(44,205,241,.22),transparent 62%);pointer-events:none}
+.ready{font-family:var(--accent);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);
+  animation:blink 1.6s steps(2,end) infinite}
+@keyframes blink{50%{opacity:.25}}
+.stage h1{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.84;letter-spacing:-.03em;
+  font-size:clamp(3rem,1rem + 9vw,8rem);margin:16px 0 18px}
+.neon{color:var(--teal);text-shadow:0 0 18px rgba(44,205,241,.65),0 0 60px rgba(44,205,241,.35)}
+.stage p{color:#A9C8EA;max-width:38ch}
+.row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.btn{font-family:var(--accent);font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;padding:15px 28px;
+  background:var(--teal);color:#071E42;border-radius:4px;box-shadow:0 0 0 2px rgba(44,205,241,.35),0 8px 26px rgba(44,205,241,.3);
+  transition:transform .18s var(--expo),box-shadow .18s var(--expo)}
+.btn.ghost{background:transparent;color:var(--teal);box-shadow:inset 0 0 0 2px rgba(44,205,241,.6)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 0 2px var(--teal),0 14px 34px rgba(44,205,241,.45)}
+
+.screen{position:relative;border:2px solid rgba(44,205,241,.5);border-radius:14px;overflow:hidden;
+  box-shadow:0 0 60px rgba(44,205,241,.25)}
+.screen video{width:100%;height:clamp(280px,46vh,520px);object-fit:cover}
+.scan{position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(rgba(7,30,66,.35) 0 1px,transparent 1px 4px)}
+
+section{padding:clamp(30px,5vw,80px) clamp(16px,4vw,56px)}
+h2{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(1.6rem,1rem + 2.6vw,3rem);
+  letter-spacing:-.02em;margin-bottom:24px;color:#fff}
+
+.rank{display:grid;gap:2px}
+.rank li{display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:16px;padding:16px 18px;
+  background:rgba(44,205,241,.07);border-left:3px solid var(--teal);font-size:.98rem;transition:background .25s var(--expo)}
+.rank li:hover{background:rgba(44,205,241,.16)}
+.pos{font-family:var(--accent);color:var(--teal)}
+.rank b{font-family:var(--display);font-weight:900;font-size:1.25rem;color:#fff}
+
+.chars{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.5vw,32px)}
+.char{border:2px solid rgba(44,205,241,.35);border-radius:18px;padding:22px;display:grid;gap:14px;
+  background:linear-gradient(180deg,rgba(44,205,241,.08),transparent);transition:border-color .25s,transform .25s var(--expo)}
+.char:hover{border-color:var(--teal);transform:translateY(-5px)}
+.char img{width:100%;height:230px;object-fit:contain}
+.char h3{font-family:var(--display);font-weight:900;font-size:1.5rem;color:#fff}
+.char dl{display:grid;gap:8px}
+.char dl div{display:flex;justify-content:space-between;border-bottom:1px dashed rgba(44,205,241,.3);padding-bottom:6px;font-size:.9rem}
+.char dt{font-family:var(--accent);font-size:.72rem;text-transform:uppercase;color:#7FB6E8}
+.char dd{color:#fff}
+
+.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mgrid figure{border:2px solid rgba(44,205,241,.3);border-radius:14px;overflow:hidden;background:#0A2650}
+.mgrid video{width:100%;aspect-ratio:3/4;object-fit:cover}
+.mgrid figcaption{font-family:var(--accent);font-size:.7rem;text-transform:uppercase;padding:10px 12px;color:var(--teal)}
+
+.final{text-align:center;background:linear-gradient(180deg,transparent,rgba(44,205,241,.12))}
+.final .row{justify-content:center}
+.fin{padding:20px;text-align:center;font-size:.76rem;color:#6f9dcd}
+
+@media(max-width:900px){.stage{grid-template-columns:1fr}.chars{grid-template-columns:1fr}.mgrid{grid-template-columns:1fr 1fr}}

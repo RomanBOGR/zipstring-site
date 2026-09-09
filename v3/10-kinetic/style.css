@@ -1,0 +1,59 @@
+/* «Кинетика» — типографика в движении: строки едут от прокрутки, заголовки собираются по словам.
+   Подпись варианта: три встречные строки-ленты, между которыми зажат кадр. */
+body{background:#0B2E60;color:#fff}
+.back{position:fixed;left:16px;top:14px;z-index:30;font-family:var(--accent);font-size:.68rem;text-transform:uppercase;
+  letter-spacing:.06em;background:rgba(255,255,255,.14);padding:8px 14px;border-radius:99px;backdrop-filter:blur(6px)}
+
+.kin{position:relative;min-height:100svh;display:grid;align-content:center;gap:clamp(20px,4vh,50px);overflow:hidden;
+  padding:clamp(60px,10vh,120px) 0}
+.lines{display:grid;gap:clamp(2px,.6vh,10px)}
+.line{display:flex;gap:.4em;width:max-content;font-family:var(--display);font-weight:900;text-transform:uppercase;
+  font-size:clamp(3rem,1rem + 11vw,10rem);line-height:.86;letter-spacing:-.04em;will-change:transform}
+.line i{font-style:normal;-webkit-text-stroke:2px rgba(255,255,255,.55);color:transparent}
+.line.accent i{-webkit-text-stroke:0;color:var(--teal)}
+
+.kin-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:center;
+  margin:0 clamp(16px,5vw,90px);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+  border-radius:30px;padding:clamp(16px,2vw,26px)}
+.kin-card video{width:100%;height:clamp(240px,36vh,420px);object-fit:cover;border-radius:20px}
+.kin-txt{display:grid;gap:22px;padding:clamp(6px,2vw,26px)}
+.kin-txt p{font-size:clamp(1rem,.95rem+.4vw,1.3rem);color:#cadff8;max-width:34ch}
+
+.btn{justify-self:start;font-family:var(--accent);font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;
+  background:var(--teal);color:var(--blue);padding:16px 30px;border-radius:99px;
+  transition:transform .25s var(--expo),box-shadow .25s var(--expo);box-shadow:0 10px 28px rgba(44,205,241,.32)}
+.btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.4)}
+
+section{padding:clamp(40px,7vw,110px) clamp(16px,5vw,90px)}
+.split-h{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.9;
+  font-size:clamp(1.9rem,1rem + 4.4vw,4.8rem);margin-bottom:clamp(24px,4vw,54px)}
+.split-h span{display:inline-block;opacity:0;transform:translateY(.5em) rotate(3deg);
+  transition:opacity .7s var(--expo) var(--d),transform .7s var(--expo) var(--d)}
+.split-h.in span{opacity:1;transform:none}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,32px)}
+.mcard{position:relative;display:grid;gap:12px;padding:26px;border-radius:26px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.14);opacity:0;transform:translateY(30px);
+  transition:opacity .8s var(--expo),transform .8s var(--expo),background .3s}
+.mcard.in{opacity:1;transform:none}
+.mcard:hover{background:rgba(44,205,241,.14)}
+.idx{position:absolute;right:22px;top:18px;font-family:var(--accent);font-size:.72rem;color:var(--teal)}
+.mcard img{width:100%;height:240px;object-fit:contain}
+.mfoot{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+.mfoot h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:1.7rem}
+.mfoot span{font-family:var(--accent);color:var(--teal);font-size:1.1rem}
+.mcard p{color:#a9c8ea;font-size:.94rem}
+
+.strip-t{padding-top:0}
+.row-t{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.row-t figure{opacity:0;transform:translateY(26px);transition:opacity .7s var(--expo),transform .7s var(--expo)}
+.row-t figure.in{opacity:1;transform:none}
+.row-t figure:nth-child(2){transition-delay:.1s}.row-t figure:nth-child(3){transition-delay:.2s}.row-t figure:nth-child(4){transition-delay:.3s}
+.row-t video{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:20px}
+.row-t figcaption{margin-top:10px;font-family:var(--accent);font-size:.72rem;text-transform:uppercase;color:#a9c8ea}
+
+.end{display:grid;justify-items:start;gap:22px;background:linear-gradient(180deg,transparent,rgba(44,205,241,.12))}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.fin{font-size:.82rem;color:#a9c8ea}
+
+@media(max-width:860px){.kin-card{grid-template-columns:1fr}.duo{grid-template-columns:1fr}.row-t{grid-template-columns:1fr 1fr}}

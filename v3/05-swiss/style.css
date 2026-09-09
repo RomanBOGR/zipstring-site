@@ -1,0 +1,68 @@
+/* «Сетка» — интернациональный стиль: 12 колонок, левый флаг, таблица вместо буллитов.
+   Подпись варианта: вся страница живёт на видимой колоночной сетке, ничего по центру. */
+body{background:#fff;color:var(--blue);font-size:16px}
+.top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;
+  padding:18px clamp(16px,4vw,56px);border-bottom:1px solid var(--blue)}
+.top img{height:22px;width:auto}
+.back{font-family:var(--accent);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em}
+.top nav{display:flex;gap:22px;justify-self:end;font-size:.85rem}
+.top nav a{border-bottom:1px solid transparent}
+.top nav a:hover{border-color:var(--blue)}
+
+.grid12{display:grid;grid-template-columns:repeat(12,1fr);gap:0 clamp(12px,1.6vw,26px);
+  padding:0 clamp(16px,4vw,56px);
+  background-image:repeating-linear-gradient(to right,rgba(22,79,157,.07) 0 1px,transparent 1px calc((100% - 11px)/12));
+  background-size:100% 100%}
+.grid12>section,.grid12>figure{grid-column:1/-1;padding:clamp(30px,4.5vw,74px) 0;border-bottom:1px solid rgba(22,79,157,.25)}
+
+.hero{display:grid;grid-template-columns:subgrid}
+.meta{grid-column:1/-1;display:flex;gap:26px;flex-wrap:wrap;font-family:var(--accent);font-size:.7rem;
+  text-transform:uppercase;letter-spacing:.08em;color:#5d7ea9;margin-bottom:clamp(20px,3vw,44px)}
+.hero h1{grid-column:1/9;font-family:var(--display);font-weight:900;text-transform:uppercase;
+  font-size:clamp(3rem,1rem + 10vw,9.5rem);line-height:.82;letter-spacing:-.045em}
+.lede{grid-column:9/-1;align-self:end;font-size:clamp(1rem,.95rem+.3vw,1.2rem);max-width:34ch}
+
+.frame{padding-top:0!important}
+.frame video{width:100%;height:clamp(260px,44vh,540px);object-fit:cover}
+
+h2{font-family:var(--accent);font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:22px}
+.specs{display:grid;grid-template-columns:subgrid}
+.specs h2{grid-column:1/4}
+.specs table{grid-column:4/-1;width:100%;border-collapse:collapse}
+.specs tr{border-top:1px solid rgba(22,79,157,.25)}
+.specs tr:last-child{border-bottom:1px solid rgba(22,79,157,.25)}
+.specs th{text-align:left;font-weight:600;padding:14px 0;width:34%;color:#5d7ea9;font-size:.9rem}
+.specs td{padding:14px 0;font-size:1.02rem}
+
+.range{display:grid;grid-template-columns:subgrid}
+.range h2{grid-column:1/4}
+.two{grid-column:4/-1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,40px)}
+.two img{width:100%;height:220px;object-fit:contain;background:#F2F7FD}
+.two h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:1.5rem;margin:16px 0 8px}
+.two p{color:#5d7ea9;font-size:.95rem;min-height:3em}
+.p{font-family:var(--accent);font-size:1.1rem}
+
+.tricks{display:grid;grid-template-columns:subgrid}
+.tricks h2{grid-column:1/4}
+.tlist{grid-column:4/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.4vw,22px);counter-reset:t}
+.tlist li{counter-increment:t}
+.tlist video{width:100%;aspect-ratio:3/4;object-fit:cover;filter:saturate(.9)}
+.tlist span{display:block;margin-top:10px;font-size:.85rem}
+.tlist span::before{content:counter(t,decimal-leading-zero) ' ';font-family:var(--accent);color:#5d7ea9;margin-right:6px}
+
+.buy{display:grid;grid-template-columns:subgrid;border-bottom:0!important}
+.buy h2{grid-column:1/4}
+.buy p{grid-column:4/9;font-size:1.05rem}
+.links{grid-column:9/-1;display:grid;gap:10px;align-content:start}
+.links a{font-family:var(--accent);font-size:.95rem;border-bottom:1px solid var(--blue);padding-bottom:6px;width:max-content}
+.links a:hover{color:var(--teal);border-color:var(--teal)}
+
+.bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px clamp(16px,4vw,56px);
+  border-top:1px solid var(--blue);font-size:.78rem;color:#5d7ea9}
+
+@media(max-width:900px){
+  .grid12{background-image:none}
+  .hero h1,.lede,.specs h2,.specs table,.range h2,.two,.tricks h2,.tlist,.buy h2,.buy p,.links{grid-column:1/-1}
+  .two,.tlist{grid-template-columns:1fr 1fr}
+  .top{grid-template-columns:auto 1fr;}.top nav{display:none}
+}

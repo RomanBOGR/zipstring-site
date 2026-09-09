@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — Бенто</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="/v3/base.css"><link rel="stylesheet" href="style.css?v=1">
+</head><body>
+<header class="bar">
+  <a href="/v3/" class="back">← Все варианты</a>
+  <img src="/v2/assets/logo-light.svg" alt="ZipString" width="528" height="188">
+  <a href="#buy" class="pill">Купить</a>
+</header>
+
+<main class="bento">
+  <section class="cell hero">
+    <span class="tag">Мировой бестселлер</span>
+    <h1>Магия<br>парящей нити</h1>
+    <p>Нажми кнопку — петля взлетает и повторяет движение руки.</p>
+    <a href="#buy" class="btn">Выбрать модель</a>
+  </section>
+
+  <section class="cell media">
+    <video autoplay muted loop playsinline preload="auto" poster="/assets/img/poster/hero.jpg"><source src="/assets/video/hero.mp4" type="video/mp4"></video>
+  </section>
+
+  <section class="cell stat"><b>65</b><span>км/ч разгон нити</span></section>
+  <section class="cell stat teal"><b>100+</b><span>трюков в библиотеке</span></section>
+
+  <section class="cell trick">
+    <video muted loop playsinline preload="none" data-src="/assets/video/trick-01.mp4" poster="/assets/img/poster/trick-01.jpg"></video>
+    <span class="cap">Лук и стрела</span>
+  </section>
+
+  <section class="cell prod" id="buy">
+    <img src="/v2/assets/product-original.webp" alt="ZipString Original" width="1298" height="900" loading="lazy">
+    <div class="prod-foot"><h2>Original</h2><span>2 290 ₽</span></div>
+  </section>
+
+  <section class="cell prod alt">
+    <img src="/v2/assets/product-aracna.webp" alt="ZipString Aracna" width="272" height="900" loading="lazy">
+    <div class="prod-foot"><h2>Aracna</h2><span>3 690 ₽</span></div>
+  </section>
+
+  <section class="cell feats">
+    <ul>
+      <li><i style="--i:url('/v2/assets/icons/screenfree.svg')"></i>Игра без экрана</li>
+      <li><i style="--i:url('/v2/assets/icons/pocket.svg')"></i>Влезает в карман</li>
+      <li><i style="--i:url('/v2/assets/icons/age.svg')"></i>С 4 лет</li>
+      <li><i style="--i:url('/v2/assets/icons/glow.svg')"></i>Светится в темноте</li>
+    </ul>
+  </section>
+
+  <section class="cell life"><img src="/v2/assets/life-jump.webp" alt="Во дворе" width="1400" height="787" loading="lazy"><span class="cap">Во дворе</span></section>
+  <section class="cell life sm"><img src="/v2/assets/life-beach.webp" alt="На прогулке" width="1400" height="787" loading="lazy"><span class="cap">На прогулке</span></section>
+
+  <section class="cell cta">
+    <img class="mark" src="/v2/assets/monogram-white.svg" alt="" aria-hidden="true" width="120" height="120">
+    <h2>Дай волю восхищению</h2>
+    <div class="cta-row"><a href="#wb" class="btn light">Wildberries</a><a href="#ozon" class="btn ghost">Ozon</a></div>
+  </section>
+</main>
+<footer class="fin">Официальный дистрибьютор ZipString в России · ТР ТС 008/2011 · гарантия 1 год</footer>
+<script>
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;var v=x.target;
+    if(!v.src){v.src=v.dataset.src;v.addEventListener('timeupdate',function(){if(v.duration&&v.currentTime>v.duration*.8)v.currentTime=0});v.play().catch(function(){})}io.unobserve(v)})},{rootMargin:'200px'});
+  document.querySelectorAll('video[data-src]').forEach(function(v){io.observe(v)});
+</script>
+</body></html>

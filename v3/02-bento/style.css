@@ -1,0 +1,66 @@
+/* «Бенто» — вся главная как одна сетка плиток: смотришь один экран, а не листаешь.
+   Подпись варианта: плитки одного модуля, но разного веса — ритм задаёт размер, не рамка. */
+body{background:#0E3B7A;color:#fff}
+.bar{display:flex;align-items:center;gap:18px;padding:18px clamp(14px,3vw,34px)}
+.bar img{height:24px;width:auto;margin-inline:auto}
+.back{font-family:var(--accent);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:#9dc2ee}
+.pill{font-family:var(--accent);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;background:var(--teal);color:var(--blue);padding:10px 20px;border-radius:99px}
+
+.bento{display:grid;gap:14px;padding:0 clamp(14px,3vw,34px) clamp(14px,3vw,34px);
+  grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(120px,auto)}
+.cell{position:relative;overflow:hidden;border-radius:26px;background:var(--blue);padding:24px;
+  transition:transform .35s var(--expo),background .35s var(--expo)}
+.cell:hover{transform:translateY(-4px)}
+
+.hero{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column;justify-content:flex-end;gap:16px;
+  background:linear-gradient(150deg,#1a5cb4,#164F9D 60%)}
+.tag{font-family:var(--accent);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal)}
+.hero h1{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-.02em;
+  font-size:clamp(2rem,1rem + 3.2vw,4rem)}
+.hero p{color:#cfe2f8;max-width:34ch}
+.btn{align-self:flex-start;font-family:var(--accent);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;
+  background:var(--teal);color:var(--blue);padding:14px 26px;border-radius:99px;transition:transform .2s var(--expo)}
+.btn:hover{transform:translateY(-2px)}
+.btn.light{background:#fff;color:var(--blue)}
+.btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.45)}
+
+.media{grid-column:span 2;grid-row:span 2;padding:0}
+.media video{width:100%;height:100%;object-fit:cover}
+
+.stat{grid-column:span 1;display:flex;flex-direction:column;justify-content:center;gap:6px;background:#12468f}
+.stat b{font-family:var(--display);font-weight:900;font-size:clamp(1.9rem,1rem + 2.4vw,3rem);line-height:1}
+.stat span{font-size:.85rem;color:#bdd6f3}
+.stat.teal{background:var(--teal);color:var(--blue)}
+.stat.teal span{color:#12468f}
+
+.trick{grid-column:span 2;grid-row:span 2;padding:0}
+.trick video{width:100%;height:100%;object-fit:cover}
+.cap{position:absolute;left:14px;bottom:14px;background:#fff;color:var(--blue);font-family:var(--accent);
+  font-size:.68rem;text-transform:uppercase;padding:7px 14px;border-radius:99px}
+
+.prod{grid-column:span 2;display:flex;flex-direction:column;gap:14px;background:var(--teal);min-height:280px}
+.prod img{flex:1;width:100%;min-height:0;object-fit:contain}
+.prod-foot{display:flex;align-items:baseline;justify-content:space-between;color:var(--blue)}
+.prod-foot h2{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:1.5rem}
+.prod-foot span{font-family:var(--accent);font-size:1.05rem}
+.prod.alt{background:#3fd6f5}
+
+.feats{grid-column:span 2}
+.feats ul{display:grid;gap:14px}
+.feats li{display:flex;align-items:center;gap:12px;font-size:.95rem}
+.feats i{width:30px;height:30px;flex:0 0 30px;background:var(--teal);-webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat}
+
+.life{grid-column:span 2;grid-row:span 2;padding:0}
+.life.sm{grid-row:span 1}
+.life img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--expo)}
+.life:hover img{transform:scale(1.05)}
+
+.cta{grid-column:span 4;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;
+  padding:clamp(30px,5vw,60px);background:var(--teal);color:var(--blue)}
+.cta h2{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(1.6rem,1rem + 3vw,3.4rem);line-height:.95}
+.cta .mark{width:74px;height:auto;filter:invert(19%) sepia(64%) saturate(1600%) hue-rotate(195deg)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.fin{padding:20px clamp(14px,3vw,34px) 34px;font-size:.78rem;color:#9dc2ee;text-align:center}
+
+@media(max-width:980px){.bento{grid-template-columns:repeat(2,1fr)}.cta{grid-column:span 2}}
+@media(max-width:560px){.bento{grid-template-columns:1fr}.hero,.media,.trick,.prod,.feats,.life,.cta{grid-column:span 1}}

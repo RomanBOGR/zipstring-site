@@ -1,0 +1,65 @@
+/* «Брутал» — жёсткие рамки, плотные тени, цвета устройств из брендбука в полную силу.
+   Подпись варианта: всё стоит на видимой сетке — рамка 3px и смещённая тень как конструктив. */
+:root{--edge:3px solid var(--blue);--shadow:8px 8px 0 var(--blue)}
+body{background:#F2F6FC;color:var(--blue)}
+.ticker{background:var(--blue);color:#fff;overflow:hidden;border-bottom:var(--edge)}
+.ticker-in{display:flex;width:max-content;animation:run 26s linear infinite}
+.ticker span{font-family:var(--accent);font-size:.8rem;letter-spacing:.08em;padding:10px 0;white-space:nowrap}
+@keyframes run{to{transform:translateX(-50%)}}
+
+.bar{display:flex;align-items:center;gap:16px;padding:16px clamp(16px,4vw,44px);border-bottom:var(--edge);background:#fff}
+.bar img{height:26px;width:auto;margin-inline:auto}
+.back{font-family:var(--accent);font-size:.7rem;text-transform:uppercase}
+.btn{display:inline-block;font-family:var(--accent);font-size:.9rem;text-transform:uppercase;letter-spacing:.04em;
+  background:var(--teal);color:var(--blue);border:var(--edge);box-shadow:var(--shadow);padding:16px 28px;
+  transition:transform .12s linear,box-shadow .12s linear}
+.btn:hover{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--blue)}
+.btn.sm{padding:9px 16px;font-size:.72rem;box-shadow:4px 4px 0 var(--blue)}
+.btn.out{background:#fff}
+.btn.out.light{background:transparent;color:#fff;border-color:#fff;box-shadow:8px 8px 0 rgba(255,255,255,.4)}
+
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:0;border-bottom:var(--edge)}
+.hero-txt{padding:clamp(26px,5vw,64px);border-right:var(--edge)}
+.stamp{display:inline-block;font-family:var(--accent);font-size:.72rem;text-transform:uppercase;background:var(--red);
+  color:#fff;padding:8px 14px;border:var(--edge);transform:rotate(-2deg)}
+.hero h1{font-family:var(--display);font-weight:900;font-size:clamp(3rem,1rem + 9vw,8.5rem);line-height:.82;
+  letter-spacing:-.04em;margin:24px 0 20px}
+.hero p{max-width:38ch;font-size:1.05rem}
+.row{display:flex;flex-wrap:wrap;gap:16px;margin-top:30px}
+.hero-media video{width:100%;height:100%;min-height:340px;object-fit:cover}
+
+.strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:var(--edge)}
+.box{padding:26px;border-right:var(--edge);display:flex;flex-direction:column;gap:4px}
+.box:last-child{border-right:0}
+.box b{font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,1rem + 2.6vw,3.2rem);line-height:1}
+.box span{font-family:var(--accent);font-size:.75rem;text-transform:uppercase}
+.box.red{background:var(--red);color:#fff}.box.teal{background:var(--teal)}
+.box.mint{background:var(--mint)}.box.orange{background:var(--orange);color:#fff}
+
+.shop,.tricks{padding:clamp(30px,5vw,70px) clamp(16px,4vw,44px)}
+h2{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(2rem,1rem + 4vw,4.4rem);
+  line-height:.9;letter-spacing:-.03em;margin-bottom:26px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card{background:#fff;border:var(--edge);box-shadow:var(--shadow);padding:22px;display:grid;gap:12px}
+.card.teal-bg{background:var(--teal)}
+.card img{width:100%;height:230px;object-fit:contain}
+.card h3{font-family:var(--display);font-weight:900;font-size:1.6rem}
+.buy{display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:var(--edge);padding-top:14px}
+.buy span{font-family:var(--accent);font-size:1.3rem}
+
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.tgrid figure{border:var(--edge);box-shadow:var(--shadow);background:#fff}
+.tgrid video{width:100%;aspect-ratio:3/4;object-fit:cover;border-bottom:var(--edge)}
+.tgrid figcaption{font-family:var(--accent);font-size:.72rem;text-transform:uppercase;padding:10px 12px}
+
+.cta{background:var(--blue);color:#fff;padding:clamp(40px,7vw,100px) clamp(16px,4vw,44px);border-top:var(--edge)}
+.cta h2{color:#fff}
+.fin{padding:18px clamp(16px,4vw,44px);font-family:var(--accent);font-size:.7rem;text-transform:uppercase;
+  background:var(--blue);color:#9dc2ee}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}.hero-txt{border-right:0;border-bottom:var(--edge)}
+  .strip{grid-template-columns:repeat(2,1fr)}.box:nth-child(2){border-right:0}
+  .grid,.tgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){.grid,.tgrid{grid-template-columns:1fr}}

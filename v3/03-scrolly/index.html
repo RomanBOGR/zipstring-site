@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — Кино</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="/v3/base.css"><link rel="stylesheet" href="style.css?v=1">
+</head><body>
+<a href="/v3/" class="back">← Все варианты</a>
+<div class="progress"><i></i></div>
+
+<section class="scene s1">
+  <video autoplay muted loop playsinline preload="auto" poster="/assets/img/poster/hero.jpg"><source src="/assets/video/hero.mp4" type="video/mp4"></video>
+  <div class="veil"></div>
+  <div class="s1-in">
+    <img class="logo" src="/v2/assets/logo-light.svg" alt="ZipString" width="528" height="188">
+    <h1><span>Нить</span> <span>не</span> <span>падает</span></h1>
+    <p class="sub">Прокрути — и увидишь, почему</p>
+    <span class="hint" aria-hidden="true"></span>
+  </div>
+</section>
+
+<section class="scene s2">
+  <svg class="draw" viewBox="0 0 1200 600" aria-hidden="true"><path d="M60 480C240 120 420 520 600 300s300-260 540-40"/></svg>
+  <div class="copy">
+    <span class="num">01</span>
+    <h2>Разгон 65 км/ч</h2>
+    <p>Два ролика раскручивают закольцованную нить. На такой скорости петля держит форму сама — рука только задаёт направление.</p>
+  </div>
+</section>
+
+<section class="scene s3">
+  <div class="copy right">
+    <span class="num">02</span>
+    <h2>Трюк с первой минуты</h2>
+    <p>Учиться не нужно: петля слушается сразу. Дальше — сто с лишним трюков, от «лука и стрелы» до «портала».</p>
+  </div>
+  <div class="tri">
+    <video muted loop playsinline preload="none" data-src="/assets/video/trick-01.mp4" poster="/assets/img/poster/trick-01.jpg"></video>
+    <video muted loop playsinline preload="none" data-src="/assets/video/trick-03.mp4" poster="/assets/img/poster/trick-03.jpg"></video>
+    <video muted loop playsinline preload="none" data-src="/assets/video/trick-08.mp4" poster="/assets/img/poster/trick-08.jpg"></video>
+  </div>
+</section>
+
+<section class="scene s4">
+  <div class="copy">
+    <span class="num">03</span>
+    <h2>Две модели</h2>
+  </div>
+  <div class="duo">
+    <a class="card" href="/pages/original/"><img src="/v2/assets/product-original.webp" alt="Original" width="1298" height="900" loading="lazy"><h3>Original</h3><span>2 290 ₽</span></a>
+    <a class="card" href="/pages/aracna/"><img src="/v2/assets/product-aracna.webp" alt="Aracna" width="272" height="900" loading="lazy"><h3>Aracna</h3><span>3 690 ₽</span></a>
+  </div>
+</section>
+
+<section class="scene s5">
+  <h2 class="big">Запускай.<br>Удивляй.</h2>
+  <div class="row"><a href="#wb" class="btn">Wildberries</a><a href="#ozon" class="btn ghost">Ozon</a></div>
+  <p class="fin">Официальный дистрибьютор в России · гарантия 1 год</p>
+</section>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');
+      var v=e.target.querySelectorAll('video[data-src]');
+      v.forEach(function(x){if(!x.src){x.src=x.dataset.src;x.addEventListener('timeupdate',function(){if(x.duration&&x.currentTime>x.duration*.8)x.currentTime=0});x.play().catch(function(){})}});
+    }})},{threshold:.25});
+  document.querySelectorAll('.scene').forEach(function(s){io.observe(s)});
+  var bar=document.querySelector('.progress i');
+  addEventListener('scroll',function(){
+    var h=document.documentElement;bar.style.transform='scaleX('+(h.scrollTop/(h.scrollHeight-h.clientHeight))+')';
+  },{passive:true});
+</script>
+</body></html>
