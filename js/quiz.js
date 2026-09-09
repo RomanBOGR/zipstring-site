@@ -118,14 +118,22 @@
 
   // Декоративный ролик сбоку грузится только там, где он реально виден:
   // на мобильном .quiz-loop скрыт, и качать его незачем.
-  if (window.matchMedia('(min-width: 901px)').matches &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('.quiz-loop-video').forEach(function (v) {
+  // Пока src не подключён, рамка не показывается — иначе на месте ролика пустой блок.
+  var wide = window.matchMedia('(min-width: 901px)');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function mountLoop() {
+    if (!wide.matches || still.matches) return;
+    var box = id('quizLoop');
+    box.classList.add('is-on');
+    box.querySelectorAll('.quiz-loop-video').forEach(function (v) {
+      if (v.src) return;
       v.poster = v.dataset.poster;
       v.src = v.dataset.src;
       v.play().catch(function () {});
     });
   }
+  mountLoop();
+  wide.addEventListener('change', mountLoop); // окно расширили — ролик появляется
 
   id('quizStart').addEventListener('click', function () {
     answers = []; current = 0;
