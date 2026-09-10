@@ -184,3 +184,37 @@ h2{font-family:var(--display);font-weight:900;text-transform:uppercase;color:var
   .buybar .btn{flex:1}
 }
 @media(max-width:560px){.tile-row,.feed-grid{grid-template-columns:1fr}}
+
+/* ── правки после разбора ───────────────────────────────────────────────────── */
+/* конфигуратор: сначала модель, потом её цвета — свотчи больше не подменяют модель */
+.pickers{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.picker{display:flex;gap:6px;background:#EEF4FB;border-radius:99px;padding:4px}
+.mdl{border:0;background:transparent;color:var(--blue);font-family:var(--accent);font-size:.74rem;
+  text-transform:uppercase;padding:9px 16px;border-radius:99px;cursor:pointer;transition:background .18s var(--expo)}
+.mdl:hover{background:#DEEAF8}
+.mdl.is-on{background:var(--blue);color:#fff}
+/* длина нити меняет схему петли, а не только подпись */
+.loop{width:min(300px,60%);height:auto}
+.loop ellipse{fill:none;stroke:var(--teal);stroke-width:4;stroke-linecap:round;
+  transition:rx .35s var(--expo),ry .35s var(--expo)}
+.config-stage{gap:10px}
+.config-stage img{max-height:230px}
+
+/* липкая панель была полупрозрачной поверх тёмной секции — делаем сплошной */
+.buybar{background:#fff;box-shadow:0 -10px 30px rgba(16,49,79,.16);backdrop-filter:none}
+
+/* плашка не должна вылезать за карточку */
+.badge{right:18px;top:-11px}
+
+/* стикеры героя на узком экране расходились друг на друга */
+@media(max-width:820px){
+  .s1{top:clamp(14px,4vw,30px);right:16px;left:auto}
+  .s2{top:auto;bottom:clamp(14px,4vw,30px);right:16px;left:auto}
+}
+.ref-link{color:var(--teal);text-decoration:underline;text-underline-offset:.2em;margin-left:8px}
+
+/* петля рисуется за устройством, а не отдельным пустым овалом под ним */
+.config-stage{position:relative;place-items:center}
+.config-stage img{position:relative;z-index:1;max-height:260px}
+.loop{position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);width:min(460px,86%);z-index:0}
+.cfg-note{position:relative;z-index:1}
