@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — все версии главной</title><meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/v3/base.css">
+<link rel="stylesheet" href="/switch.css?v=1">
+<style>
+body{background:#F4F8FD;color:#12314f;padding-bottom:90px}
+.head{padding:clamp(26px,5vw,64px) clamp(18px,5vw,56px) 22px;border-bottom:1px solid #D9E5F2}
+.head img{height:26px;width:auto;margin-bottom:18px}
+h1{font-family:var(--display);font-weight:900;text-transform:uppercase;color:var(--blue);letter-spacing:-.03em;
+  font-size:clamp(1.8rem,1rem + 3.2vw,3rem);line-height:.96}
+.head p{margin-top:12px;max-width:68ch;color:#42618a}
+.hint{margin-top:14px;font-size:.9rem;color:#6d87a8}
+.hint kbd{background:#fff;border:1px solid #D9E5F2;border-bottom-width:2px;border-radius:6px;padding:2px 7px;font:inherit;font-size:.85em}
+h2{font-family:var(--display);font-weight:900;text-transform:uppercase;color:var(--blue);font-size:1.15rem;
+  letter-spacing:.01em;margin:0 0 14px}
+section{padding:clamp(22px,4vw,44px) clamp(18px,5vw,56px) 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.card{display:grid;gap:0;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #E1EAF5;
+  transition:transform .25s var(--expo),box-shadow .25s var(--expo)}
+.card:hover{transform:translateY(-5px);box-shadow:0 20px 44px rgba(16,60,121,.16)}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;border-bottom:1px solid #E1EAF5;background:#EEF4FB}
+.card .txt{padding:14px 16px;display:grid;gap:3px}
+.card b{font-family:var(--display);font-weight:900;text-transform:uppercase;color:var(--blue);font-size:1.05rem}
+.card span{font-size:.86rem;color:#6d87a8}
+footer{padding:34px clamp(18px,5vw,56px) 60px;color:#6d87a8;font-size:.85rem}
+</style></head><body>
+<header class="head">
+  <img src="/v2/assets/logo-blue.svg" alt="ZipString">
+  <h1>Все версии главной</h1>
+  <p>Двадцать три варианта в одном месте. Кнопка внизу слева переключает версии с любой страницы, не возвращаясь сюда.</p>
+  <p class="hint">С клавиатуры: <kbd>Alt</kbd> + <kbd>→</kbd> — следующий вариант, <kbd>Alt</kbd> + <kbd>←</kbd> — предыдущий, <kbd>Esc</kbd> — закрыть список.</p>
+</header>
+
+<section>
+  <h2>Сайт</h2>
+  <div class="grid">
+    <a class="card" href="/"><img src="/versions/thumbs/v1.webp" alt="" loading="lazy"><div class="txt"><b>Текущий сайт</b><span>то, что сейчас на zipstring.ru</span></div></a>
+    <a class="card" href="/v2/"><img src="/versions/thumbs/v2.webp" alt="" loading="lazy"><div class="txt"><b>По брендбуку</b><span>фирменный стиль ZipString</span></div></a>
+  </div>
+</section>
+
+<section>
+  <h2>Серия 1 · направления дизайна</h2>
+  <div class="grid" id="s1"></div>
+</section>
+
+<section>
+  <h2>Серия 2 · по установленным скиллам</h2>
+  <div class="grid" id="s2"></div>
+</section>
+
+<section>
+  <h2>Серия 3 · по референсам</h2>
+  <div class="grid">
+    <a class="card" href="/v5/"><img src="/versions/thumbs/v5.webp" alt="" loading="lazy"><div class="txt"><b>По рефам Refero</b><span>десять референсов, один приём с каждого</span></div></a>
+  </div>
+</section>
+
+<footer>Черновики для выбора направления. Контент во всех вариантах одинаковый — сравнивается оформление.</footer>
+
+<script>
+  var S1=[['01-editorial','01 Журнал','воздух, тонкие правила, буквица'],['02-bento','02 Бенто','вся главная одной сеткой плиток'],
+   ['03-scrolly','03 Кино','полноэкранные сцены, нить рисуется'],['04-brutal','04 Брутал','рамки, тени, бегущая строка'],
+   ['05-swiss','05 Сетка','двенадцать колонок, таблица характеристик'],['06-arcade','06 Аркада','HUD, рекорды, выбор персонажа'],
+   ['07-glass','07 Стекло','матовые панели на дышащем фоне'],['08-poster','08 Плакат','одна композиция во весь экран'],
+   ['09-shop','09 Витрина','оффер, сравнение, вопросы'],['10-kinetic','10 Кинетика','строки едут от прокрутки']];
+  var S2=[['11-clay','11 Клей','ui-ux-pro-max · Claymorphism'],['12-hallmark','12 Манифест','hallmark · макроструктура Manifesto'],
+   ['13-horizon','13 Горизонт','modern-web-design · горизонтальная лента'],['14-convert','14 Оффер','landing-page-design · порядок секций'],
+   ['15-reader','15 Читальня','web-typography · мера и иерархия'],['16-pult','16 Пульт','microinteractions · состояния'],
+   ['17-system','17 Система','refactoring-ui · шкалы и серые'],['18-deck','18 Дек','huashu-design · слайды 16:9'],
+   ['19-clear','19 Понятно','design-everyday-things · два разрыва'],['20-motion','20 Движение','motion-layer · reveal и прогресс']];
+  function fill(el,list,base){ document.getElementById(el).innerHTML=list.map(function(i){
+    return '<a class="card" href="'+base+i[0]+'/"><img src="/versions/thumbs/'+i[0]+'.webp" alt="" loading="lazy">'+
+      '<div class="txt"><b>'+i[1]+'</b><span>'+i[2]+'</span></div></a>';}).join(''); }
+  fill('s1',S1,'/v3/'); fill('s2',S2,'/v4/');
+</script>
+<script src="/switch.js?v=1" defer></script>
+</body></html>
