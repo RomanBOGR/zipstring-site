@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — Пульт</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="/v4/base.css"><link rel="stylesheet" href="style.css?v=1">
+</head><body>
+<!-- Скилл: microinteractions (Saffer) · Триггер → Правила → Обратная связь → Циклы и режимы
+     Signature moment: кнопка «Запустить нить» — состояние покоя, разгон, полёт, остановка -->
+<header class="bar">
+  <a href="/v4/" class="back">← Варианты</a>
+  <img src="/v2/assets/logo-light.svg" alt="ZipString" width="528" height="188">
+  <a href="#buy" class="btn sm">Купить</a>
+</header>
+
+<main>
+<section class="lab">
+  <div class="lab-txt">
+    <h1>Нажми и посмотри</h1>
+    <p>Кнопка ниже работает как настоящая: разгон, полёт, остановка. Ровно так же ведёт себя устройство в руке.</p>
+
+    <div class="control">
+      <button id="run" class="run" data-state="idle" aria-live="polite">
+        <span class="run-dot" aria-hidden="true"></span>
+        <span class="run-label">Запустить нить</span>
+      </button>
+      <p class="hint" id="hint">Состояние: покой</p>
+    </div>
+
+    <fieldset class="strings">
+      <legend>Длина нити</legend>
+      <label><input type="radio" name="len" value="short"><span>Короткая<i>79 см</i></span></label>
+      <label><input type="radio" name="len" value="mid" checked><span>Средняя<i>163 см</i></span></label>
+      <label><input type="radio" name="len" value="long"><span>Длинная<i>244 см</i></span></label>
+    </fieldset>
+    <p class="note" id="note">Средняя — рабочая длина: на ней собирается большинство связок.</p>
+  </div>
+
+  <div class="stage" aria-hidden="true">
+    <svg viewBox="0 0 400 460" class="loop-svg">
+      <ellipse id="loop" cx="200" cy="210" rx="96" ry="150"/>
+    </svg>
+    <div class="device"><img src="/v2/assets/product-original.webp" alt="" width="1298" height="900"></div>
+  </div>
+</section>
+
+<section class="states">
+  <h2>Каждый элемент здесь имеет все состояния</h2>
+  <div class="grid">
+    <article><h3>Триггер</h3><p>Кнопка показывает, что она есть, что делает и в каком она состоянии: покой, разгон, полёт.</p></article>
+    <article><h3>Правила</h3><p>Повторное нажатие во время разгона не ломает запуск — оно останавливает нить, как и на устройстве.</p></article>
+    <article><h3>Обратная связь</h3><p>Отклик до 100 мс: точка на кнопке меняет цвет раньше, чем начнёт двигаться петля.</p></article>
+    <article><h3>Циклы</h3><p>Подсказка «нажми ещё раз, чтобы остановить» показывается только первые два запуска и больше не мешает.</p></article>
+  </div>
+</section>
+
+<section class="buy" id="buy">
+  <h2>Две модели</h2>
+  <div class="two">
+    <a class="card" href="/pages/original/"><img src="/v2/assets/product-original.webp" alt="Original" width="1298" height="900" loading="lazy"><h3>Original</h3><p>3 нити · USB-C</p><span>2 290 ₽</span></a>
+    <a class="card" href="/pages/aracna/"><img src="/v2/assets/product-aracna.webp" alt="Aracna" width="272" height="900" loading="lazy"><h3>Aracna</h3><p>5 нитей · возврат нити</p><span>3 690 ₽</span></a>
+  </div>
+  <div class="row"><a href="#wb" class="btn">Wildberries</a><a href="#ozon" class="btn ghost">Ozon</a></div>
+</section>
+</main>
+<footer class="fin">Официальный дистрибьютор ZipString в России · гарантия 1 год</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('run'), hint=document.getElementById('hint'),
+      loop=document.getElementById('loop'), note=document.getElementById('note'),
+      runs=0, timer=null, reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var TXT={idle:['Запустить нить','Состояние: покой'],
+           spin:['Разгон…','Состояние: разгон до 65 км/ч'],
+           fly:['Остановить','Состояние: нить летит'],};
+
+  function set(state){
+    btn.dataset.state=state;
+    btn.querySelector('.run-label').textContent=TXT[state][0];
+    hint.textContent=TXT[state][1] + (state==='fly'&&runs<2 ? ' · нажми ещё раз, чтобы остановить' : '');
+    document.body.dataset.run=state;
+  }
+  btn.addEventListener('click',function(){
+    var s=btn.dataset.state;
+    if(s==='idle'){ runs++; set('spin');
+      timer=setTimeout(function(){ set('fly'); }, reduce?0:900); }
+    else { clearTimeout(timer); set('idle'); }       // правило: повтор — всегда остановка
+  });
+  set('idle');
+
+  // длина нити меняет петлю и подпись — правило видно глазом
+  var NOTES={short:'Короткая — для первых трюков и тесных комнат: петля меньше, управлять проще.',
+             mid:'Средняя — рабочая длина: на ней собирается большинство связок.',
+             long:'Длинная — крупный рисунок и эффектные проходы, нужен размах и открытое место.'};
+  var RX={short:64,mid:96,long:132}, RY={short:104,mid:150,long:196};
+  document.querySelectorAll('input[name=len]').forEach(function(r){
+    r.addEventListener('change',function(){
+      loop.setAttribute('rx',RX[r.value]); loop.setAttribute('ry',RY[r.value]);
+      note.textContent=NOTES[r.value];
+    });
+  });
+})();
+</script>
+</body></html>

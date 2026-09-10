@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — Горизонт</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="/v4/base.css"><link rel="stylesheet" href="style.css?v=1">
+</head><body>
+<!-- Скилл: modern-web-design · Pattern 1 Immersive Hero + Pattern 2 Horizontal Scroll Gallery
+     + Pattern 7 Staggered Reveals · fluid type scale + OKLCH-токены -->
+<header class="top">
+  <a href="/v4/" class="back">← Варианты</a>
+  <img src="/v2/assets/logo-light.svg" alt="ZipString" width="528" height="188">
+  <a href="#buy" class="btn sm">Купить</a>
+</header>
+
+<main>
+<section class="hero">
+  <video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="/assets/img/poster/hero.jpg"><source src="/assets/video/hero.mp4" type="video/mp4"></video>
+  <div class="hero-in">
+    <h1>Нить,<br>которая держится<br>в воздухе</h1>
+    <p>Петля разгоняется до 65 км/ч и повторяет движение руки. Смотреть лучше, чем читать.</p>
+    <a href="#gallery" class="btn">Посмотреть трюки</a>
+  </div>
+  <span class="scroll-hint">Листай<i></i></span>
+</section>
+
+<section class="gallery" id="gallery" aria-label="Лента трюков">
+  <div class="sticky">
+    <div class="track">
+      <article class="slide intro"><h2>Сто с лишним трюков</h2><p>Лента едет по горизонтали, пока ты прокручиваешь страницу вниз. Родная прокрутка не перехвачена.</p></article>
+      <article class="slide"><video muted loop playsinline preload="none" data-src="/assets/video/trick-01.mp4" poster="/assets/img/poster/trick-01.jpg"></video><h3>Лук и стрела</h3></article>
+      <article class="slide"><video muted loop playsinline preload="none" data-src="/assets/video/trick-03.mp4" poster="/assets/img/poster/trick-03.jpg"></video><h3>Вихрь</h3></article>
+      <article class="slide"><video muted loop playsinline preload="none" data-src="/assets/video/trick-04.mp4" poster="/assets/img/poster/trick-04.jpg"></video><h3>Брызги</h3></article>
+      <article class="slide"><video muted loop playsinline preload="none" data-src="/assets/video/trick-08.mp4" poster="/assets/img/poster/trick-08.jpg"></video><h3>Портал</h3></article>
+      <article class="slide"><video muted loop playsinline preload="none" data-src="/assets/video/trick-10.mp4" poster="/assets/img/poster/trick-10.jpg"></video><h3>Балерина</h3></article>
+      <article class="slide end"><h2>И это только начало</h2><a href="/pages/tricks/" class="btn light">Вся библиотека</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="stats" aria-label="Цифры">
+  <div class="stat"><b data-to="2000000">0</b><span>устройств продано</span></div>
+  <div class="stat"><b data-to="100">0</b><span>трюков в библиотеке</span></div>
+  <div class="stat"><b data-to="65">0</b><span>км/ч разгон нити</span></div>
+  <div class="stat"><b data-to="4">0</b><span>возраст, с которого играют</span></div>
+</section>
+
+<section class="buy" id="buy">
+  <h2>Выбрать модель</h2>
+  <div class="two">
+    <a class="card reveal" href="/pages/original/"><img src="/v2/assets/product-original.webp" alt="Original" width="1298" height="900" loading="lazy"><h3>Original</h3><p>Три нити, USB-C</p><span>2 290 ₽</span></a>
+    <a class="card reveal" href="/pages/aracna/"><img src="/v2/assets/product-aracna.webp" alt="Aracna" width="272" height="900" loading="lazy"><h3>Aracna</h3><p>Пять нитей, возврат нити</p><span>3 690 ₽</span></a>
+  </div>
+  <div class="row"><a href="#wb" class="btn">Wildberries</a><a href="#ozon" class="btn light">Ozon</a></div>
+</section>
+</main>
+<footer class="fin">Официальный дистрибьютор ZipString в России · ТР ТС 008/2011 · гарантия 1 год</footer>
+
+<script>
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Pattern 2: горизонтальная лента, привязанная к прокрутке. Скролл не перехватываем —
+  // секция просто выше экрана, а трек внутри неё едет вбок.
+  var gal=document.querySelector('.gallery'), track=document.querySelector('.track'), tick=false;
+  function move(){ var r=gal.getBoundingClientRect(), h=gal.offsetHeight-innerHeight;
+    var p=Math.min(Math.max(-r.top/h,0),1);
+    track.style.transform='translate3d('+(-(track.scrollWidth-innerWidth)*p)+'px,0,0)'; tick=false; }
+  if(!reduce){ addEventListener('scroll',function(){if(!tick){requestAnimationFrame(move);tick=true}},{passive:true}); move(); }
+  else { gal.classList.add('is-static'); }
+
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;
+    var v=x.target; if(v.dataset.src&&!v.src){v.src=v.dataset.src;
+      v.addEventListener('timeupdate',function(){if(v.duration&&v.currentTime>v.duration*.8)v.currentTime=0});v.play().catch(function(){})}
+    x.target.classList.add('in'); io.unobserve(x.target)})},{rootMargin:'200px'});
+  document.querySelectorAll('video[data-src],.reveal').forEach(function(n){io.observe(n)});
+
+  // Pattern 4: счётчики оживают при входе в кадр
+  var sio=new IntersectionObserver(function(e){e.forEach(function(x){ if(!x.isIntersecting) return;
+    var b=x.target, to=+b.dataset.to, t0=performance.now();
+    (function step(t){ var k=Math.min((t-t0)/1400,1); var val=Math.floor(to*(1-Math.pow(1-k,3)));
+      b.textContent=val.toLocaleString('ru-RU'); if(k<1) requestAnimationFrame(step); })(t0);
+    sio.unobserve(b); })},{threshold:.6});
+  document.querySelectorAll('[data-to]').forEach(function(b){ if(reduce){b.textContent=(+b.dataset.to).toLocaleString('ru-RU')} else sio.observe(b)});
+</script>
+</body></html>

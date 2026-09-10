@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — Дек</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="/v4/base.css"><link rel="stylesheet" href="style.css?v=1">
+</head><body>
+<!-- Скилл: huashu-design · «делаешь слайды — не делай веб-страницу»
+     Дек 16:9 с автомасштабом, клавиатурной навигацией и обзорной стеной (Esc).
+     Ассеты — настоящие: логотип, предметная съёмка, ролики. Никаких CSS-силуэтов. -->
+<div class="deck" id="deck">
+  <section class="slide s-cover">
+    <img class="logo" src="/v2/assets/logo-light.svg" alt="ZipString" width="528" height="188">
+    <h1>Магия<br>парящей нити</h1>
+    <p>Мировой бестселлер. Официальный дистрибьютор в России.</p>
+    <span class="tag">01 · Обложка</span>
+  </section>
+
+  <section class="slide s-what">
+    <div class="col">
+      <h2>Что это</h2>
+      <p>Трюковая игрушка с летающей нитью. Два ролика разгоняют закольцованную петлю до 65 км/ч — она держится в воздухе и повторяет движение руки.</p>
+      <ul><li>Первый трюк — за пять минут</li><li>Сто с лишним трюков в библиотеке</li><li>Работает без интернета и приложений</li></ul>
+    </div>
+    <figure><video autoplay muted loop playsinline preload="auto" poster="/assets/img/poster/hero.jpg"><source src="/assets/video/hero.mp4" type="video/mp4"></video></figure>
+    <span class="tag">02 · Продукт</span>
+  </section>
+
+  <section class="slide s-line">
+    <h2>Линейка</h2>
+    <div class="two">
+      <article><img src="/v2/assets/product-original.webp" alt="Original" width="1298" height="900"><h3>Original</h3><p>3 нити · USB-C · красный или синий</p><b>2 290 ₽</b></article>
+      <article><img src="/v2/assets/product-aracna.webp" alt="Aracna" width="272" height="900"><h3>Aracna</h3><p>5 нитей · возврат нити · на предплечье</p><b>3 690 ₽</b></article>
+    </div>
+    <span class="tag">03 · Линейка</span>
+  </section>
+
+  <section class="slide s-tricks">
+    <h2>Трюки</h2>
+    <div class="strip">
+      <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-01.mp4" poster="/assets/img/poster/trick-01.jpg"></video><figcaption>Лук и стрела</figcaption></figure>
+      <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-03.mp4" poster="/assets/img/poster/trick-03.jpg"></video><figcaption>Вихрь</figcaption></figure>
+      <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-04.mp4" poster="/assets/img/poster/trick-04.jpg"></video><figcaption>Брызги</figcaption></figure>
+      <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-08.mp4" poster="/assets/img/poster/trick-08.jpg"></video><figcaption>Портал</figcaption></figure>
+    </div>
+    <span class="tag">04 · Трюки</span>
+  </section>
+
+  <section class="slide s-buy">
+    <h2>Где купить</h2>
+    <div class="links"><a href="#wb">Wildberries</a><a href="#ozon">Ozon</a></div>
+    <p class="small">ТР ТС 008/2011 · гарантия 1 год · ООО «Бэйби Опт Груп»</p>
+    <span class="tag">05 · Финал</span>
+  </section>
+</div>
+
+<div class="chrome">
+  <a href="/v4/" class="back">← Варианты</a>
+  <div class="nav"><button id="prev" aria-label="Предыдущий слайд">‹</button><span id="count">1 / 5</span><button id="next" aria-label="Следующий слайд">›</button></div>
+  <button id="grid" class="grid-btn">Обзор (Esc)</button>
+</div>
+
+<script>
+(function(){
+  var deck=document.getElementById('deck'), slides=[].slice.call(deck.children), i=0;
+  var count=document.getElementById('count');
+  function fit(){ var s=Math.min(innerWidth/1600, innerHeight/900);
+    deck.style.transform='scale('+s+')'; }
+  function show(n){ i=Math.max(0,Math.min(n,slides.length-1));
+    slides.forEach(function(s,k){ s.classList.toggle('on',k===i); });
+    count.textContent=(i+1)+' / '+slides.length;
+    var v=slides[i].querySelectorAll('video[data-src]');
+    v.forEach(function(x){ if(!x.src){x.src=x.dataset.src;
+      x.addEventListener('timeupdate',function(){if(x.duration&&x.currentTime>x.duration*.8)x.currentTime=0});x.play().catch(function(){})} });
+    location.hash='s'+(i+1);
+  }
+  addEventListener('resize',fit); fit();
+  show(Math.max(0,(parseInt((location.hash||'').replace('#s',''),10)||1)-1));
+  document.getElementById('next').onclick=function(){show(i+1)};
+  document.getElementById('prev').onclick=function(){show(i-1)};
+  document.getElementById('grid').onclick=function(){document.body.classList.toggle('overview')};
+  addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' ')show(i+1);
+    if(e.key==='ArrowLeft')show(i-1);
+    if(e.key==='Escape')document.body.classList.toggle('overview');
+  });
+  deck.addEventListener('click',function(e){
+    if(!document.body.classList.contains('overview'))return;
+    var s=e.target.closest('.slide'); if(!s)return;
+    document.body.classList.remove('overview'); show(slides.indexOf(s));
+  });
+})();
+</script>
+</body></html>

@@ -1,0 +1,77 @@
+/* Скилл: ui-ux-pro-max → --design-system "toy kids playful landing"
+   Стиль: Claymorphism (толстые границы 3–4px, двойные тени внутрь и наружу,
+   скругления 16–24px, мягкое нажатие 200ms ease-out).
+   Палитра: бренд (синий доверия) + оранжевый акцент из рекомендации скилла.
+   Типографика: Baloo 2 (заголовки, из пары «kids/education») + Exo 2 бренда. */
+:root{
+  --clay-bg:#EAF4FE; --clay-surface:#FFFFFF; --clay-line:rgba(22,79,157,.16);
+  --accent:#F97316; --r:22px;
+  --clay-shadow:0 14px 0 rgba(22,79,157,.10), 0 22px 40px rgba(22,79,157,.16), inset 0 -6px 12px rgba(22,79,157,.06), inset 0 6px 10px rgba(255,255,255,.9);
+  --display-clay:'Baloo 2','Golos Text',system-ui,sans-serif;
+}
+body{background:var(--clay-bg);color:var(--blue)}
+h1,h2,h3{font-family:var(--display-clay);font-weight:800;letter-spacing:-.01em;line-height:1.05}
+
+.nav{display:flex;align-items:center;gap:16px;padding:16px clamp(16px,4vw,44px)}
+.nav img{height:24px;width:auto;margin-inline:auto}
+.back{font-family:var(--accent-font,var(--accent));font-family:var(--accent);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}
+
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:14px 26px;border-radius:99px;
+  font-family:var(--display-clay);font-weight:700;font-size:1rem;background:var(--teal);color:var(--blue);
+  border:3px solid rgba(22,79,157,.14);
+  box-shadow:0 10px 0 rgba(22,79,157,.14),0 16px 26px rgba(22,79,157,.18),inset 0 4px 8px rgba(255,255,255,.75);
+  transition:transform .2s ease-out,box-shadow .2s ease-out}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(6px);box-shadow:0 4px 0 rgba(22,79,157,.14),inset 0 4px 10px rgba(22,79,157,.14)}
+.btn.ghost{background:var(--clay-surface)}
+.btn.sm{min-height:40px;padding:10px 18px;font-size:.9rem}
+
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,4vw,54px);
+  align-items:center;padding:clamp(20px,4vw,60px) clamp(16px,4vw,44px)}
+.chip{display:inline-block;font-family:var(--display-clay);font-weight:700;font-size:.85rem;color:#fff;
+  background:var(--accent);padding:9px 18px;border-radius:99px;box-shadow:0 8px 0 rgba(154,52,18,.25)}
+.hero h1{font-size:clamp(2.3rem,1rem + 4.6vw,4.6rem);margin:18px 0 16px}
+.hero p{font-size:clamp(1.02rem,.95rem + .35vw,1.22rem);max-width:42ch;color:#2c5085}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+
+.hero-art{position:relative;display:grid;place-items:center;min-height:340px}
+.blob{position:absolute;border-radius:50%;filter:blur(2px)}
+.b1{width:62%;aspect-ratio:1;background:#BFE9FA;box-shadow:inset 0 -18px 30px rgba(22,79,157,.10);left:-4%;top:2%}
+.b2{width:44%;aspect-ratio:1;background:#FFD9BE;right:-2%;bottom:2%;box-shadow:inset 0 -14px 24px rgba(154,52,18,.12)}
+.screen{position:relative;width:min(100%,430px);aspect-ratio:4/5;border-radius:34px;overflow:hidden;
+  border:4px solid var(--clay-surface);box-shadow:var(--clay-shadow)}
+.screen video{width:100%;height:100%;object-fit:cover}
+
+.pills{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:0 clamp(16px,4vw,44px)}
+.pill{display:grid;justify-items:center;gap:6px;text-align:center;background:var(--clay-surface);border-radius:var(--r);
+  padding:22px 16px;border:3px solid rgba(22,79,157,.10);box-shadow:var(--clay-shadow)}
+.pill i{width:38px;height:38px;background:var(--teal);-webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat}
+.pill b{font-family:var(--display-clay);font-size:1.6rem}
+.pill span{font-size:.88rem;color:#4a6f9d}
+
+section{padding:clamp(30px,5vw,70px) clamp(16px,4vw,44px)}
+h2{font-size:clamp(1.7rem,1rem + 3vw,3rem);margin-bottom:24px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,30px)}
+.card{background:var(--clay-surface);border-radius:30px;padding:22px;border:3px solid rgba(22,79,157,.10);
+  box-shadow:var(--clay-shadow);display:grid;gap:12px;transition:transform .2s ease-out}
+.card:hover{transform:translateY(-4px)}
+.card .pic{background:#DCF2FC;border-radius:22px;padding:16px;display:grid;place-items:center;min-height:230px}
+.card img{max-height:200px;width:auto;object-fit:contain}
+.card h3{font-size:1.6rem}
+.card p{color:#4a6f9d;min-height:2.6em}
+.card .row{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.card b{font-family:var(--display-clay);font-size:1.35rem}
+.card.alt .pic{background:#FFE7D2}
+
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tgrid figure{background:var(--clay-surface);border-radius:24px;padding:10px;border:3px solid rgba(22,79,157,.10);box-shadow:var(--clay-shadow)}
+.tgrid video{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px}
+.tgrid figcaption{font-family:var(--display-clay);font-weight:700;text-align:center;padding:10px 4px 4px;font-size:.95rem}
+
+.cta{text-align:center;background:var(--clay-surface);margin:0 clamp(16px,4vw,44px) clamp(20px,4vw,44px);
+  border-radius:34px;border:3px solid rgba(22,79,157,.10);box-shadow:var(--clay-shadow)}
+.cta p{color:#4a6f9d;margin-bottom:10px}
+.cta .btns{justify-content:center}
+.fin{text-align:center;padding:0 16px 34px;color:#5d7ea9;font-size:.85rem}
+
+@media(max-width:900px){.hero{grid-template-columns:1fr}.pills{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.tgrid{grid-template-columns:1fr 1fr}}

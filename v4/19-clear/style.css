@@ -1,0 +1,64 @@
+/* Скилл: design-everyday-things.
+   Сигнификаторы: у каждой кнопки — глагол и пояснение, что произойдёт.
+   Обратная связь: hover/active/focus видимые, курсор-указатель везде, где можно нажать.
+   Ограничения: ничего кликабельного не маскируется под текст и наоборот. */
+:root{--ink:#14243a;--ink-2:#4a6180;--line:#DAE3EE;--brand:#164F9D;--teal:#2CCDF1;--ok:#0E9F6E}
+body{background:#fff;color:var(--ink);font-size:17px;line-height:1.6}
+
+.hdr{display:flex;align-items:center;gap:16px;padding:16px clamp(16px,4vw,48px);border-bottom:1px solid var(--line)}
+.hdr img{height:24px;width:auto;margin-inline:auto}
+.back{color:var(--ink-2);font-size:.9rem;text-decoration:underline;text-underline-offset:.2em}
+
+.btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:48px;
+  padding:12px 22px;border-radius:10px;background:#fff;color:var(--brand);cursor:pointer;
+  box-shadow:inset 0 0 0 2px var(--brand),0 1px 2px rgba(20,36,58,.08);
+  font-weight:600;font-size:.98rem;transition:background 140ms ease-out,transform 140ms ease-out,box-shadow 140ms ease-out}
+.btn:hover{background:#EFF5FC;transform:translateY(-1px)}
+.btn:active{transform:translateY(1px);box-shadow:inset 0 0 0 2px var(--brand)}
+.btn:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.btn.primary{background:var(--brand);color:#fff;box-shadow:0 6px 16px rgba(22,79,157,.28)}
+.btn.primary:hover{background:#1A5CB8}
+.btn small{font-weight:400;font-size:.76rem;opacity:.8}
+.btn.wide{width:100%}
+
+section{padding:clamp(28px,4vw,56px) clamp(16px,4vw,48px);border-bottom:1px solid var(--line)}
+h1{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:1.06;
+  font-size:clamp(1.8rem,1rem + 3vw,3.1rem);max-width:22ch}
+h2{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.015em;
+  font-size:clamp(1.3rem,1rem + 1.6vw,2rem);margin-bottom:18px;max-width:26ch}
+.lead{font-size:1.1rem;color:var(--ink-2);max-width:62ch;margin-top:16px}
+.lead.small{font-size:1rem;margin-top:0;margin-bottom:18px}
+.intro figure{margin-top:26px;max-width:760px}
+.intro video{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:14px}
+.intro figcaption{margin-top:10px;color:var(--ink-2);font-size:.92rem}
+
+.steps{display:grid;gap:16px;max-width:70ch;counter-reset:s}
+.steps li{display:grid;grid-template-columns:88px 1fr;gap:16px;align-items:start;
+  padding:16px;background:#F7FAFD;border-radius:12px}
+.n{font-family:var(--accent);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--brand);
+  padding-top:.25em}
+.after{margin-top:20px;padding:14px 16px;border-left:4px solid var(--ok);background:#F2FBF7;max-width:70ch}
+.after b{color:var(--ink)}
+
+.cmp{width:100%;max-width:820px;border-collapse:collapse}
+.cmp th,.cmp td{border:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:middle}
+.cmp thead th{background:#F7FAFD;font-family:var(--display);font-weight:900;text-transform:uppercase;color:var(--brand)}
+.cmp tbody th{color:var(--ink-2);font-weight:500;width:38%}
+.pr{font-family:var(--accent);font-size:1.2rem;color:var(--brand)}
+
+.flow{display:grid;gap:10px;max-width:66ch;margin-bottom:22px}
+.flow li{position:relative;padding-left:30px;color:var(--ink-2)}
+.flow li::before{content:'';position:absolute;left:0;top:.5em;width:14px;height:14px;border-radius:50%;
+  background:#fff;box-shadow:inset 0 0 0 3px var(--teal)}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+
+.ftr{padding:22px clamp(16px,4vw,48px) 46px;color:var(--ink-2);font-size:.88rem}
+
+@media(max-width:760px){
+  .steps li{grid-template-columns:1fr;gap:6px}
+  .cmp,.cmp thead,.cmp tbody,.cmp tr,.cmp th,.cmp td{display:block;width:auto}
+  .cmp tr{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;padding:6px}
+  .cmp th,.cmp td{border:0;padding:8px 12px}
+  .cmp tbody th{color:var(--ink-2);font-size:.86rem;padding-bottom:0}
+  .actions .btn{width:100%}
+}

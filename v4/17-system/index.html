@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — Система</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="/v4/base.css"><link rel="stylesheet" href="style.css?v=1">
+</head><body>
+<!-- Скилл: refactoring-ui · сначала оттенки серого, цвет последним;
+     шкала 4/8/16/24/32/48/64, иерархия размер→вес→цвет, лестница теней, ширина текста 65ch -->
+<header class="hdr">
+  <a href="/v4/" class="back">← Варианты</a>
+  <img src="/v2/assets/logo-blue.svg" alt="ZipString" width="528" height="188">
+  <a href="#buy" class="btn primary sm">Купить</a>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <p class="label">Трюковая игрушка</p>
+    <h1>Нить летит по воздуху и слушается руки</h1>
+    <p class="lead">Петля разгоняется до 65 км/ч и держит форму сама. Первый трюк — за пять минут, дальше их больше сотни.</p>
+    <div class="actions">
+      <a href="#buy" class="btn primary">Выбрать модель</a>
+      <a href="/pages/tricks/" class="btn quiet">Библиотека трюков</a>
+    </div>
+  </div>
+  <figure class="hero-fig">
+    <video autoplay muted loop playsinline preload="auto" poster="/assets/img/poster/hero.jpg"><source src="/assets/video/hero.mp4" type="video/mp4"></video>
+  </figure>
+</section>
+
+<section class="facts">
+  <div class="fact"><p class="label">Продано</p><p class="value">2 000 000+</p><p class="meta">устройств в мире</p></div>
+  <div class="fact"><p class="label">Скорость</p><p class="value">65 км/ч</p><p class="meta">разгон петли</p></div>
+  <div class="fact"><p class="label">Трюков</p><p class="value">100+</p><p class="meta">в библиотеке</p></div>
+  <div class="fact"><p class="label">Гарантия</p><p class="value">1 год</p><p class="meta">официального дистрибьютора</p></div>
+</section>
+
+<section class="products" id="buy">
+  <div class="sec-head"><h2>Модели</h2><p class="meta">Обе сертифицированы по ТР ТС 008/2011</p></div>
+  <div class="cards">
+    <article class="card">
+      <div class="thumb"><img src="/v2/assets/product-original.webp" alt="ZipString Original" width="1298" height="900" loading="lazy"></div>
+      <div class="card-body">
+        <h3>Original</h3>
+        <dl class="spec">
+          <div><dt>Нити</dt><dd>3 шт</dd></div>
+          <div><dt>Питание</dt><dd>USB-C</dd></div>
+          <div><dt>Цвета</dt><dd>красный, синий</dd></div>
+        </dl>
+        <div class="card-foot"><p class="price">2 290 ₽</p><a href="/pages/original/" class="btn primary sm">Подробнее</a></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="thumb"><img src="/v2/assets/product-aracna.webp" alt="ZipString Aracna" width="272" height="900" loading="lazy"></div>
+      <div class="card-body">
+        <h3>Aracna</h3>
+        <dl class="spec">
+          <div><dt>Нити</dt><dd>5 шт</dd></div>
+          <div><dt>Возврат нити</dt><dd>есть</dd></div>
+          <div><dt>Крепление</dt><dd>на предплечье</dd></div>
+        </dl>
+        <div class="card-foot"><p class="price">3 690 ₽</p><a href="/pages/aracna/" class="btn primary sm">Подробнее</a></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="tricks">
+  <div class="sec-head"><h2>Трюки</h2><a href="/pages/tricks/" class="quiet-link">Все 100+ →</a></div>
+  <div class="tgrid">
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-01.mp4" poster="/assets/img/poster/trick-01.jpg"></video><figcaption>Лук и стрела</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-03.mp4" poster="/assets/img/poster/trick-03.jpg"></video><figcaption>Вихрь</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-04.mp4" poster="/assets/img/poster/trick-04.jpg"></video><figcaption>Брызги</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-08.mp4" poster="/assets/img/poster/trick-08.jpg"></video><figcaption>Портал</figcaption></figure>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-inner">
+    <h2>Где купить</h2>
+    <p class="lead">Оригинал с гарантией — на маркетплейсах официального дистрибьютора.</p>
+    <div class="actions"><a href="#wb" class="btn primary">Wildberries</a><a href="#ozon" class="btn outline">Ozon</a></div>
+  </div>
+</section>
+</main>
+<footer class="ftr"><p class="meta">ООО «Бэйби Опт Груп» · официальный дистрибьютор ZipString в России · 2026</p></footer>
+<script>
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;var v=x.target;
+    if(!v.src){v.src=v.dataset.src;v.addEventListener('timeupdate',function(){if(v.duration&&v.currentTime>v.duration*.8)v.currentTime=0});v.play().catch(function(){})}io.unobserve(v)})},{rootMargin:'200px'});
+  document.querySelectorAll('video[data-src]').forEach(function(v){io.observe(v)});
+</script>
+</body></html>

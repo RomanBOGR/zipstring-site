@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — варианты по скиллам</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="/v4/base.css">
+<style>
+body{background:#F4F8FD;color:#12314f}
+.head{padding:clamp(28px,5vw,70px) clamp(18px,5vw,64px) 26px;border-bottom:1px solid #D9E5F2}
+.head img{height:26px;width:auto;margin-bottom:20px}
+h1{font-family:var(--display);font-weight:900;text-transform:uppercase;color:var(--blue);letter-spacing:-.03em;
+  font-size:clamp(1.9rem,1rem + 3.6vw,3.4rem);line-height:.95}
+.head p{margin-top:14px;max-width:70ch;color:#42618a}
+.nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.nav a{font-family:var(--accent);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;
+  background:var(--blue);color:#fff;padding:10px 16px;border-radius:99px}
+.nav a.alt{background:var(--teal);color:var(--blue)}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;
+  padding:clamp(22px,4vw,44px) clamp(18px,5vw,64px) 70px}
+.v{display:grid;gap:8px;padding:22px;border-radius:20px;background:#fff;border:1px solid #E1EAF5;
+  transition:transform .25s var(--expo),box-shadow .25s var(--expo)}
+.v:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(16,60,121,.14)}
+.skill{font-family:var(--accent);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;
+  background:var(--teal);color:var(--blue);padding:6px 12px;border-radius:99px;justify-self:start}
+.v h2{font-family:var(--display);font-weight:900;text-transform:uppercase;color:var(--blue);font-size:1.4rem;line-height:1}
+.v p{font-size:.94rem;color:#42618a}
+.v .took{font-size:.85rem;color:#6d87a8;border-top:1px dashed #D9E5F2;padding-top:10px;margin-top:4px}
+.v .took b{color:var(--blue);font-weight:600}
+footer{padding:0 clamp(18px,5vw,64px) 50px;color:#6d87a8;font-size:.85rem;max-width:80ch}
+</style></head><body>
+<header class="head">
+  <img src="/v2/assets/logo-blue.svg" alt="ZipString">
+  <h1>Вторая серия: каждый вариант<br>от своего дизайн-скилла</h1>
+  <p>Десять главных страниц, собранных по десяти разным установленным скиллам. У каждого взяты его собственные правила и пресеты — не общая «красота», а конкретная методика. Контент везде одинаковый, отличается подход.</p>
+  <div class="nav"><a href="/">Текущий сайт</a><a class="alt" href="/v2/">По брендбуку</a><a href="/v3/">Первая серия (10)</a></div>
+</header>
+
+<div class="list">
+  <a class="v" href="/v4/11-clay/"><span class="skill">ui-ux-pro-max</span><h2>Клей</h2><p>Мягкий 3D: толстые границы, двойные тени, крупные пилюли. Стиль для детских продуктов.</p><span class="took"><b>Взято из скилла:</b> стиль Claymorphism и пара шрифтов из его каталога — выданы командой <code>--design-system</code>.</span></a>
+  <a class="v" href="/v4/12-hallmark/"><span class="skill">hallmark</span><h2>Манифест</h2><p>Страница-заявление: тезис, доказательство, выбор. Ничего лишнего.</p><span class="took"><b>Взято из скилла:</b> макроструктура Manifesto, плавающая пилюля-навигация N5, футер-заявление Ft5, дисциплина OKLCH и запрет курсива в заголовках.</span></a>
+  <a class="v" href="/v4/13-horizon/"><span class="skill">modern-web-design</span><h2>Горизонт</h2><p>Лента трюков едет вбок, пока страница идёт вниз. Счётчики оживают в кадре.</p><span class="took"><b>Взято из скилла:</b> паттерны Immersive Hero, Horizontal Scroll Gallery, Staggered Reveals, Animated Stats — без перехвата прокрутки.</span></a>
+  <a class="v" href="/v4/14-convert/"><span class="skill">landing-page-design</span><h2>Оффер</h2><p>Продающая страница по канону: боль, решение, шаги, цены, вопросы.</p><span class="took"><b>Взято из скилла:</b> формула первого экрана и порядок секций Hero → Social proof → Problem → Solution → How it works → Pricing → FAQ → Final CTA, липкая кнопка на мобильном.</span></a>
+  <a class="v" href="/v4/15-reader/"><span class="skill">web-typography</span><h2>Читальня</h2><p>Разбор продукта текстом: мера 65 знаков, чистая иерархия, боковая карточка фактов.</p><span class="took"><b>Взято из скилла:</b> диагностика типографики — тело 17–19px, интерлиньяж 1.6, контраст уровней размером и весом, подчёркнутые ссылки.</span></a>
+  <a class="v" href="/v4/16-pult/"><span class="skill">microinteractions</span><h2>Пульт</h2><p>Кнопка запуска работает как настоящая: покой, разгон, полёт. Длина нити меняет петлю.</p><span class="took"><b>Взято из скилла:</b> схема Саффера «триггер → правила → обратная связь → циклы», отклик до 100 мс, подсказка гаснет после двух запусков.</span></a>
+  <a class="v" href="/v4/17-system/"><span class="skill">refactoring-ui</span><h2>Система</h2><p>Сдержанный продуктовый интерфейс: шкалы, тонированные серые, лестница теней.</p><span class="took"><b>Взято из скилла:</b> сначала оттенки серого — цвет последним, шкала 4/8/16/24/32/48/64, иерархия одним-двумя рычагами, тёмный не чёрный, а #111827.</span></a>
+  <a class="v" href="/v4/18-deck/"><span class="skill">huashu-design</span><h2>Дек</h2><p>Не страница, а презентация 16:9: стрелки, счётчик, обзорная стена по Esc.</p><span class="took"><b>Взято из скилла:</b> «делаешь слайды — не делай веб-страницу»: фиксированный кадр с автомасштабом, обзор всех слайдов, только настоящие ассеты.</span></a>
+  <a class="v" href="/v4/19-clear/"><span class="skill">design-everyday-things</span><h2>Понятно</h2><p>Каждый блок отвечает на вопрос: что сделать, что произойдёт, что если не подойдёт.</p><span class="took"><b>Взято из скилла:</b> два разрыва Нормана — исполнения и оценки; кнопки с пояснением, что случится после нажатия; путь восстановления после ошибки.</span></a>
+  <a class="v" href="/v4/20-motion/"><span class="skill">motion-layer</span><h2>Слой движения</h2><p>Появления, маска по словам, честный прогресс чтения, отклик в точке касания.</p><span class="took"><b>Взято из скилла:</b> начальные состояния только под <code>.js</code>, ровно четыре длительности, счётчики с резервированием ширины, reduced-motion гасит движение, но не интерактив.</span></a>
+</div>
+<footer>Скиллы взяты из установленного набора (каталог — <a href="http://bogr.ai/skills/">bogr.ai/skills</a>). Палитра и шрифты везде брендовые; там, где скилл предлагал свои (например Baloo 2 в Claymorphism), это указано в карточке.</footer>
+</body></html>

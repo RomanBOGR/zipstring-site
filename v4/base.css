@@ -1,0 +1,29 @@
+/* Общая база вариантов главной: брендовые шрифты и палитра ZipString.
+   Палитра — из официального брендбука (primaries/secondaries/tertiaries),
+   каждый вариант распоряжается ею по-своему. */
+@font-face { font-family:'Golos Text'; src:url('/v2/fonts/GolosText-Black.woff2') format('woff2'); font-weight:900; font-display:swap; }
+@font-face { font-family:'Furore'; src:url('/v2/fonts/Furore.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Exo 2'; src:url('/v2/fonts/Exo2-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Exo 2'; src:url('/v2/fonts/Exo2-SemiBold.woff2') format('woff2'); font-weight:600; font-display:swap; }
+
+:root {
+  --blue:#164F9D; --blue-deep:#0E3B7A; --teal:#2CCDF1; --white:#FFFFFF;
+  --red:#FF0E0E; --mint:#0EFFB0; --orange:#F69F0F; --blue-mid:#2D60A7;
+  --grey-1:#DCDEE0; --grey-2:#AFB0B3; --ink:#0E2A4F; --yellow:#EEEA25;
+  --display:'Golos Text','Arial Black',system-ui,sans-serif;
+  --accent:'Furore','Arial Narrow',system-ui,sans-serif;
+  --body:'Exo 2',system-ui,-apple-system,sans-serif;
+  --expo:cubic-bezier(0.16,1,0.3,1);
+  --quart:cubic-bezier(0.25,1,0.5,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg,video{display:block;max-width:100%}
+ul{list-style:none}
+button{font:inherit;cursor:pointer}
+::selection{background:var(--teal);color:var(--blue)}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

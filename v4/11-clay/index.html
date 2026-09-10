@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — Клей</title><meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/v4/base.css"><link rel="stylesheet" href="style.css?v=1">
+</head><body>
+<!-- Скилл: ui-ux-pro-max · стиль Claymorphism · паттерн лендинга из --design-system -->
+<header class="nav">
+  <a href="/v4/" class="back">← Варианты</a>
+  <img src="/v2/assets/logo-blue.svg" alt="ZipString" width="528" height="188">
+  <a href="#buy" class="btn sm">Купить</a>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-txt">
+    <span class="chip">Игрушка года · 4+</span>
+    <h1>Нить летит,<br>рука ведёт</h1>
+    <p>Нажми кнопку — петля взлетает и висит в воздухе. Первый трюк выходит за пять минут, дальше их больше сотни.</p>
+    <div class="btns"><a href="#buy" class="btn">Выбрать модель</a><a href="#tricks" class="btn ghost">Посмотреть трюки</a></div>
+  </div>
+  <div class="hero-art">
+    <div class="blob b1"></div><div class="blob b2"></div>
+    <div class="screen"><video autoplay muted loop playsinline preload="auto" poster="/assets/img/poster/hero.jpg"><source src="/assets/video/hero.mp4" type="video/mp4"></video></div>
+  </div>
+</section>
+
+<section class="pills">
+  <div class="pill"><i style="--i:url('/v2/assets/icons/tricks.svg')"></i><b>100+</b><span>трюков</span></div>
+  <div class="pill"><i style="--i:url('/v2/assets/icons/screenfree.svg')"></i><b>0</b><span>экранов</span></div>
+  <div class="pill"><i style="--i:url('/v2/assets/icons/pocket.svg')"></i><b>1</b><span>карман</span></div>
+  <div class="pill"><i style="--i:url('/v2/assets/icons/glow.svg')"></i><b>3</b><span>нити в наборе</span></div>
+</section>
+
+<section class="shop" id="buy">
+  <h2>Две модели</h2>
+  <div class="grid">
+    <article class="card">
+      <div class="pic"><img src="/v2/assets/product-original.webp" alt="ZipString Original" width="1298" height="900" loading="lazy"></div>
+      <h3>Original</h3><p>Три нити, USB-C, красный или синий</p>
+      <div class="row"><b>2 290 ₽</b><a href="/pages/original/" class="btn sm">Подробнее</a></div>
+    </article>
+    <article class="card alt">
+      <div class="pic"><img src="/v2/assets/product-aracna.webp" alt="ZipString Aracna" width="272" height="900" loading="lazy"></div>
+      <h3>Aracna</h3><p>Пять нитей, возврат нити, крепление на руку</p>
+      <div class="row"><b>3 690 ₽</b><a href="/pages/aracna/" class="btn sm">Подробнее</a></div>
+    </article>
+  </div>
+</section>
+
+<section class="tricks" id="tricks">
+  <h2>Трюки</h2>
+  <div class="tgrid">
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-01.mp4" poster="/assets/img/poster/trick-01.jpg"></video><figcaption>Лук и стрела</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-03.mp4" poster="/assets/img/poster/trick-03.jpg"></video><figcaption>Вихрь</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-04.mp4" poster="/assets/img/poster/trick-04.jpg"></video><figcaption>Брызги</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-08.mp4" poster="/assets/img/poster/trick-08.jpg"></video><figcaption>Портал</figcaption></figure>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Запускай. Удивляй.</h2>
+  <p>Оригинал с гарантией — у официального дистрибьютора.</p>
+  <div class="btns"><a href="#wb" class="btn">Wildberries</a><a href="#ozon" class="btn ghost">Ozon</a></div>
+</section>
+</main>
+<footer class="fin">ZipString Russia · ТР ТС 008/2011 · гарантия 1 год</footer>
+<script>
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;var v=x.target;
+    if(!v.src){v.src=v.dataset.src;v.addEventListener('timeupdate',function(){if(v.duration&&v.currentTime>v.duration*.8)v.currentTime=0});v.play().catch(function(){})}io.unobserve(v)})},{rootMargin:'200px'});
+  document.querySelectorAll('video[data-src]').forEach(function(v){io.observe(v)});
+</script>
+</body></html>
