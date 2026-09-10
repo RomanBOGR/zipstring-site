@@ -1,0 +1,64 @@
+/* Референс: SAPGOODENERGY — атлетичный минимализм.
+   Приём: очень много воздуха, чёрная типографика на белом, ровно один горячий акцент,
+   заголовки в верхнем регистре с плотным трекингом, ссылки-подчёркивания. */
+:root{--ink:#000;--ink-2:#5a5a5a;--paper:#fffffb;--line:#e7e7e7;--hot:#ff7840}
+body{background:var(--paper);color:var(--ink);
+  font-family:'Helvetica Neue',Helvetica,Arial,var(--body),sans-serif;font-size:17px}
+.refbar{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);
+  padding:10px clamp(18px,5vw,60px);border-bottom:1px solid var(--line)}
+.refbar b{color:var(--ink)}.refbar span{display:block;text-transform:none;letter-spacing:0;font-size:.74rem;opacity:.75}
+
+.nav{display:flex;align-items:center;gap:26px;padding:22px clamp(18px,5vw,60px)}
+.nav img{height:20px;width:auto}
+.nav nav{display:flex;gap:24px;margin-left:auto;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em}
+.nav nav a{padding-bottom:3px;border-bottom:1px solid transparent}
+.nav nav a:hover{border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:14px 30px;border-radius:9999px;background:var(--hot);
+  color:#000;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;transition:transform .2s var(--expo)}
+.btn:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;box-shadow:inset 0 0 0 1px var(--ink);color:var(--ink)}
+.btn-sm{min-height:36px;padding:10px 20px;font-size:.68rem}
+
+h1,h2,h3{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;text-transform:uppercase;
+  letter-spacing:-.04em;line-height:.92}
+section{padding:clamp(60px,9vw,150px) clamp(18px,5vw,60px)}
+
+.hero{display:grid;gap:clamp(30px,5vw,70px)}
+.eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2)}
+.hero h1{font-size:clamp(3rem,1rem + 9vw,9rem);margin:18px 0 0;max-width:14ch}
+.hero h1 em{font-style:normal;color:var(--hot)}
+.lead{color:var(--ink-2);max-width:40ch;font-size:1.05rem;margin-top:22px}
+.row{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.hero-media video{width:100%;aspect-ratio:21/9;object-fit:cover}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding-block:0;border-block:1px solid var(--line)}
+.facts div{padding:34px clamp(10px,2vw,30px);border-right:1px solid var(--line);display:grid;gap:8px}
+.facts div:last-child{border-right:0}
+.facts b{font-size:clamp(1.5rem,1rem + 2vw,2.4rem);letter-spacing:-.03em}
+.facts span{color:var(--ink-2);font-size:.74rem;text-transform:uppercase;letter-spacing:.08em}
+
+h2{font-size:clamp(2rem,1rem + 4.4vw,4.6rem);margin-bottom:44px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,70px)}
+.card{display:grid;gap:14px}
+.card-pic{display:grid;place-items:center;min-height:260px;background:#f4f4f2}
+.card-pic img{max-height:230px;width:auto;object-fit:contain}
+.card h3{font-size:1.8rem}
+.card p{color:var(--ink-2);max-width:36ch}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:14px;border-top:1px solid var(--line)}
+.price{font-size:1.2rem;font-weight:700}
+
+.tricks-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:18px}
+.tricks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,26px)}
+.tricks-grid video{width:100%;aspect-ratio:3/4;object-fit:cover}
+.tricks-grid figcaption{margin-top:12px;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2)}
+
+.life-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px)}
+.life-grid img{width:100%;height:clamp(200px,24vw,340px);object-fit:cover}
+
+.cta{border-top:1px solid var(--line)}
+.cta h2{max-width:12ch}
+.cta p{color:var(--ink-2);margin-bottom:28px}
+.ftr{padding:24px clamp(18px,5vw,60px) 60px;color:var(--ink-2);font-size:.74rem;text-transform:uppercase;letter-spacing:.06em}
+
+@media(max-width:900px){.cards{grid-template-columns:1fr}.facts,.tricks-grid,.life-grid{grid-template-columns:1fr 1fr}
+  .facts div:nth-child(2){border-right:0}}

@@ -29,7 +29,7 @@ footer{padding:34px clamp(18px,5vw,56px) 60px;color:#6d87a8;font-size:.85rem}
 <header class="head">
   <img src="/v2/assets/logo-blue.svg" alt="ZipString">
   <h1>Все версии главной</h1>
-  <p>Двадцать три варианта в одном месте. Кнопка внизу слева переключает версии с любой страницы, не возвращаясь сюда.</p>
+  <p>Тридцать два варианта в одном месте. Кнопка внизу слева переключает версии с любой страницы, не возвращаясь сюда.</p>
   <p class="hint">С клавиатуры: <kbd>Alt</kbd> + <kbd>→</kbd> — следующий вариант, <kbd>Alt</kbd> + <kbd>←</kbd> — предыдущий, <kbd>Esc</kbd> — закрыть список.</p>
 </header>
 
@@ -53,9 +53,7 @@ footer{padding:34px clamp(18px,5vw,56px) 60px;color:#6d87a8;font-size:.85rem}
 
 <section>
   <h2>Серия 3 · по референсам</h2>
-  <div class="grid">
-    <a class="card" href="/v5/"><img src="/versions/thumbs/v5.webp" alt="" loading="lazy"><div class="txt"><b>По рефам Refero</b><span>десять референсов, один приём с каждого</span></div></a>
-  </div>
+  <div class="grid" id="s3"></div>
 </section>
 
 <footer>Черновики для выбора направления. Контент во всех вариантах одинаковый — сравнивается оформление.</footer>
@@ -74,7 +72,12 @@ footer{padding:34px clamp(18px,5vw,56px) 60px;color:#6d87a8;font-size:.85rem}
   function fill(el,list,base){ document.getElementById(el).innerHTML=list.map(function(i){
     return '<a class="card" href="'+base+i[0]+'/"><img src="/versions/thumbs/'+i[0]+'.webp" alt="" loading="lazy">'+
       '<div class="txt"><b>'+i[1]+'</b><span>'+i[2]+'</span></div></a>';}).join(''); }
-  fill('s1',S1,'/v3/'); fill('s2',S2,'/v4/');
+  var S3=[['21-mix','21 Микс','десять рефов сразу'],['22-zine','22 Зин','The Pop Manifesto'],
+   ['23-command','23 Командный центр','Krea'],['24-arcade','24 Аркада-магазин',"FRANKY'S"],
+   ['25-gallery','25 Галерея','Apple MacBook'],['26-collage','26 Коллаж','TOMO'],
+   ['27-athletic','27 Атлетик','SAPGOODENERGY'],['28-pastel','28 Пастель','Recess'],
+   ['29-popart','29 Поп-арт','GT America'],['30-bench','30 Верстак','099.supply']];
+  fill('s1',S1,'/v3/'); fill('s2',S2,'/v4/'); fill('s3',S3,'/v5/');
 </script>
-<script src="/switch.js?v=1" defer></script>
+<script src="/switch.js?v=2" defer></script>
 </body></html>

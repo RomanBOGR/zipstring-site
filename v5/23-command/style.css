@@ -1,0 +1,62 @@
+/* Референс: Krea — «терминальная роскошь».
+   Приём: почти чёрный холст, светящаяся белая типографика, тонкие карточки-метрики,
+   вся структура держится линиями 1px, а не заливками. */
+:root{--bg:#000;--surface:#0d0d0f;--line:#232326;--ink:#fff;--ink-2:#a3a3a3;--accent:#2CCDF1}
+body{background:var(--bg);color:var(--ink);font-family:var(--body)}
+.refbar{border-bottom:1px solid var(--line);color:var(--ink-2);font-size:.72rem;padding:9px clamp(14px,4vw,44px)}
+.refbar b{color:var(--ink)}.refbar span{display:block;opacity:.55;font-size:.7rem}
+
+.nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:22px;padding:16px clamp(14px,4vw,44px);
+  background:rgba(0,0,0,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav img{height:22px;width:auto;filter:brightness(0) invert(1)}
+.nav nav{display:flex;gap:22px;margin-left:auto;font-size:.92rem;color:var(--ink-2)}
+.nav nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:12px 24px;border-radius:10px;background:var(--ink);
+  color:#000;font-size:.92rem;font-weight:600;transition:opacity .2s var(--expo),transform .2s var(--expo)}
+.btn:hover{opacity:.88;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1px #3a3a3d}
+.btn-sm{min-height:36px;padding:8px 16px;font-size:.82rem}
+
+h1,h2,h3{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:.94;text-transform:none}
+section{padding:clamp(40px,6vw,96px) clamp(14px,4vw,44px)}
+
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);align-items:center}
+.eyebrow{font-size:.8rem;color:var(--ink-2);letter-spacing:.04em}
+.hero h1{font-size:clamp(2.4rem,1rem + 5.4vw,5.2rem);margin:16px 0 20px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.lead{color:var(--ink-2);max-width:44ch;font-size:1.08rem}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-media video{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid var(--line)}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-top:0}
+.facts div{border:1px solid var(--line);border-radius:12px;padding:22px;background:var(--surface);display:grid;gap:6px}
+.facts b{font-family:var(--display);font-weight:900;font-size:1.7rem;line-height:1}
+.facts span{color:var(--ink-2);font-size:.88rem}
+
+h2{font-size:clamp(1.6rem,1rem + 2.4vw,2.8rem);margin-bottom:26px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:900px}
+.card{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--surface);display:grid;gap:10px;
+  transition:border-color .25s var(--expo)}
+.card:hover{border-color:#3a3a3d}
+.card-pic{display:grid;place-items:center;min-height:210px}
+.card-pic img{max-height:190px;width:auto;object-fit:contain}
+.card h3{font-size:1.4rem}
+.card p{color:var(--ink-2);font-size:.94rem}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:14px}
+.price{font-family:var(--accent);color:var(--accent)}
+
+.tricks-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.tricks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tricks-grid video{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.tricks-grid figcaption{margin-top:10px;color:var(--ink-2);font-size:.86rem}
+
+.life-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.life-grid img{width:100%;height:clamp(170px,20vw,280px);object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+
+.cta{border-top:1px solid var(--line);text-align:center}
+.cta p{color:var(--ink-2);margin-bottom:24px}
+.cta .row{justify-content:center}
+.ftr{padding:20px clamp(14px,4vw,44px) 40px;color:#5a5a5e;font-size:.82rem;border-top:1px solid var(--line)}
+
+@media(max-width:900px){.hero,.cards{grid-template-columns:1fr}.facts,.tricks-grid,.life-grid{grid-template-columns:1fr 1fr}}

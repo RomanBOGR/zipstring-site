@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — Командный центр</title><meta name="robots" content="noindex">
+<meta name="description" content="Вариант главной ZipString по референсу Krea">
+
+<link rel="stylesheet" href="/v5/base.css"><link rel="stylesheet" href="style.css?v=1">
+<link rel="stylesheet" href="/switch.css?v=1">
+</head><body>
+<!-- Референс: Krea (krea.ai). Взято: Почти чёрный холст, светящаяся белая типографика, карточки-метрики тонкой линией -->
+<div class="refbar">Референс: <b>Krea</b> · krea.ai <span>Почти чёрный холст, светящаяся белая типографика, карточки-метрики тонкой линией</span></div>
+
+<header class="nav">
+  <a class="logo" href="/versions/"><img src="/v2/assets/logo-blue.svg" alt="ZipString" width="528" height="188"></a>
+  <nav><a href="#product">Продукт</a><a href="#tricks">Трюки</a><a href="#buy">Купить</a></nav>
+  <a href="#buy" class="btn btn-sm">Купить</a>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-txt">
+    <p class="eyebrow">Мировой бестселлер · 4+</p>
+    <h1>Нить летит,<br><em>рука ведёт</em></h1>
+    <p class="lead">Закольцованная нить разгоняется до 65 км/ч и держится в воздухе, повторяя движение руки. Первый трюк — за пять минут.</p>
+    <div class="row">
+      <a href="#buy" class="btn">Выбрать модель</a>
+      <a href="#tricks" class="btn btn-ghost">Смотреть трюки</a>
+    </div>
+  </div>
+  <figure class="hero-media">
+    <video autoplay muted loop playsinline preload="auto" poster="/assets/img/poster/hero-v5.jpg"><source src="/assets/video/style-infinity.mp4" type="video/mp4"></video>
+  </figure>
+</section>
+
+<section class="facts" id="product">
+  <div><b>65 км/ч</b><span>разгон петли</span></div>
+  <div><b>100+</b><span>трюков в библиотеке</span></div>
+  <div><b>2 000 000+</b><span>устройств продано</span></div>
+  <div><b>1 год</b><span>гарантия дистрибьютора</span></div>
+</section>
+
+<section class="shop" id="buy">
+  <h2>Две модели</h2>
+  <div class="cards">
+    <article class="card">
+      <div class="card-pic"><img src="/v2/assets/product-original.webp" alt="ZipString Original" width="1298" height="900" loading="lazy"></div>
+      <h3>Original</h3>
+      <p>Три сменные нити, зарядка USB-C. Красный или синий корпус.</p>
+      <div class="card-foot"><span class="price">2 290 ₽</span><a href="/pages/original/" class="btn btn-sm">Подробнее</a></div>
+    </article>
+    <article class="card">
+      <div class="card-pic"><img src="/v2/assets/product-aracna.webp" alt="ZipString Aracna" width="272" height="900" loading="lazy"></div>
+      <h3>Aracna</h3>
+      <p>Пять нитей, возврат нити и крепление на предплечье.</p>
+      <div class="card-foot"><span class="price">3 690 ₽</span><a href="/pages/aracna/" class="btn btn-sm">Подробнее</a></div>
+    </article>
+  </div>
+</section>
+
+<section class="tricks" id="tricks">
+  <div class="tricks-head"><h2>Трюки</h2><a href="/pages/tricks/" class="btn btn-ghost btn-sm">Вся библиотека</a></div>
+  <div class="tricks-grid">
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-01.mp4" poster="/assets/img/poster/trick-01.jpg"></video><figcaption>Лук и стрела</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-03.mp4" poster="/assets/img/poster/trick-03.jpg"></video><figcaption>Вихрь</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-04.mp4" poster="/assets/img/poster/trick-04.jpg"></video><figcaption>Брызги</figcaption></figure>
+    <figure><video muted loop playsinline preload="none" data-src="/assets/video/trick-08.mp4" poster="/assets/img/poster/trick-08.jpg"></video><figcaption>Портал</figcaption></figure>
+  </div>
+</section>
+
+<section class="life">
+  <h2>Где угодно</h2>
+  <div class="life-grid">
+    <img src="/v2/assets/life-jump.webp" alt="Во дворе" width="1400" height="787" loading="lazy">
+    <img src="/v2/assets/life-beach.webp" alt="На прогулке" width="1400" height="787" loading="lazy">
+    <img src="/v2/assets/life-curly.webp" alt="Дома" width="1400" height="787" loading="lazy">
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Запускай. Удивляй.</h2>
+  <p>Оригинал с гарантией — у официального дистрибьютора.</p>
+  <div class="row"><a href="/pages/products/" class="btn">Все продукты</a><a href="/pages/tricks/" class="btn btn-ghost">100+ трюков</a></div>
+</section>
+</main>
+
+<footer class="ftr">ООО «Бэйби Опт Груп» · официальный дистрибьютор ZipString в России · ТР ТС 008/2011</footer>
+
+<script>
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;var v=x.target;
+    if(!v.src){ v.src=v.dataset.src;
+      v.addEventListener('loadedmetadata',function(){ if(v.duration) v.currentTime=v.duration*0.35; });
+      v.addEventListener('timeupdate',function(){ if(v.duration&&(v.currentTime>v.duration*0.8||v.currentTime<v.duration*0.3)) v.currentTime=v.duration*0.35; });
+      v.play().catch(function(){}); } io.unobserve(v)})},{rootMargin:'250px'});
+  document.querySelectorAll('video[data-src]').forEach(function(v){io.observe(v)});
+  var hv=document.querySelector('.hero-media video');
+  if(hv) hv.addEventListener('loadedmetadata',function(){ if(hv.duration) hv.currentTime=hv.duration*0.3; });
+</script>
+<script src="/switch.js?v=2" defer></script>
+</body></html>

@@ -18,7 +18,16 @@
       {u:'/v4/17-system/',  n:'17 Система'},   {u:'/v4/18-deck/',    n:'18 Дек'},
       {u:'/v4/19-clear/',   n:'19 Понятно'},   {u:'/v4/20-motion/',  n:'20 Движение'}]},
     {g:'Серия 3 · по референсам', items:[
-      {u:'/v5/', n:'По рефам Refero', d:'десять референсов, один приём с каждого'}]}
+      {u:'/v5/21-mix/', n:'21 Микс'},
+      {u:'/v5/22-zine/', n:'22 Зин'},
+      {u:'/v5/23-command/', n:'23 Командный центр'},
+      {u:'/v5/24-arcade/', n:'24 Аркада-магазин'},
+      {u:'/v5/25-gallery/', n:'25 Галерея'},
+      {u:'/v5/26-collage/', n:'26 Коллаж'},
+      {u:'/v5/27-athletic/', n:'27 Атлетик'},
+      {u:'/v5/28-pastel/', n:'28 Пастель'},
+      {u:'/v5/29-popart/', n:'29 Поп-арт'},
+      {u:'/v5/30-bench/', n:'30 Верстак'}]}
   ];
   var path=location.pathname.replace(/index\.html$/,'');
   var flat=[]; V.forEach(function(s){s.items.forEach(function(i){flat.push(i)})});

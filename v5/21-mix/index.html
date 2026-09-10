@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZipString — главная по рефам</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="/v5/base.css"><link rel="stylesheet" href="/v5/21-mix/style.css?v=3">
+  <link rel="stylesheet" href="/switch.css?v=1">
+</head><body>
+<!-- Построено по 10 референсам, подобранным через Refero (api.refero.design).
+     Что взято у каждого — в блоке «Референсы» внизу страницы. -->
+
+<!-- реф 7 · DJI Store: промо-полоса над шапкой -->
+<div class="promo">Официальный дистрибьютор в России · доставка со склада в СПб · гарантия 1 год</div>
+
+<header class="nav">
+  <img src="/v2/assets/logo-blue.svg" alt="ZipString" width="528" height="188">
+  <nav class="nav-links"><a href="#config">Собрать</a><a href="#tricks">Трюки</a><a href="#compare">Сравнить</a><a href="#community">Сообщество</a></nav>
+  <a href="#compare" class="btn sm">Купить</a>
+</header>
+
+<main>
+<!-- реф 1 · Honk: насыщенный фон, крупная округлая типографика, стикеры-пузыри
+     реф 2 · Discord Nitro: две цены кнопками прямо в герое -->
+<section class="hero">
+  <div class="hero-txt">
+    <span class="sticker s1">65 км/ч</span>
+    <span class="sticker s2">4+</span>
+    <h1>Нить<br>летит,<br><em>рука ведёт</em></h1>
+    <p>Нажми кнопку — закольцованная петля взлетает и держится в воздухе, повторяя движение руки.</p>
+    <div class="price-row">
+      <a href="#compare" class="price-btn"><b>Original</b><span>2 290 ₽</span></a>
+      <a href="#compare" class="price-btn alt"><b>Aracna</b><span>3 690 ₽</span></a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <div class="bubble"></div>
+    <video autoplay muted loop playsinline preload="auto" poster="/assets/img/poster/hero-v5.jpg"><source src="/assets/video/style-infinity.mp4" type="video/mp4"></video>
+  </div>
+</section>
+
+<!-- реф 7 · DJI Store: ряд характеристик иконками под героем -->
+<section class="marks">
+  <div><i style="--i:url('/v2/assets/icons/tricks.svg')"></i><span>100+ трюков</span></div>
+  <div><i style="--i:url('/v2/assets/icons/screenfree.svg')"></i><span>Игра без экрана</span></div>
+  <div><i style="--i:url('/v2/assets/icons/pocket.svg')"></i><span>В карман</span></div>
+  <div><i style="--i:url('/v2/assets/icons/age.svg')"></i><span>С 4 лет</span></div>
+  <div><i style="--i:url('/v2/assets/icons/glow.svg')"></i><span>Светится в темноте</span></div>
+</section>
+
+<!-- реф 6 · Nike By You: крупный кадр по центру + нижняя панель с образцами -->
+<section class="config" id="config">
+  <div class="config-head"><h2>Собери свой</h2><p>Модель, цвет корпуса и длина нити. Меняется картинка, размер петли и цена внизу.</p></div>
+  <div class="config-stage">
+    <img id="cfgImg" src="/v2/assets/product-original.webp" alt="ZipString Original, красный" width="1298" height="900">
+    <svg class="loop" id="cfgLoop" viewBox="0 0 300 160" aria-hidden="true"><ellipse cx="150" cy="80" rx="96" ry="52"/></svg>
+    <p class="cfg-note" id="cfgNote">Original · Rockit Red · нить 163 см</p>
+  </div>
+  <div class="config-bar">
+    <div class="pickers">
+      <div class="picker" role="group" aria-label="Модель">
+        <button class="mdl is-on" data-model="original">Original</button>
+        <button class="mdl" data-model="aracna">Aracna</button>
+      </div>
+      <div class="swatches" id="swatches" role="group" aria-label="Цвет корпуса"></div>
+    </div>
+    <div class="lens" role="group" aria-label="Длина нити">
+      <button class="len" data-len="79">Короткая</button>
+      <button class="len is-on" data-len="163">Средняя</button>
+      <button class="len" data-len="244">Длинная</button>
+    </div>
+  </div>
+</section>
+
+<!-- реф 3 · LEGO DOTS: цветные плашки-карточки с кнопкой действия -->
+<section class="tiles">
+  <h2>Что в коробке</h2>
+  <div class="tile-row">
+    <article class="tile t-blue"><h3>Устройство</h3><p>Корпус с двумя роликами и аккумулятором</p><span class="pin">1 шт</span></article>
+    <article class="tile t-teal"><h3>Нити</h3><p>Три длины: 79, 163 и 244 см</p><span class="pin">3 шт</span></article>
+    <article class="tile t-yellow"><h3>Кабель</h3><p>USB-C, заряд на вечер игры</p><span class="pin">1 шт</span></article>
+    <article class="tile t-red"><h3>Инструкция</h3><p>Первые трюки по шагам</p><span class="pin">RU</span></article>
+  </div>
+</section>
+
+<!-- реф 4 · TikTok Explore: пилюли-фильтры + сетка коротких вертикальных видео
+     реф 5 · TikTok Nature: тёмная подложка секции -->
+<section class="feed" id="tricks">
+  <div class="feed-head">
+    <h2>Трюки</h2>
+    <div class="pills" role="group" aria-label="Уровень">
+      <button class="pill is-on" data-f="all">Все</button>
+      <button class="pill" data-f="dark">В темноте</button>
+      <button class="pill" data-f="day">При свете</button>
+    </div>
+  </div>
+  <div class="feed-grid">
+    <figure data-lvl="dark"><video muted loop playsinline preload="none" data-src="/assets/video/trick-01.mp4" poster="/assets/img/poster/trick-01.jpg"></video><figcaption>Лук и стрела<span>В темноте</span></figcaption></figure>
+    <figure data-lvl="dark"><video muted loop playsinline preload="none" data-src="/assets/video/trick-03.mp4" poster="/assets/img/poster/trick-03.jpg"></video><figcaption>Вихрь<span>В темноте</span></figcaption></figure>
+    <figure data-lvl="day"><video muted loop playsinline preload="none" data-src="/assets/video/trick-04.mp4" poster="/assets/img/poster/trick-04.jpg"></video><figcaption>Брызги<span>При свете</span></figcaption></figure>
+    <figure data-lvl="day"><video muted loop playsinline preload="none" data-src="/assets/video/trick-08.mp4" poster="/assets/img/poster/trick-08.jpg"></video><figcaption>Портал<span>При свете</span></figcaption></figure>
+    <figure data-lvl="day"><video muted loop playsinline preload="none" data-src="/assets/video/trick-06.mp4" poster="/assets/img/poster/trick-06.jpg"></video><figcaption>Подъёмник<span>При свете</span></figcaption></figure>
+    <figure data-lvl="day"><video muted loop playsinline preload="none" data-src="/assets/video/trick-09.mp4" poster="/assets/img/poster/trick-09.jpg"></video><figcaption>Ускоритель<span>При свете</span></figcaption></figure>
+    <figure data-lvl="dark"><video muted loop playsinline preload="none" data-src="/assets/video/trick-02.mp4" poster="/assets/img/poster/trick-02.jpg"></video><figcaption>Скрипка<span>В темноте</span></figcaption></figure>
+    <figure data-lvl="day"><video muted loop playsinline preload="none" data-src="/assets/video/trick-10.mp4" poster="/assets/img/poster/trick-10.jpg"></video><figcaption>Балерина<span>При свете</span></figcaption></figure>
+  </div>
+  <a href="/pages/tricks/" class="btn light feed-more">Вся библиотека — 100+</a>
+</section>
+
+<!-- реф 8 · OpenAI Pricing: колонки с чек-листами и сравнением -->
+<section class="plans" id="compare">
+  <h2>Какую взять</h2>
+  <div class="plan-row">
+    <article class="plan">
+      <h3>Original</h3>
+      <p class="plan-price">2 290 ₽</p>
+      <p class="plan-note">Классика, с которой начинают</p>
+      <ul>
+        <li>3 сменные нити</li><li>Зарядка USB-C</li><li>Красный или синий корпус</li>
+        <li class="off">Возврат нити</li><li class="off">Крепление на предплечье</li>
+      </ul>
+      <a href="/pages/original/" class="btn wide">Открыть Original</a>
+    </article>
+    <article class="plan best">
+      <span class="badge">Больше трюков</span>
+      <h3>Aracna</h3>
+      <p class="plan-price">3 690 ₽</p>
+      <p class="plan-note">Когда базовых трюков стало мало</p>
+      <ul>
+        <li>5 сменных нитей</li><li>Зарядка USB-C</li><li>Голубой корпус</li>
+        <li>Возврат нити</li><li>Крепление на предплечье</li>
+      </ul>
+      <a href="/pages/aracna/" class="btn wide primary">Открыть Aracna</a>
+    </article>
+  </div>
+</section>
+
+<!-- реф 10 · Unsplash Community: крупный заголовок + сетка + приглашение -->
+<section class="community" id="community">
+  <div class="com-txt">
+    <h2>Покажи свой трюк</h2>
+    <p>Клуб Zipster — те, кто снимает и придумывает новые трюки. Снял связку, которой нет в библиотеке, — пришли, добавим.</p>
+    <a href="/pages/contact/" class="btn dark">Прислать видео</a>
+  </div>
+  <div class="com-grid">
+    <img src="/v2/assets/life-jump.webp" alt="Отец и сын во дворе" width="1400" height="787" loading="lazy">
+    <img src="/v2/assets/life-curly.webp" alt="Девочка дома" width="1400" height="787" loading="lazy">
+    <img src="/v2/assets/life-beach.webp" alt="Девочка у реки" width="1400" height="787" loading="lazy">
+  </div>
+</section>
+
+</main>
+
+<footer class="ftr">ООО «Бэйби Опт Груп» · официальный дистрибьютор ZipString в России · ТР ТС 008/2011 <a class="ref-link" href="/v5/21-mix/refs.html">по каким референсам собрано</a></footer>
+
+<!-- реф 9 · DoorDash: липкая панель покупки -->
+<div class="buybar">
+  <div class="buybar-in">
+    <span class="bb-name" id="bbName">Original · Rockit Red</span>
+    <span class="bb-price" id="bbPrice">2 290 ₽</span>
+    <a href="#compare" class="btn primary">Сравнить модели</a>
+    <a id="bbLink" href="/pages/original/" class="btn">Открыть карточку</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Конфигуратор: модель → её реальные цвета. Длина нити меняет схему петли.
+  var MODELS={
+    original:{name:'Original',price:'2 290 ₽',page:'/pages/original/',
+      colors:[{n:'Rockit Red',c:'#E71E25',img:'/v2/assets/product-original.webp'},
+              {n:'Bodacious Blue',c:'#1E62AE',img:'/v2/assets/product-original-blue.webp'}]},
+    aracna:{name:'Aracna',price:'3 690 ₽',page:'/pages/aracna/',
+      colors:[{n:'Aesthetic Aqua',c:'#4CC4F2',img:'/v2/assets/product-aracna.webp'}]}
+  };
+  var st={model:'original',ci:0,len:163};
+  var img=document.getElementById('cfgImg'), note=document.getElementById('cfgNote'),
+      sw=document.getElementById('swatches'), loop=document.getElementById('cfgLoop').querySelector('ellipse'),
+      bbName=document.getElementById('bbName'), bbPrice=document.getElementById('bbPrice'),
+      bbLink=document.getElementById('bbLink');
+
+  function drawSwatches(){
+    var m=MODELS[st.model];
+    sw.innerHTML='';
+    m.colors.forEach(function(c,i){
+      var b=document.createElement('button');
+      b.className='sw'+(i===st.ci?' is-on':''); b.style.setProperty('--c',c.c);
+      b.setAttribute('aria-label',m.name+', '+c.n); b.title=c.n;
+      b.addEventListener('click',function(){ st.ci=i; render(); });
+      sw.appendChild(b);
+    });
+  }
+  function render(){
+    var m=MODELS[st.model], c=m.colors[st.ci];
+    img.src=c.img; img.alt='ZipString '+m.name+', '+c.n;
+    note.textContent=m.name+' · '+c.n+' · нить '+st.len+' см';
+    // петля растёт вместе с длиной нити — видимый эффект, а не только подпись
+    var k=st.len/163;
+    loop.setAttribute('rx',Math.round(96*k)); loop.setAttribute('ry',Math.round(52*k));
+    bbName.textContent=m.name+' · '+c.n;
+    bbPrice.textContent=m.price;
+    bbLink.href=m.page;
+    drawSwatches();
+  }
+  document.querySelectorAll('.mdl').forEach(function(b){ b.addEventListener('click',function(){
+    document.querySelectorAll('.mdl').forEach(function(x){x.classList.remove('is-on')}); b.classList.add('is-on');
+    st.model=b.dataset.model; st.ci=0; render(); }); });
+  document.querySelectorAll('.len').forEach(function(b){ b.addEventListener('click',function(){
+    document.querySelectorAll('.len').forEach(function(x){x.classList.remove('is-on')}); b.classList.add('is-on');
+    st.len=+b.dataset.len; render(); }); });
+  render();
+
+  // фильтр ленты — по тому, что видно в кадре, без выдуманных уровней
+  document.querySelectorAll('.pill').forEach(function(b){ b.addEventListener('click',function(){
+    document.querySelectorAll('.pill').forEach(function(x){x.classList.remove('is-on')}); b.classList.add('is-on');
+    var f=b.dataset.f;
+    document.querySelectorAll('.feed-grid figure').forEach(function(fig){
+      fig.hidden = !(f==='all' || fig.dataset.lvl===f); }); }); });
+
+  var heroVideo=document.querySelector('.hero-art video');
+  if(heroVideo){ heroVideo.addEventListener('loadedmetadata',function(){ if(heroVideo.duration) heroVideo.currentTime=heroVideo.duration*0.3; }); }
+
+  var bar=document.querySelector('.buybar'), hero=document.querySelector('.hero');
+  new IntersectionObserver(function(e){ bar.classList.toggle('is-on', !e[0].isIntersecting); },{threshold:.15}).observe(hero);
+
+  // ролики: у части из них англоязычные титры в начале и в конце —
+  // крутим только середину, где сам трюк
+  function playMiddle(v){
+    v.addEventListener('loadedmetadata',function(){ if(v.duration) v.currentTime=v.duration*0.35; });
+    v.addEventListener('timeupdate',function(){
+      if(!v.duration) return;
+      if(v.currentTime>v.duration*0.8 || v.currentTime<v.duration*0.3) v.currentTime=v.duration*0.35;
+    });
+  }
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;var v=x.target;
+    if(!v.src){ v.src=v.dataset.src; playMiddle(v); v.play().catch(function(){}); } io.unobserve(v)})},{rootMargin:'250px'});
+  document.querySelectorAll('video[data-src]').forEach(function(v){io.observe(v)});
+})();
+</script>
+  <script src="/switch.js?v=2" defer></script>
+</body></html>

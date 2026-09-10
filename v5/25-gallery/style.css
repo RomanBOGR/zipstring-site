@@ -1,0 +1,64 @@
+/* Референс: Apple MacBook Neo — галерейно-белый холст.
+   Приём: заголовки 80–96px весом 700 занимают полэкрана до первой картинки,
+   строгая иерархия, серые поверхности #f5f5f7, ничего лишнего. */
+:root{--ink:#1d1d1f;--ink-2:#6e6e73;--fog:#f5f5f7;--line:#d2d2d7;--link:#0071e3}
+body{background:#fff;color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',var(--body),sans-serif;font-size:17px}
+.refbar{background:var(--fog);color:var(--ink-2);font-size:.76rem;padding:9px clamp(16px,4vw,48px)}
+.refbar b{color:var(--ink)}.refbar span{display:block;opacity:.75;font-size:.72rem}
+
+.nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:26px;height:52px;padding:0 clamp(16px,4vw,48px);
+  background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
+.nav img{height:19px;width:auto}
+.nav nav{display:flex;gap:26px;margin-left:auto;font-size:.82rem;color:var(--ink)}
+.nav nav a{opacity:.85}.nav nav a:hover{opacity:1}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:12px 22px;border-radius:980px;background:var(--link);
+  color:#fff;font-size:.98rem;transition:background .2s ease}
+.btn:hover{background:#0077ed}
+.btn-ghost{background:transparent;color:var(--link);box-shadow:inset 0 0 0 1px var(--link);padding:11px 21px}
+.btn-ghost:hover{background:rgba(0,113,227,.06)}
+.btn-sm{min-height:32px;padding:7px 15px;font-size:.82rem}
+
+h1,h2,h3{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',var(--display),sans-serif;
+  font-weight:700;letter-spacing:-.022em;line-height:1.05;text-transform:none}
+section{padding:clamp(48px,7vw,110px) clamp(16px,4vw,48px)}
+
+.hero{text-align:center;display:grid;justify-items:center;gap:0}
+.eyebrow{color:var(--ink-2);font-size:1.05rem}
+.hero h1{font-size:clamp(2.8rem,1rem + 6.6vw,6rem);margin:12px 0 18px;max-width:16ch}
+.hero h1 em{font-style:normal;color:var(--ink-2)}
+.lead{color:var(--ink-2);font-size:clamp(1.1rem,1rem + .5vw,1.4rem);font-weight:300;max-width:44ch}
+.row{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;margin:28px 0 42px}
+.hero-media{width:min(100%,980px)}
+.hero-media video{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:18px}
+
+.facts{background:var(--fog);display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.facts div{display:grid;gap:6px}
+.facts b{font-size:clamp(1.6rem,1rem + 2vw,2.4rem);font-weight:700;letter-spacing:-.02em}
+.facts span{color:var(--ink-2);font-size:.92rem}
+
+h2{font-size:clamp(1.9rem,1rem + 3.4vw,3.4rem);text-align:center;margin-bottom:36px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1000px;margin-inline:auto}
+.card{background:var(--fog);border-radius:20px;padding:34px;display:grid;gap:10px;text-align:center;justify-items:center}
+.card-pic{display:grid;place-items:center;min-height:230px}
+.card-pic img{max-height:210px;width:auto;object-fit:contain}
+.card h3{font-size:1.6rem}
+.card p{color:var(--ink-2);max-width:34ch}
+.card-foot{display:flex;align-items:center;gap:16px;margin-top:8px}
+.price{font-size:1.1rem;color:var(--ink-2)}
+
+.tricks-head{display:grid;justify-items:center;gap:18px}
+.tricks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:34px}
+.tricks-grid video{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px}
+.tricks-grid figcaption{margin-top:12px;text-align:center;color:var(--ink-2);font-size:.92rem}
+
+.life{background:var(--fog)}
+.life-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.life-grid img{width:100%;height:clamp(190px,22vw,320px);object-fit:cover;border-radius:16px}
+
+.cta{text-align:center}
+.cta p{color:var(--ink-2);margin-bottom:26px}
+.cta .row{justify-content:center;margin-bottom:0}
+.ftr{background:var(--fog);padding:26px clamp(16px,4vw,48px) 44px;color:var(--ink-2);font-size:.82rem;text-align:center}
+
+@media(max-width:900px){.cards{grid-template-columns:1fr}.facts,.tricks-grid,.life-grid{grid-template-columns:1fr 1fr}}

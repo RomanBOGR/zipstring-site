@@ -1,0 +1,68 @@
+/* Референс: TOMO — коллаж-зин.
+   Приём: тёплая бумага вместо белого, кадры «наклеены» под углом с выходом за колонку,
+   серифная типографика, коралловый акцент, тонкие карандашные линии. */
+:root{--paper:#eee2d4;--ink:#000;--ink-2:#4a4136;--coral:#ff6347;--line:rgba(0,0,0,.22)}
+body{background:var(--paper);color:var(--ink);font-family:'PT Serif',Georgia,serif;font-size:17px}
+.refbar{border-bottom:1px solid var(--line);font-size:.8rem;padding:9px clamp(16px,5vw,52px);font-style:italic}
+.refbar b{font-style:normal}.refbar span{display:block;opacity:.6;font-size:.74rem}
+
+.nav{display:flex;align-items:center;gap:22px;padding:18px clamp(16px,5vw,52px);border-bottom:1px solid var(--line)}
+.nav img{height:22px;width:auto}
+.nav nav{display:flex;gap:20px;margin-left:auto;font-size:.95rem;font-style:italic}
+.nav nav a:hover{color:var(--coral)}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:12px 24px;background:var(--ink);color:var(--paper);
+  font-family:'PT Serif',serif;font-size:.98rem;border-radius:2px;transition:background .2s ease}
+.btn:hover{background:var(--coral)}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-sm{min-height:34px;padding:7px 15px;font-size:.86rem}
+
+h1,h2,h3{font-family:'PT Serif',Georgia,serif;font-weight:700;line-height:1.02;letter-spacing:-.01em;text-transform:none}
+section{padding:clamp(34px,5vw,80px) clamp(16px,5vw,52px);border-bottom:1px solid var(--line)}
+
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,4vw,56px);align-items:center}
+.eyebrow{font-style:italic;color:var(--ink-2)}
+.hero h1{font-size:clamp(2.6rem,1rem + 6vw,5.6rem);margin:14px 0 18px}
+.hero h1 em{font-style:italic;color:var(--coral)}
+.lead{color:var(--ink-2);max-width:42ch;font-size:1.08rem}
+.row{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.hero-media{transform:rotate(-2.5deg)}
+.hero-media video{width:100%;aspect-ratio:4/5;object-fit:cover;border:10px solid #fff;box-shadow:0 18px 40px rgba(0,0,0,.22)}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.facts div{padding:20px clamp(10px,1.6vw,26px);border-right:1px solid var(--line);display:grid;gap:4px}
+.facts div:last-child{border-right:0}
+.facts b{font-size:1.5rem}
+.facts span{color:var(--ink-2);font-size:.88rem;font-style:italic}
+
+h2{font-size:clamp(1.8rem,1rem + 3vw,3.2rem);margin-bottom:26px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,44px)}
+.card{display:grid;gap:12px}
+.card:first-child .card-pic{transform:rotate(1.5deg)}
+.card:last-child .card-pic{transform:rotate(-1.5deg)}
+.card-pic{background:#fff;padding:18px;display:grid;place-items:center;min-height:240px;box-shadow:0 12px 30px rgba(0,0,0,.14)}
+.card-pic img{max-height:210px;width:auto;object-fit:contain}
+.card h3{font-size:1.7rem}
+.card p{color:var(--ink-2)}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:12px}
+.price{font-size:1.2rem;font-style:italic}
+
+.tricks-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px}
+.tricks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.tricks-grid figure:nth-child(odd){transform:rotate(-1.4deg)}
+.tricks-grid figure:nth-child(even){transform:rotate(1.2deg)}
+.tricks-grid video{width:100%;aspect-ratio:3/4;object-fit:cover;border:8px solid #fff;box-shadow:0 12px 26px rgba(0,0,0,.16)}
+.tricks-grid figcaption{margin-top:10px;font-style:italic;color:var(--ink-2);font-size:.92rem}
+
+.life-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.life-grid img{width:100%;height:clamp(180px,22vw,300px);object-fit:cover;border:8px solid #fff;box-shadow:0 12px 26px rgba(0,0,0,.16)}
+.life-grid img:nth-child(2){transform:rotate(2deg)}
+
+.cta{border-bottom:0;text-align:center}
+.cta h2{font-size:clamp(2rem,1rem + 4vw,4rem)}
+.cta p{color:var(--ink-2);margin-bottom:24px;font-style:italic}
+.cta .row{justify-content:center}
+.ftr{padding:20px clamp(16px,5vw,52px) 44px;color:var(--ink-2);font-size:.84rem;font-style:italic}
+
+@media(max-width:900px){.hero,.cards{grid-template-columns:1fr}.facts,.tricks-grid,.life-grid{grid-template-columns:1fr 1fr}
+  .facts div:nth-child(2){border-right:0}}

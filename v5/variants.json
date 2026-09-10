@@ -1,0 +1,74 @@
+[
+ {
+  "slug": "22-zine",
+  "name": "Зин",
+  "ref": "The Pop Manifesto",
+  "url": "thepopmanifesto.com",
+  "took": "Цветовые блоки-секции: каждый экран — своя насыщенная плашка, поверх чёрная типографика",
+  "font": "<link href=\"https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&display=swap\" rel=\"stylesheet\">"
+ },
+ {
+  "slug": "23-command",
+  "name": "Командный центр",
+  "ref": "Krea",
+  "url": "krea.ai",
+  "took": "Почти чёрный холст, светящаяся белая типографика, карточки-метрики тонкой линией",
+  "font": ""
+ },
+ {
+  "slug": "24-arcade",
+  "name": "Аркада-магазин",
+  "ref": "FRANKY'S",
+  "url": "frankys-hats.com",
+  "took": "8-битная витрина в тёмном окне: пиксельный шрифт, бумажные светлые поверхности",
+  "font": "<link href=\"https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap\" rel=\"stylesheet\">"
+ },
+ {
+  "slug": "25-gallery",
+  "name": "Галерея",
+  "ref": "Apple MacBook",
+  "url": "apple.com",
+  "took": "Галерейно-белый холст, заголовки 80–96px весом 700 занимают полэкрана до первой картинки",
+  "font": ""
+ },
+ {
+  "slug": "26-collage",
+  "name": "Коллаж",
+  "ref": "TOMO",
+  "url": "tomoseattle.com",
+  "took": "Тёплая бумага, кадры наклеены под углом, серифная типографика и коралловый акцент",
+  "font": "<link href=\"https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap\" rel=\"stylesheet\">"
+ },
+ {
+  "slug": "27-athletic",
+  "name": "Атлетик",
+  "ref": "SAPGOODENERGY",
+  "url": "sapgoodenergy.com",
+  "took": "Огромный воздух, чёрная типографика, ровно один горячий оранжевый акцент",
+  "font": ""
+ },
+ {
+  "slug": "28-pastel",
+  "name": "Пастель",
+  "ref": "Recess",
+  "url": "takearecess.com",
+  "took": "Мягкое небо, округлые формы, спокойный синий с коралловым — «продукт в облаках»",
+  "font": "<link href=\"https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap\" rel=\"stylesheet\">"
+ },
+ {
+  "slug": "29-popart",
+  "name": "Поп-арт",
+  "ref": "GT America",
+  "url": "gt-america.com",
+  "took": "Белый холст, чистый синий и оранжево-красный, крупная графика как на винтажной упаковке",
+  "font": "<link href=\"https://fonts.googleapis.com/css2?family=Manrope:wght@500;800&display=swap\" rel=\"stylesheet\">"
+ },
+ {
+  "slug": "30-bench",
+  "name": "Верстак",
+  "ref": "099.supply",
+  "url": "099.supply",
+  "took": "Моноширинный шрифт во всём интерфейсе, техническая сетка и фильтры как в терминале",
+  "font": "<link href=\"https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap\" rel=\"stylesheet\">"
+ }
+]
