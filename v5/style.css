@@ -1,0 +1,186 @@
+/* Главная, собранная по 10 референсам из Refero.
+   Палитра и шрифты — брендовые (брендбук ZipString); из рефов взяты приёмы,
+   а не цвета: композиция героя, панель конфигуратора, лента с фильтрами,
+   колонки сравнения, липкая панель покупки. */
+:root{
+  --blue:#164F9D; --blue-2:#0E3B7A; --teal:#2CCDF1; --teal-soft:#E6F8FE;
+  --yellow:#EEEA25; --red:#E71E25; --aqua:#4CC4F2; --mint:#0EFFB0;
+  --ink:#12314f; --ink-2:#4a6a92; --line:#DDE7F2;
+  --r:18px; --r-lg:30px;
+}
+body{background:#fff;color:var(--ink);font-size:17px}
+
+/* реф 7 · DJI: промо-полоса */
+.promo{background:var(--blue-2);color:#fff;text-align:center;padding:9px 16px;
+  font-family:var(--accent);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase}
+.nav{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:24px;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);padding:14px clamp(16px,4vw,48px);border-bottom:1px solid var(--line)}
+.nav img{height:24px;width:auto}
+.nav-links{display:flex;gap:22px;margin-left:auto;font-size:.95rem}
+.nav-links a{color:var(--blue);padding-bottom:2px;border-bottom:2px solid transparent}
+.nav-links a:hover{border-color:var(--teal)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:13px 24px;border-radius:12px;
+  background:var(--teal);color:var(--blue);font-family:var(--accent);font-size:.82rem;text-transform:uppercase;
+  letter-spacing:.04em;transition:transform .18s var(--expo),box-shadow .18s var(--expo)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(44,205,241,.35)}
+.btn.sm{min-height:38px;padding:9px 16px;font-size:.7rem}
+.btn.primary{background:var(--blue);color:#fff}
+.btn.primary:hover{box-shadow:0 12px 26px rgba(22,79,157,.32)}
+.btn.light{background:#fff;color:var(--blue)}
+.btn.dark{background:var(--blue-2);color:#fff}
+.btn.wide{width:100%}
+
+/* реф 1 · Honk + реф 2 · Discord Nitro */
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,4vw,60px);
+  align-items:center;background:var(--blue);color:#fff;padding:clamp(30px,5vw,80px) clamp(16px,4vw,48px);overflow:hidden}
+.hero h1{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.86;letter-spacing:-.035em;
+  font-size:clamp(2.6rem,1rem + 6.4vw,6rem);margin:14px 0 18px}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+.hero p{color:#CFE2F8;max-width:38ch;font-size:clamp(1rem,.95rem + .35vw,1.2rem)}
+.sticker{position:absolute;font-family:var(--display);font-weight:900;font-size:.95rem;color:var(--blue);
+  background:var(--yellow);padding:14px 18px;border-radius:99px;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.s1{top:clamp(20px,4vw,54px);left:clamp(260px,40vw,640px);transform:rotate(-8deg)}
+/* стикер уводим к медиа: над заголовком он перекрывал букву */
+.s2{top:auto;bottom:clamp(30px,6vw,90px);left:clamp(300px,44vw,700px);transform:rotate(7deg);background:var(--teal)}
+.price-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.price-btn{display:grid;gap:2px;padding:14px 26px;border-radius:99px;background:#0B2E60;color:#fff;
+  transition:transform .2s var(--expo),background .2s var(--expo)}
+.price-btn b{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:1rem}
+.price-btn span{font-family:var(--accent);color:var(--teal);font-size:.95rem}
+.price-btn.alt{background:var(--teal);color:var(--blue)}
+.price-btn.alt span{color:var(--blue-2)}
+.price-btn:hover{transform:translateY(-3px)}
+.hero-art{position:relative;display:grid;place-items:center}
+.bubble{position:absolute;width:94%;aspect-ratio:1;border-radius:50%;background:rgba(44,205,241,.22)}
+.hero-art video{position:relative;width:min(100%,430px);aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-lg);
+  box-shadow:0 30px 70px rgba(0,0,0,.35)}
+
+/* реф 7 · DJI: ряд характеристик иконками */
+.marks{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;padding:22px clamp(16px,4vw,48px);
+  border-bottom:1px solid var(--line);background:#F7FBFF}
+.marks div{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--ink-2)}
+.marks i{width:30px;height:30px;flex:0 0 30px;background:var(--blue);
+  -webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat}
+
+section{padding:clamp(34px,5vw,72px) clamp(16px,4vw,48px)}
+h2{font-family:var(--display);font-weight:900;text-transform:uppercase;color:var(--blue);letter-spacing:-.02em;
+  font-size:clamp(1.5rem,1rem + 2.4vw,2.8rem);margin-bottom:20px}
+
+/* реф 6 · Nike By You: кадр по центру + панель управления снизу */
+.config{background:#F4F8FD}
+.config-head p{color:var(--ink-2);max-width:52ch;margin-top:-10px;margin-bottom:24px}
+.config-stage{display:grid;place-items:center;gap:14px;background:#fff;border:1px solid var(--line);
+  border-radius:var(--r-lg);padding:clamp(20px,3vw,44px);min-height:340px}
+.config-stage img{max-height:280px;width:auto;object-fit:contain}
+.cfg-note{font-family:var(--accent);font-size:.85rem;text-transform:uppercase;letter-spacing:.04em;color:var(--blue)}
+.config-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;margin-top:16px;
+  background:#fff;border:1px solid var(--line);border-radius:99px;padding:12px 20px}
+.swatches{display:flex;gap:10px}
+.sw{width:38px;height:38px;border-radius:50%;border:0;background:var(--c);cursor:pointer;
+  box-shadow:0 0 0 2px #fff,0 0 0 3px var(--line);transition:box-shadow .18s var(--expo),transform .18s var(--expo)}
+.sw:hover{transform:scale(1.06)}
+.sw.is-on{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--blue)}
+.sw:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
+.lens{display:flex;gap:8px;flex-wrap:wrap}
+.len{border:0;background:#EEF4FB;color:var(--blue);font-family:var(--accent);font-size:.74rem;text-transform:uppercase;
+  padding:11px 18px;border-radius:99px;cursor:pointer;transition:background .18s var(--expo)}
+.len:hover{background:#DEEAF8}
+.len.is-on{background:var(--blue);color:#fff}
+
+/* реф 3 · LEGO DOTS: цветные плашки */
+.tile-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tile{position:relative;border-radius:var(--r-lg);padding:24px;min-height:190px;display:grid;align-content:start;gap:8px;
+  transition:transform .25s var(--expo)}
+.tile:hover{transform:translateY(-5px)}
+.tile h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:1.25rem}
+.tile p{font-size:.94rem;opacity:.85}
+.pin{position:absolute;right:18px;bottom:18px;background:#fff;color:var(--blue);font-family:var(--accent);
+  font-size:.7rem;text-transform:uppercase;padding:7px 14px;border-radius:99px}
+.t-blue{background:var(--blue);color:#fff}
+.t-teal{background:var(--teal);color:var(--blue)}
+.t-yellow{background:var(--yellow);color:var(--blue)}
+.t-red{background:var(--red);color:#fff}
+
+/* реф 4 + реф 5 · TikTok: тёмная лента с фильтрами */
+.feed{background:#0B1A2E;color:#fff}
+.feed h2{color:#fff}
+.feed-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
+.feed-head h2{margin-bottom:0}
+.pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{border:0;background:rgba(255,255,255,.1);color:#fff;font-family:var(--accent);font-size:.72rem;
+  text-transform:uppercase;padding:10px 16px;border-radius:99px;cursor:pointer;transition:background .18s var(--expo)}
+.pill:hover{background:rgba(255,255,255,.2)}
+.pill.is-on{background:var(--teal);color:var(--blue)}
+.feed-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.feed-grid figure{position:relative;border-radius:var(--r);overflow:hidden;background:#0F2440}
+.feed-grid video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block}
+.feed-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 14px 12px;display:grid;gap:2px;
+  background:linear-gradient(transparent,rgba(4,14,28,.9));font-size:.92rem}
+.feed-grid figcaption span{font-family:var(--accent);font-size:.66rem;text-transform:uppercase;color:var(--teal)}
+.feed-more{margin-top:22px}
+
+/* реф 8 · OpenAI Pricing: колонки с чек-листами */
+.plan-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px}
+.plan{position:relative;border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;display:grid;gap:10px;background:#fff}
+.plan.best{border:2px solid var(--teal);box-shadow:0 20px 44px rgba(22,79,157,.12)}
+.badge{position:absolute;right:22px;top:-13px;background:var(--teal);color:var(--blue);font-family:var(--accent);
+  font-size:.68rem;text-transform:uppercase;padding:7px 14px;border-radius:99px}
+.plan h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:1.6rem;color:var(--blue)}
+.plan-price{font-family:var(--accent);font-size:1.5rem;color:var(--blue)}
+.plan-note{color:var(--ink-2);font-size:.95rem}
+.plan ul{display:grid;gap:9px;margin:8px 0 14px}
+.plan li{position:relative;padding-left:28px;font-size:.96rem}
+.plan li::before{content:'';position:absolute;left:0;top:.36em;width:16px;height:16px;border-radius:50%;
+  background:var(--mint);box-shadow:inset 0 0 0 2px rgba(22,79,157,.2)}
+.plan li.off{color:#9BAEC6}
+.plan li.off::before{background:#E7EDF5;box-shadow:inset 0 0 0 2px #D5DFEC}
+
+/* реф 10 · Unsplash Community */
+.community{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,4vw,54px);
+  align-items:center;background:#F4F8FD}
+.com-txt p{color:var(--ink-2);max-width:44ch;margin-bottom:22px}
+.com-grid{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:repeat(2,1fr);gap:14px}
+.com-grid img{width:100%;height:100%;object-fit:cover;border-radius:var(--r)}
+.com-grid img:first-child{grid-row:span 2;min-height:300px}
+
+/* блок «откуда что взято» */
+.refs{border-top:1px solid var(--line)}
+.refs-sub{color:var(--ink-2);margin:-10px 0 22px}
+.ref-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;counter-reset:r}
+.ref-list li{counter-increment:r;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;
+  padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:#FBFDFF}
+.ref-list li::before{content:counter(r,decimal-leading-zero);font-family:var(--accent);color:var(--teal);
+  grid-row:span 3;align-self:start;font-size:.9rem}
+.ref-list b{font-family:var(--display);font-weight:900;text-transform:uppercase;color:var(--blue);font-size:1rem}
+.ref-list span{font-size:.82rem;color:#8AA0BC}
+.ref-list i{font-style:normal;font-size:.92rem;color:var(--ink-2)}
+
+.ftr{padding:22px clamp(16px,4vw,48px) 120px;color:var(--ink-2);font-size:.86rem;border-top:1px solid var(--line)}
+
+/* реф 9 · DoorDash: липкая панель покупки */
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);
+  transition:transform .3s var(--expo)}
+.buybar.is-on{transform:none}
+.buybar-in{display:flex;align-items:center;gap:14px;padding:12px clamp(16px,4vw,48px);max-width:1240px;margin-inline:auto}
+.bb-name{font-weight:600}
+.bb-price{font-family:var(--accent);font-size:1.15rem;color:var(--blue);margin-right:auto}
+
+@media(max-width:1000px){
+  .marks{grid-template-columns:repeat(2,1fr)}
+  .tile-row,.feed-grid{grid-template-columns:1fr 1fr}
+  .ref-list{grid-template-columns:1fr}
+}
+@media(max-width:820px){
+  .hero{grid-template-columns:1fr}
+  .s1{left:auto;right:16px}
+  .s2{left:auto;right:20px;bottom:auto;top:clamp(60px,14vw,120px)}
+  .nav-links{display:none}
+  .plan-row,.community{grid-template-columns:1fr}
+  .com-grid img:first-child{min-height:200px}
+  .buybar-in{flex-wrap:wrap}
+  .bb-price{margin-right:0}
+  .buybar .btn{flex:1}
+}
+@media(max-width:560px){.tile-row,.feed-grid{grid-template-columns:1fr}}
